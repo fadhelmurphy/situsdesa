@@ -39,12 +39,14 @@ export default class Login extends Component{
                 authUser.access_token=res.data.access_token
                 authUser.refresh_token=res.data.refresh_token
                 window.localStorage.setItem('authUser',JSON.stringify(authUser))
+                console.log('token',res.data)
                 const header ={
                     'Content-Type':'application/json',
                     'Authorization':'Bearer '+ res.data.access_token
                 }
                 axios.get('http://localhost:8000/api/user', {headers:header})
                 .then(res=>{
+                    console.log('user',res.data)
                   authUser.email=res.data.email
                   authUser.name=res.data.name
                   window.localStorage.setItem('authUser', JSON.stringify(authUser))

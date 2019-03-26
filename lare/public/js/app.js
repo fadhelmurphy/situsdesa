@@ -66046,6 +66046,7 @@ function (_Component) {
           authUser.access_token = res.data.access_token;
           authUser.refresh_token = res.data.refresh_token;
           window.localStorage.setItem('authUser', JSON.stringify(authUser));
+          console.log('token', res.data);
           var header = {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + res.data.access_token
@@ -66053,6 +66054,7 @@ function (_Component) {
           axios.get('http://localhost:8000/api/user', {
             headers: header
           }).then(function (res) {
+            console.log('user', res.data);
             authUser.email = res.data.email;
             authUser.name = res.data.name;
             window.localStorage.setItem('authUser', JSON.stringify(authUser));
@@ -68295,8 +68297,8 @@ function (_Component) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! c:\xampp\htdocs\kec\lare\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! c:\xampp\htdocs\kec\lare\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! c:\xampp\htdocs\lare\lare\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! c:\xampp\htdocs\lare\lare\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
