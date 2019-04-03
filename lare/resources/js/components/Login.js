@@ -1,13 +1,25 @@
 import React, { Component } from 'react';
-import Axios from 'axios'
+import { Redirect } from 'react-router-dom'
+import axios from 'axios'
 export default class Login extends Component{
     constructor(props){
         super(props)
         this.onSubmit =this.onSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.state = {
-            email:'sa-admin@test.com',
-            password:'12345'
+            email:'s-admin@test.com',
+            password:'12345',
+            redirect:false,
+        }
+        
+
+    }
+    componentWillMount(){
+        var acc=JSON.parse(window.localStorage.getItem('authUser'))
+        console.log(acc)
+        if(acc !=null){
+            this.setState({redirect:true})
+            
         }
     }
     handleChange(e){
@@ -26,7 +38,7 @@ export default class Login extends Component{
           const postData={
             grant_type:'password',
             client_id:'2',
-            client_secret:'mkFvhWvf0opRhdKurumskDUwlb65nDbfyOG7wn76',
+            client_secret:' bkieyVQnUsmzHTiuTDTJOGsZtScjwYBglChCJerH',
             username:this.state.email,
             password:this.state.password,
             scope:''
@@ -50,6 +62,8 @@ export default class Login extends Component{
                   authUser.email=res.data.email
                   authUser.name=res.data.name
                   window.localStorage.setItem('authUser', JSON.stringify(authUser))
+                    this.setState({redirect:true})
+
                 })
                 .catch(err=>console.log('error'))
               }
@@ -72,6 +86,9 @@ export default class Login extends Component{
         
     }
     render(){
+        if(this.state.redirect){
+            return <Redirect to='/dashboard/berita'/>;
+        }
         return(
           <>
             {/* <div>

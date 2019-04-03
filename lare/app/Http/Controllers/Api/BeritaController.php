@@ -39,7 +39,8 @@ class BeritaController extends Controller
     public function store(BeritaRequest $request)
     {
         
-        return response()->json(['data'=>'fakkk']);
+        // return response()->json(['data'=>'fakkk']);
+        // return response()->json(['data'=>$request]);
         $berita = new Berita();
         if (isset($request->gambar))
         {
@@ -54,12 +55,13 @@ class BeritaController extends Controller
         // $berita->judul = $request->judul;
         // $berita->isi = $request->isi;
         $berita->fill([
-            'user_id' => 1,
+            'user_id' => $request->user()->id,
             // 'user_update' => 1,
             'judul' => $request->judul,
             'isi' => $request->isi
         ]);
         $berita->save();
+        return response()->json(['data'=>'success'],200);
 
 
     }
@@ -81,7 +83,8 @@ class BeritaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Response $res,$id)
+    // public function edit(Response $res,$id)
+    public function edit(Request $request,$id)
     {
         // return response()->json(['data'=>$res]);
         $berita = Berita::find($id);

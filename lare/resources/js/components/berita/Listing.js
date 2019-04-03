@@ -10,19 +10,47 @@ export default class Listing extends Component {
 		super();
 		this.state = {
             news:[],
-            alert_message:''
+            alert_message:'',
+            redirect:false,
+            user:null,
+            hak:0
         }
 	}
-
+    componentWillMount(){
+        if(JSON.parse(window.localStorage.getItem('authUser'))===null){
+            return 
+        }
+        var acc=JSON.parse(window.localStorage.getItem('authUser'))['access_token']
+        // console.log(acc)
+        const header ={
+            'Content-Type':'application/json',
+            'Authorization':'Bearer '+ acc
+        }
+        axios.get('http://localhost:8000/api/user', {headers:header})
+        .then(res=>{
+            this.setState({user:res.data.id, hak:res.data.role_id})
+        })
+    }
 	componentDidMount()
 	{
 		axios.get('/api/berita')
 		.then(response=>{
-            console.log(response.data);
+            // console.log(response.data);
             this.setState({news:response.data});
 		});
     }
-
+    hakAkses(user,id){
+        if(this.state.user===user.id||user.role_id<this.state.hak){
+            
+            return(
+                <>
+                <button type="button" class="btn btn-cyan btn-sm"><Link to={'/dashboard/berita/edit/'+id}>Edit</Link></button>
+                <button type="button" class="btn btn-danger btn-sm" ><a href="#" onClick={this.onDelete.bind(id)}>Delete</a></button>
+                </> 
+            )
+            
+        }
+    }
     onDelete(berita_id)
     {
         axios.delete('/api/berita/delete/'+berita_id)
@@ -69,8 +97,9 @@ export default class Listing extends Component {
                                         <span class="m-b-15 d-block">{berita.isi}</span>
                                         <div class="comment-footer">
                                             <span class="text-muted float-right">{berita.created_at}</span>
-                                            <button type="button" class="btn btn-cyan btn-sm"><Link to={'/dashboard/berita/edit/'+berita.id}>Edit</Link></button>
-                                            <button type="button" class="btn btn-danger btn-sm"><a href="#" onClick={this.onDelete.bind(this,berita.id)}>Delete</a></button>
+                                            {this.hakAkses(berita.create,berita.id)}
+                                            {/* <button type="button" class="btn btn-cyan btn-sm"><Link to={'/dashboard/berita/edit/'+berita.id}>Edit</Link></button> */}
+                                            {/* <button type="button" class="btn btn-danger btn-sm" ><a href="#" onClick={this.onDelete.bind(this,berita.id)}>Delete</a></button> */}
                                         </div>
                                     </div>
                                 </div>
@@ -80,7 +109,7 @@ export default class Listing extends Component {
                             </div>
                         </div>
 
-            <div class="card">
+            {/* <div class="card">
             <div class="card-body">
             <h5 class="card-title">Berita</h5>
             <div class="table-responsive">
@@ -119,7 +148,7 @@ export default class Listing extends Component {
             </table>
             </div>
             </div>
-            </div>
+            </div> */}
             </>
         );
     }

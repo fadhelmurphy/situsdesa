@@ -19,7 +19,7 @@ class TabelBerita extends Migration
             $table->string('judul');
             $table->string('isi');
             $table->integer('user_update')->unsigned()->nullable();
-            $table->string('foto');
+            $table->string('foto')->nullable();
             $table->timestamps();
             
         });
