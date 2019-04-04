@@ -49,7 +49,7 @@ export default class Add extends Component {
         e.preventDefault();
         this.getinner('isi','.ql-editor');
         var rr = new FormData();
-        // console.log(this.state.formValues);
+        console.log(this.state.formValues);
         for(let [key, value] of Object.entries(this.state.formValues)){
             if(key=="gambar")
             rr.append(key,value,value.name);

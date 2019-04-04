@@ -65131,7 +65131,7 @@ window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
  */
 
 try {
-  window.Popper = __webpack_require__(/*! popper.js */ "./node_modules/popper.js/dist/esm/popper.js").default;
+  window.Popper = __webpack_require__(/*! popper.js */ "./node_modules/popper.js/dist/esm/popper.js")["default"];
   window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
   __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.js");
@@ -65334,7 +65334,7 @@ function (_Component) {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "footer text-center"
+        "class": "footer text-center"
       }, "Footer Component!");
     }
   }]);
@@ -65408,30 +65408,30 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
         className: "navbar top-navbar navbar-expand-md navbar-dark"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "navbar-header",
+        "class": "navbar-header",
         "data-logobg": "skin5"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        class: "nav-toggler waves-effect waves-light d-block d-md-none",
+        "class": "nav-toggler waves-effect waves-light d-block d-md-none",
         href: "javascript:void(0)"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        class: "ti-menu ti-close"
+        "class": "ti-menu ti-close"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        class: "navbar-brand",
+        "class": "navbar-brand",
         href: "index.html"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", {
-        class: "logo-icon p-l-10"
+        "class": "logo-icon p-l-10"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: "/matrix/assets/images/logo-icon.png",
         alt: "homepage",
-        class: "light-logo"
+        "class": "light-logo"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        class: "logo-text"
+        "class": "logo-text"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: "/matrix/assets/images/logo-text.png",
         alt: "homepage",
-        class: "light-logo"
+        "class": "light-logo"
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        class: "topbartoggler d-block d-md-none waves-effect waves-light",
+        "class": "topbartoggler d-block d-md-none waves-effect waves-light",
         href: "javascript:void(0)",
         "data-toggle": "collapse",
         "data-target": "#navbarSupportedContent",
@@ -65439,20 +65439,20 @@ function (_Component) {
         "aria-expanded": "false",
         "aria-label": "Toggle navigation"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        class: "ti-more"
+        "class": "ti-more"
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "collapse navbar-collapse",
         id: "navbarSupportedContent"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "navbar-nav float-left mr-auto"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-        class: "nav-item d-none d-md-block"
+        "class": "nav-item d-none d-md-block"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        class: "nav-link sidebartoggler waves-effect waves-light",
+        "class": "nav-link sidebartoggler waves-effect waves-light",
         href: "javascript:void(0)",
         "data-sidebartype": "mini-sidebar"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        class: "mdi mdi-menu font-24"
+        "class": "mdi mdi-menu font-24"
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "nav-item active"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["Link"], {
@@ -65474,46 +65474,46 @@ function (_Component) {
         className: "nav-link",
         to: "/dashboard/penduduk"
       }, "Penduduk")))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("aside", {
-        class: "left-sidebar",
+        "class": "left-sidebar",
         "data-sidebarbg": "skin5"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "scroll-sidebar"
+        "class": "scroll-sidebar"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
-        class: "sidebar-nav"
+        "class": "sidebar-nav"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         id: "sidebarnav",
-        class: "p-t-30"
+        "class": "p-t-30"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-        class: "sidebar-item"
+        "class": "sidebar-item"
       }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["Link"], {
         className: "sidebar-link waves-effect waves-dark sidebar-link",
         to: "/"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        class: "mdi mdi-view-dashboard"
+        "class": "mdi mdi-view-dashboard"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        class: "hide-menu"
+        "class": "hide-menu"
       }, "Dashboard"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-        class: "sidebar-item"
+        "class": "sidebar-item"
       }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["Link"], {
         className: "sidebar-link waves-effect waves-dark sidebar-link",
         to: "/dashboard/penduduk"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        class: "mdi mdi-face"
+        "class": "mdi mdi-face"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        class: "hide-menu"
+        "class": "hide-menu"
       }, "Penduduk"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-        class: "sidebar-item"
+        "class": "sidebar-item"
       }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["Link"], {
         className: "sidebar-link waves-effect waves-dark sidebar-link",
         to: "/dashboard/berita"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        class: "mdi mdi-receipt"
+        "class": "mdi mdi-receipt"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        class: "hide-menu"
+        "class": "hide-menu"
       }, "Berita"))))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "page-wrapper"
+        "class": "page-wrapper"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "container-fluid"
+        "class": "container-fluid"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["Link"], {
         to: "/"
       }, "Home"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["Link"], {
@@ -65684,7 +65684,7 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "main-wrapper",
         "data-sidebartype": "full",
-        class: ""
+        "class": ""
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__["Route"], {
         exact: true,
         path: "/login",
@@ -65737,11 +65737,11 @@ function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) ===
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 
 
@@ -65758,8 +65758,8 @@ function (_Component) {
     _classCallCheck(this, Login);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Login).call(this, props));
-    _this.onSubmit = _this.onSubmit.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.onSubmit = _this.onSubmit.bind(_assertThisInitialized(_this));
+    _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
     _this.state = {
       email: 's-admin@test.com',
       password: '12345',
@@ -65809,7 +65809,7 @@ function (_Component) {
       var postData = {
         grant_type: 'password',
         client_id: '2',
-        client_secret: ' bkieyVQnUsmzHTiuTDTJOGsZtScjwYBglChCJerH',
+        client_secret: 'X6oeUq5JWe6dIv1d4KyOj4wMwI8m2GUOXNMPNdUC',
         username: this.state.email,
         password: this.state.password,
         scope: ''
@@ -65836,14 +65836,14 @@ function (_Component) {
             _this2.setState({
               redirect: true
             });
-          }).catch(function (err) {
+          })["catch"](function (err) {
             return console.log('error');
           });
         } //   if(res.status===401){
         //     console.log('gk diizinkan')
         //   }
 
-      }).catch(function (err) {
+      })["catch"](function (err) {
         if (err.response.status === 401) {
           //   console.log(err.response)
           console.log('Your email or password is wrong');
@@ -65866,38 +65866,38 @@ function (_Component) {
       }
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "auth-wrapper d-flex no-block justify-content-center align-items-center bg-dark"
+        "class": "auth-wrapper d-flex no-block justify-content-center align-items-center bg-dark"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "auth-box bg-dark border-top border-secondary"
+        "class": "auth-box bg-dark border-top border-secondary"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "loginform"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "text-center p-t-20 p-b-20"
+        "class": "text-center p-t-20 p-b-20"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        class: "db"
+        "class": "db"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: "matrix/assets/images/logo.png",
         alt: "logo"
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        class: "form-horizontal m-t-20",
+        "class": "form-horizontal m-t-20",
         id: "loginform",
         onSubmit: this.onSubmit
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "row p-b-30 mt-3"
+        "class": "row p-b-30 mt-3"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "col-12"
+        "class": "col-12"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "input-group mb-3"
+        "class": "input-group mb-3"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "input-group-prepend"
+        "class": "input-group-prepend"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        class: "input-group-text bg-success text-white",
+        "class": "input-group-text bg-success text-white",
         id: "basic-addon1"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        class: "ti-user"
+        "class": "ti-user"
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
-        class: "form-control form-control-lg",
+        "class": "form-control form-control-lg",
         name: "email",
         value: this.state.email,
         onChange: this.handleChange,
@@ -65906,78 +65906,78 @@ function (_Component) {
         "aria-describedby": "basic-addon1",
         required: true
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "input-group mb-3"
+        "class": "input-group mb-3"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "input-group-prepend"
+        "class": "input-group-prepend"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        class: "input-group-text bg-warning text-white",
+        "class": "input-group-text bg-warning text-white",
         id: "basic-addon2"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        class: "ti-pencil"
+        "class": "ti-pencil"
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "password",
         name: "password",
         value: this.state.password,
         onChange: this.handleChange,
-        class: "form-control form-control-lg",
+        "class": "form-control form-control-lg",
         placeholder: "Password",
         "aria-label": "Password",
         "aria-describedby": "basic-addon1",
         required: true
       })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "row border-top border-secondary"
+        "class": "row border-top border-secondary"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "col-12"
+        "class": "col-12"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "form-group mt-3"
+        "class": "form-group mt-3"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "p-t-20"
+        "class": "p-t-20"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        class: "btn btn-info",
+        "class": "btn btn-info",
         id: "to-recover",
         type: "button"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        class: "fa fa-lock m-r-5"
+        "class": "fa fa-lock m-r-5"
       }), " Lost password?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        class: "btn btn-success float-right",
+        "class": "btn btn-success float-right",
         type: "submit"
       }, "Login"))))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "recoverform"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "text-center"
+        "class": "text-center"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        class: "text-white"
+        "class": "text-white"
       }, "Enter your e-mail address below and we will send you instructions how to recover a password.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "row m-t-20"
+        "class": "row m-t-20"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        class: "col-12",
+        "class": "col-12",
         action: "index.html"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "input-group mb-3"
+        "class": "input-group mb-3"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "input-group-prepend"
+        "class": "input-group-prepend"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        class: "input-group-text bg-danger text-white",
+        "class": "input-group-text bg-danger text-white",
         id: "basic-addon1"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        class: "ti-email"
+        "class": "ti-email"
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
-        class: "form-control form-control-lg",
+        "class": "form-control form-control-lg",
         placeholder: "Email Address",
         "aria-label": "Username",
         "aria-describedby": "basic-addon1"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "row m-t-20 p-t-20 border-top border-secondary"
+        "class": "row m-t-20 p-t-20 border-top border-secondary"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "col-12"
+        "class": "col-12"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        class: "btn btn-success",
+        "class": "btn btn-success",
         href: "#",
         id: "to-login",
         name: "action"
       }, "Back To Login"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        class: "btn btn-info float-right",
+        "class": "btn btn-info float-right",
         type: "button",
         name: "action"
       }, "Recover")))))))));
@@ -66027,11 +66027,11 @@ function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) ===
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 
 
@@ -66049,7 +66049,7 @@ function (_Component) {
     _classCallCheck(this, Add);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Add).call(this));
-    _this.onSubmit = _this.onSubmit.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.onSubmit = _this.onSubmit.bind(_assertThisInitialized(_this));
     _this.state = {
       formValues: {},
       alert_message: '',
@@ -66098,14 +66098,13 @@ function (_Component) {
 
       e.preventDefault();
       this.getinner('isi', '.ql-editor');
-      var rr = new FormData(); // console.log(this.state.formValues);
+      var rr = new FormData();
+      console.log(this.state.formValues);
 
-      var _arr = Object.entries(this.state.formValues);
-
-      for (var _i = 0; _i < _arr.length; _i++) {
-        var _arr$_i = _slicedToArray(_arr[_i], 2),
-            key = _arr$_i[0],
-            value = _arr$_i[1];
+      for (var _i = 0, _Object$entries = Object.entries(this.state.formValues); _i < _Object$entries.length; _i++) {
+        var _Object$entries$_i = _slicedToArray(_Object$entries[_i], 2),
+            key = _Object$entries$_i[0],
+            value = _Object$entries$_i[1];
 
         if (key == "gambar") rr.append(key, value, value.name);else rr.append(key, value);
       }
@@ -66124,7 +66123,7 @@ function (_Component) {
         _this3.setState({
           alert_message: "success"
         });
-      }).catch(function (error) {
+      })["catch"](function (error) {
         console.log(error.response.data.errors); //message validation
 
         _this3.setState({
@@ -66146,25 +66145,25 @@ function (_Component) {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "card-body"
+        "class": "card-body"
       }, this.state.alert_message == "success" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SuccessAlert__WEBPACK_IMPORTED_MODULE_2__["default"], {
         message: "Category added successfully."
       }) : null, this.state.alert_message == "error" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ErrorAlert__WEBPACK_IMPORTED_MODULE_3__["default"], {
         message: "Error occured while adding the berita."
       }) : null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "card"
+        "class": "card"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        class: "form-horizontal",
+        "class": "form-horizontal",
         onSubmit: this.onSubmit
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "card-body"
+        "class": "card-body"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        for: "judul",
-        class: "col-sm-3 control-label col-form-label"
+        "for": "judul",
+        "class": "col-sm-3 control-label col-form-label"
       }, "Judul"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "col-sm-9"
+        "class": "col-sm-9"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "form-control",
         type: "text",
@@ -66175,7 +66174,7 @@ function (_Component) {
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        for: "exampleFormControlTextarea1"
+        "for": "exampleFormControlTextarea1"
       }, "Artikel"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "editor",
         style: {
@@ -66184,24 +66183,24 @@ function (_Component) {
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        for: "exampleFormControlFile1",
-        class: "col-sm-3 control-label col-form-label"
+        "for": "exampleFormControlFile1",
+        "class": "col-sm-3 control-label col-form-label"
       }, "Thumbnail berita"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "col-md-9"
+        "class": "col-md-9"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "custom-file"
+        "class": "custom-file"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "file",
         name: "gambar",
-        class: "custom-file-input",
+        "class": "custom-file-input",
         onChange: this.handleChange.bind(this),
         id: "validatedCustomFile",
         required: ""
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        class: "custom-file-label",
-        for: "validatedCustomFile"
+        "class": "custom-file-label",
+        "for": "validatedCustomFile"
       }, "Choose file..."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "invalid-feedback"
+        "class": "invalid-feedback"
       }, "Example invalid custom file feedback")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: this.state.imagePreviewUrl,
         style: {
@@ -66258,11 +66257,11 @@ function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) ===
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 
 
@@ -66280,10 +66279,13 @@ function (_Component) {
     _classCallCheck(this, Edit);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Edit).call(this, props));
-    _this.onSubmit = _this.onSubmit.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.onSubmit = _this.onSubmit.bind(_assertThisInitialized(_this));
     _this.state = {
       imagePreviewUrl: null,
-      formValues: {},
+      formValues: {
+        judul: null,
+        isi: null
+      },
       alert_message: ''
     };
     return _this;
@@ -66294,19 +66296,29 @@ function (_Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
+      var formValues = this.state.formValues;
       axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/berita/edit/' + this.props.match.params.id).then(function (response) {
         console.log(response.data);
 
         if (response.data.message == "success") {
-          _this2.setState({
-            formValues: response.data
-          });
+          if (response.data.foto == null) {
+            formValues['judul'] = response.data.judul;
+            formValues['isi'] = response.data.isi;
+
+            _this2.setState({
+              formValues: formValues
+            });
+          } else {
+            _this2.setState({
+              formValues: response.data
+            });
+          }
 
           document.querySelectorAll('.ql-editor')[0].innerHTML = _this2.state.formValues["isi"];
         } else if (response.data.message == "notfound") {
           _this2.props.history.push('/berita');
         }
-      }).catch(function (error) {
+      })["catch"](function (error) {
         console.log("GA ADA");
       });
     }
@@ -66365,12 +66377,10 @@ function (_Component) {
       var rr = new FormData();
       console.log(this.state.formValues);
 
-      var _arr = Object.entries(this.state.formValues);
-
-      for (var _i = 0; _i < _arr.length; _i++) {
-        var _arr$_i = _slicedToArray(_arr[_i], 2),
-            key = _arr$_i[0],
-            value = _arr$_i[1];
+      for (var _i = 0, _Object$entries = Object.entries(this.state.formValues); _i < _Object$entries.length; _i++) {
+        var _Object$entries$_i = _slicedToArray(_Object$entries[_i], 2),
+            key = _Object$entries$_i[0],
+            value = _Object$entries$_i[1];
 
         if (key == "gambar") {
           rr.append(key, value, value.name);
@@ -66381,11 +66391,18 @@ function (_Component) {
       // rr.append('_method', 'PATCH');
 
 
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('/api/berita/update/' + this.props.match.params.id, rr).then(function (res) {
+      var token = JSON.parse(window.localStorage.getItem('authUser'));
+      var header = {
+        'Accept': 'application/json',
+        'Authorization': 'Bearer ' + token.access_token
+      };
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('/api/berita/update/' + this.props.match.params.id, rr, {
+        headers: header
+      }).then(function (res) {
         _this4.setState({
           alert_message: "success"
         });
-      }).catch(function (error) {
+      })["catch"](function (error) {
         _this4.setState({
           alert_message: "error"
         });
@@ -66395,25 +66412,25 @@ function (_Component) {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "card-body"
+        "class": "card-body"
       }, this.state.alert_message == "success" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SuccessAlert__WEBPACK_IMPORTED_MODULE_2__["default"], {
         message: "Category updated successfully."
       }) : null, this.state.alert_message == "error" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ErrorAlert__WEBPACK_IMPORTED_MODULE_3__["default"], {
         message: "Error occured while updating the berita."
       }) : null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "card"
+        "class": "card"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        class: "form-horizontal",
+        "class": "form-horizontal",
         onSubmit: this.onSubmit
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "card-body"
+        "class": "card-body"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        for: "judul",
-        class: "col-sm-3 control-label col-form-label"
+        "for": "judul",
+        "class": "col-sm-3 control-label col-form-label"
       }, "Judul"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "col-sm-9"
+        "class": "col-sm-9"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "form-control",
         type: "text",
@@ -66424,7 +66441,7 @@ function (_Component) {
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        for: "exampleFormControlTextarea1"
+        "for": "exampleFormControlTextarea1"
       }, "Artikel"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "editor",
         style: {
@@ -66433,23 +66450,23 @@ function (_Component) {
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        for: "exampleFormControlFile1",
-        class: "col-sm-3 control-label col-form-label"
+        "for": "exampleFormControlFile1",
+        "class": "col-sm-3 control-label col-form-label"
       }, "Thumbnail berita"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "col-md-9"
+        "class": "col-md-9"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "custom-file"
+        "class": "custom-file"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "file",
         name: "foto",
-        class: "form-control-file",
+        "class": "form-control-file",
         onChange: this.handleChange.bind(this),
         id: "validatedCustomFile"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        class: "custom-file-label",
-        for: "validatedCustomFile"
+        "class": "custom-file-label",
+        "for": "validatedCustomFile"
       }, "Choose file..."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "invalid-feedback"
+        "class": "invalid-feedback"
       }, "Example invalid custom file feedback")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: this.state.imagePreviewUrl == null ? "/uploads/file/" + this.state.formValues["foto"] : this.state.imagePreviewUrl,
         style: {
@@ -66517,7 +66534,7 @@ function (_Component) {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "alert alert-danger",
+        "class": "alert alert-danger",
         role: "alert"
       }, this.props.message);
     }
@@ -66711,12 +66728,12 @@ function (_Component) {
       if (this.state.user === user.id || user.role_id < this.state.hak) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           type: "button",
-          class: "btn btn-cyan btn-sm"
+          "class": "btn btn-cyan btn-sm"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
           to: '/dashboard/berita/edit/' + id
         }, "Edit")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           type: "button",
-          class: "btn btn-danger btn-sm"
+          "class": "btn btn-danger btn-sm"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
           href: "#",
           onClick: this.onDelete.bind(id)
@@ -66728,7 +66745,7 @@ function (_Component) {
     value: function onDelete(berita_id) {
       var _this4 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.delete('/api/berita/delete/' + berita_id).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a["delete"]('/api/berita/delete/' + berita_id).then(function (response) {
         var news = _this4.state.news;
 
         for (var i = 0; i < news.length; i++) {
@@ -66744,7 +66761,7 @@ function (_Component) {
         _this4.setState({
           alert_message: "success"
         });
-      }).catch(function (error) {
+      })["catch"](function (error) {
         _this4.setState({
           alert_message: "error"
         });
@@ -66756,46 +66773,46 @@ function (_Component) {
       var _this5 = this;
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "card"
+        "class": "card"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "card-body"
+        "class": "card-body"
       }, this.state.alert_message == "success" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SuccessAlert__WEBPACK_IMPORTED_MODULE_3__["default"], {
         message: "Berita deleted successfully."
       }) : null, this.state.alert_message == "error" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ErrorAlert__WEBPACK_IMPORTED_MODULE_4__["default"], {
         message: "Error occured while deleting the berita."
       }) : null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
-        class: "card-title"
+        "class": "card-title"
       }, "Latest Posts")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "comment-widgets scrollable"
+        "class": "comment-widgets scrollable"
       }, this.state.news.map(function (berita) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          class: "d-flex flex-row comment-row"
+          "class": "d-flex flex-row comment-row"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          class: "p-2"
+          "class": "p-2"
         }, berita.foto == null ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
           src: "/matrix/assets/images/users/1.jpg",
           alt: "user",
           width: "50",
-          class: "rounded-circle"
+          "class": "rounded-circle"
         }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
           alt: "user",
           width: "50",
-          class: "rounded-circle",
+          "class": "rounded-circle",
           src: "/uploads/file/" + berita.foto,
           style: {
             width: 50,
             height: 50
           }
         })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          class: "comment-text w-100"
+          "class": "comment-text w-100"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", {
-          class: "font-medium"
+          "class": "font-medium"
         }, berita.judul), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-          class: "m-b-15 d-block"
+          "class": "m-b-15 d-block"
         }, berita.isi), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          class: "comment-footer"
+          "class": "comment-footer"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-          class: "text-muted float-right"
+          "class": "text-muted float-right"
         }, berita.created_at), _this5.hakAkses(berita.create, berita.id))));
       }))));
     }
@@ -66855,7 +66872,7 @@ function (_Component) {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "alert alert-success",
+        "class": "alert alert-success",
         role: "alert"
       }, this.props.message);
     }
@@ -66904,11 +66921,11 @@ function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) ===
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 
 
@@ -66926,7 +66943,7 @@ function (_Component) {
     _classCallCheck(this, Add);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Add).call(this));
-    _this.onSubmit = _this.onSubmit.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.onSubmit = _this.onSubmit.bind(_assertThisInitialized(_this));
     _this.state = {
       formValues: {},
       alert_message: "",
@@ -66991,12 +67008,10 @@ function (_Component) {
       console.log(this.state.formValues);
       var rr = new FormData();
 
-      var _arr = Object.entries(this.state.formValues);
-
-      for (var _i = 0; _i < _arr.length; _i++) {
-        var _arr$_i = _slicedToArray(_arr[_i], 2),
-            key = _arr$_i[0],
-            value = _arr$_i[1];
+      for (var _i = 0, _Object$entries = Object.entries(this.state.formValues); _i < _Object$entries.length; _i++) {
+        var _Object$entries$_i = _slicedToArray(_Object$entries[_i], 2),
+            key = _Object$entries$_i[0],
+            value = _Object$entries$_i[1];
 
         if (key == "gambar") rr.append(key, value, value.name);else rr.append(key, value);
       } // console.log(JSON.stringify(rr));
@@ -67006,7 +67021,7 @@ function (_Component) {
         return _this3.setState({
           alert_message: "success"
         });
-      }).catch(function (error) {
+      })["catch"](function (error) {
         return _this3.setState({
           alert_message: "error"
         });
@@ -67016,25 +67031,25 @@ function (_Component) {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "card-body"
+        "class": "card-body"
       }, this.state.alert_message == "success" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SuccessAlert__WEBPACK_IMPORTED_MODULE_2__["default"], {
         message: "Category added successfully."
       }) : null, this.state.alert_message == "error" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ErrorAlert__WEBPACK_IMPORTED_MODULE_3__["default"], {
         message: "Error occured while adding the berita."
       }) : null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "card"
+        "class": "card"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        class: "form-horizontal",
+        "class": "form-horizontal",
         onSubmit: this.onSubmit
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "card-body"
+        "class": "card-body"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        for: "nama",
-        class: "col-sm-3 control-label col-form-label"
+        "for": "nama",
+        "class": "col-sm-3 control-label col-form-label"
       }, "Nama"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "col-sm-9"
+        "class": "col-sm-9"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "form-control",
         type: "text",
@@ -67045,10 +67060,10 @@ function (_Component) {
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        for: "nik",
-        class: "col-sm-3 control-label col-form-label"
+        "for": "nik",
+        "class": "col-sm-3 control-label col-form-label"
       }, "NIK"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "col-sm-9"
+        "class": "col-sm-9"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "form-control",
         type: "text",
@@ -67059,10 +67074,10 @@ function (_Component) {
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        for: "kk",
-        class: "col-sm-3 control-label col-form-label"
+        "for": "kk",
+        "class": "col-sm-3 control-label col-form-label"
       }, "No. KK"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "col-sm-9"
+        "class": "col-sm-9"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "form-control",
         type: "text",
@@ -67073,10 +67088,10 @@ function (_Component) {
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        for: "ttl",
-        class: "col-sm-3 control-label col-form-label"
+        "for": "ttl",
+        "class": "col-sm-3 control-label col-form-label"
       }, "Tempat Lahir (TTL)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "col-sm-9"
+        "class": "col-sm-9"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "form-control",
         type: "text",
@@ -67087,35 +67102,35 @@ function (_Component) {
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        class: "col-sm-3"
+        "class": "col-sm-3"
       }, "Bulan Tanggal Tahun Lahir ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", {
-        class: "text-muted"
+        "class": "text-muted"
       }, "dd/mm/yyyy")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "col-sm-9"
+        "class": "col-sm-9"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "input-group"
+        "class": "input-group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         name: "ttl",
-        class: "form-control",
+        "class": "form-control",
         id: "datepicker-autoclose",
         placeholder: "mm/dd/yyyy"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "input-group-append"
+        "class": "input-group-append"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        class: "input-group-text"
+        "class": "input-group-text"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        class: "fa fa-calendar"
+        "class": "fa fa-calendar"
       })))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        for: "jk",
-        class: "col-sm-3 control-label col-form-label"
+        "for": "jk",
+        "class": "col-sm-3 control-label col-form-label"
       }, "Jenis Kelamin"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "col-sm-9"
+        "class": "col-sm-9"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         name: "jk",
-        class: "select2 form-control custom-select",
+        "class": "select2 form-control custom-select",
         style: {
           width: 100 + "%",
           height: 36 + "px"
@@ -67127,10 +67142,10 @@ function (_Component) {
       }, "Wanita")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        for: "goldar",
-        class: "col-sm-3 control-label col-form-label"
+        "for": "goldar",
+        "class": "col-sm-3 control-label col-form-label"
       }, "Golongan Darah"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "col-sm-9"
+        "class": "col-sm-9"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "form-control",
         type: "text",
@@ -67141,10 +67156,10 @@ function (_Component) {
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        for: "agama",
-        class: "col-sm-3 control-label col-form-label"
+        "for": "agama",
+        "class": "col-sm-3 control-label col-form-label"
       }, "Agama"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "col-sm-9"
+        "class": "col-sm-9"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "form-control",
         type: "text",
@@ -67155,10 +67170,10 @@ function (_Component) {
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        for: "alamat",
-        class: "col-sm-3 control-label col-form-label"
+        "for": "alamat",
+        "class": "col-sm-3 control-label col-form-label"
       }, "Alamat"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "col-sm-9"
+        "class": "col-sm-9"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "form-control",
         type: "text",
@@ -67169,10 +67184,10 @@ function (_Component) {
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        for: "perkawinan",
-        class: "col-sm-3 control-label col-form-label"
+        "for": "perkawinan",
+        "class": "col-sm-3 control-label col-form-label"
       }, "Status perkawinan"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "col-sm-9"
+        "class": "col-sm-9"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "form-control",
         type: "text",
@@ -67183,10 +67198,10 @@ function (_Component) {
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        for: "warga",
-        class: "col-sm-3 control-label col-form-label"
+        "for": "warga",
+        "class": "col-sm-3 control-label col-form-label"
       }, "Warga Negara"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "col-sm-9"
+        "class": "col-sm-9"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "form-control",
         type: "text",
@@ -67197,10 +67212,10 @@ function (_Component) {
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        for: "pekerjaan",
-        class: "col-sm-3 control-label col-form-label"
+        "for": "pekerjaan",
+        "class": "col-sm-3 control-label col-form-label"
       }, "Pekerjaan"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "col-sm-9"
+        "class": "col-sm-9"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "form-control",
         type: "text",
@@ -67211,10 +67226,10 @@ function (_Component) {
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        for: "ayah",
-        class: "col-sm-3 control-label col-form-label"
+        "for": "ayah",
+        "class": "col-sm-3 control-label col-form-label"
       }, "Nama Ayah"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "col-sm-9"
+        "class": "col-sm-9"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "form-control",
         type: "text",
@@ -67225,10 +67240,10 @@ function (_Component) {
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        for: "ibu",
-        class: "col-sm-3 control-label col-form-label"
+        "for": "ibu",
+        "class": "col-sm-3 control-label col-form-label"
       }, "Nama Ibu"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "col-sm-9"
+        "class": "col-sm-9"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "form-control",
         type: "text",
@@ -67239,24 +67254,24 @@ function (_Component) {
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        for: "exampleFormControlFile1",
-        class: "col-sm-3 control-label col-form-label"
+        "for": "exampleFormControlFile1",
+        "class": "col-sm-3 control-label col-form-label"
       }, "Foto"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "col-md-9"
+        "class": "col-md-9"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "custom-file"
+        "class": "custom-file"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "file",
         name: "gambar",
-        class: "custom-file-input",
+        "class": "custom-file-input",
         onChange: this.handleChange.bind(this),
         id: "validatedCustomFile",
         required: ""
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        class: "custom-file-label",
-        for: "validatedCustomFile"
+        "class": "custom-file-label",
+        "for": "validatedCustomFile"
       }, "Choose file..."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "invalid-feedback"
+        "class": "invalid-feedback"
       }, "Example invalid custom file feedback")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: this.state.imagePreviewUrl,
         style: {
@@ -67313,11 +67328,11 @@ function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) ===
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 
 
@@ -67335,7 +67350,7 @@ function (_Component) {
     _classCallCheck(this, Edit);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Edit).call(this, props));
-    _this.onSubmit = _this.onSubmit.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.onSubmit = _this.onSubmit.bind(_assertThisInitialized(_this));
     _this.state = {
       imagePreviewUrl: null,
       formValues: {},
@@ -67355,7 +67370,7 @@ function (_Component) {
         _this2.setState({
           formValues: response.data
         });
-      }).catch(function (error) {
+      })["catch"](function (error) {
         console.log("GA ADA");
       });
     }
@@ -67415,22 +67430,27 @@ function (_Component) {
       console.log(this.state.formValues);
       var rr = new FormData();
 
-      var _arr = Object.entries(this.state.formValues);
-
-      for (var _i = 0; _i < _arr.length; _i++) {
-        var _arr$_i = _slicedToArray(_arr[_i], 2),
-            key = _arr$_i[0],
-            value = _arr$_i[1];
+      for (var _i = 0, _Object$entries = Object.entries(this.state.formValues); _i < _Object$entries.length; _i++) {
+        var _Object$entries$_i = _slicedToArray(_Object$entries[_i], 2),
+            key = _Object$entries$_i[0],
+            value = _Object$entries$_i[1];
 
         if (key == "gambar") rr.append(key, value, value.name);else rr.append(key, value);
       } // console.log(JSON.stringify(rr));
 
 
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.post("/api/penduduk/update/" + this.props.match.params.id, rr).then(function (res) {
+      var token = JSON.parse(window.localStorage.getItem('authUser'));
+      var header = {
+        'Accept': 'application/json',
+        'Authorization': 'Bearer ' + token.access_token
+      };
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('/api/penduduk/update/' + this.props.match.params.id, rr, {
+        headers: header
+      }).then(function (res) {
         return _this4.setState({
           alert_message: "success"
         });
-      }).catch(function (error) {
+      })["catch"](function (error) {
         return _this4.setState({
           alert_message: "error"
         });
@@ -67440,25 +67460,25 @@ function (_Component) {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "card-body"
+        "class": "card-body"
       }, this.state.alert_message == "success" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SuccessAlert__WEBPACK_IMPORTED_MODULE_2__["default"], {
         message: "Category updated successfully."
       }) : null, this.state.alert_message == "error" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ErrorAlert__WEBPACK_IMPORTED_MODULE_3__["default"], {
         message: "Error occured while updating the berita."
       }) : null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "card"
+        "class": "card"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        class: "form-horizontal",
+        "class": "form-horizontal",
         onSubmit: this.onSubmit
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "card-body"
+        "class": "card-body"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        for: "nama",
-        class: "col-sm-3 control-label col-form-label"
+        "for": "nama",
+        "class": "col-sm-3 control-label col-form-label"
       }, "Nama"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "col-sm-9"
+        "class": "col-sm-9"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "form-control",
         type: "text",
@@ -67469,10 +67489,10 @@ function (_Component) {
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        for: "nik",
-        class: "col-sm-3 control-label col-form-label"
+        "for": "nik",
+        "class": "col-sm-3 control-label col-form-label"
       }, "NIK"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "col-sm-9"
+        "class": "col-sm-9"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "form-control",
         type: "text",
@@ -67483,10 +67503,10 @@ function (_Component) {
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        for: "kk",
-        class: "col-sm-3 control-label col-form-label"
+        "for": "kk",
+        "class": "col-sm-3 control-label col-form-label"
       }, "No. KK"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "col-sm-9"
+        "class": "col-sm-9"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "form-control",
         type: "text",
@@ -67497,10 +67517,10 @@ function (_Component) {
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        for: "ttl",
-        class: "col-sm-3 control-label col-form-label"
+        "for": "ttl",
+        "class": "col-sm-3 control-label col-form-label"
       }, "Tempat Lahir (TTL)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "col-sm-9"
+        "class": "col-sm-9"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "form-control",
         type: "text",
@@ -67511,35 +67531,35 @@ function (_Component) {
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        class: "col-sm-3"
+        "class": "col-sm-3"
       }, "Bulan Tanggal Tahun Lahir ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", {
-        class: "text-muted"
+        "class": "text-muted"
       }, "dd/mm/yyyy")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "col-sm-9"
+        "class": "col-sm-9"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "input-group"
+        "class": "input-group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         name: "ttl",
-        class: "form-control",
+        "class": "form-control",
         id: "datepicker-autoclose",
         placeholder: "mm/dd/yyyy"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "input-group-append"
+        "class": "input-group-append"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        class: "input-group-text"
+        "class": "input-group-text"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        class: "fa fa-calendar"
+        "class": "fa fa-calendar"
       })))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        for: "jk",
-        class: "col-sm-3 control-label col-form-label"
+        "for": "jk",
+        "class": "col-sm-3 control-label col-form-label"
       }, "Jenis Kelamin"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "col-sm-9"
+        "class": "col-sm-9"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         name: "jk",
-        class: "select2 form-control custom-select",
+        "class": "select2 form-control custom-select",
         style: {
           width: 100 + "%",
           height: 36 + "px"
@@ -67551,10 +67571,10 @@ function (_Component) {
       }, "Wanita")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        for: "goldar",
-        class: "col-sm-3 control-label col-form-label"
+        "for": "goldar",
+        "class": "col-sm-3 control-label col-form-label"
       }, "Golongan Darah"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "col-sm-9"
+        "class": "col-sm-9"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "form-control",
         type: "text",
@@ -67565,10 +67585,10 @@ function (_Component) {
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        for: "agama",
-        class: "col-sm-3 control-label col-form-label"
+        "for": "agama",
+        "class": "col-sm-3 control-label col-form-label"
       }, "Agama"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "col-sm-9"
+        "class": "col-sm-9"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "form-control",
         type: "text",
@@ -67579,10 +67599,10 @@ function (_Component) {
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        for: "alamat",
-        class: "col-sm-3 control-label col-form-label"
+        "for": "alamat",
+        "class": "col-sm-3 control-label col-form-label"
       }, "Alamat"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "col-sm-9"
+        "class": "col-sm-9"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "form-control",
         type: "text",
@@ -67593,10 +67613,10 @@ function (_Component) {
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        for: "perkawinan",
-        class: "col-sm-3 control-label col-form-label"
+        "for": "perkawinan",
+        "class": "col-sm-3 control-label col-form-label"
       }, "Status perkawinan"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "col-sm-9"
+        "class": "col-sm-9"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "form-control",
         type: "text",
@@ -67607,10 +67627,10 @@ function (_Component) {
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        for: "warga",
-        class: "col-sm-3 control-label col-form-label"
+        "for": "warga",
+        "class": "col-sm-3 control-label col-form-label"
       }, "Warga Negara"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "col-sm-9"
+        "class": "col-sm-9"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "form-control",
         type: "text",
@@ -67621,10 +67641,10 @@ function (_Component) {
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        for: "pekerjaan",
-        class: "col-sm-3 control-label col-form-label"
+        "for": "pekerjaan",
+        "class": "col-sm-3 control-label col-form-label"
       }, "Pekerjaan"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "col-sm-9"
+        "class": "col-sm-9"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "form-control",
         type: "text",
@@ -67635,10 +67655,10 @@ function (_Component) {
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        for: "ayah",
-        class: "col-sm-3 control-label col-form-label"
+        "for": "ayah",
+        "class": "col-sm-3 control-label col-form-label"
       }, "Nama Ayah"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "col-sm-9"
+        "class": "col-sm-9"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "form-control",
         type: "text",
@@ -67649,10 +67669,10 @@ function (_Component) {
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        for: "ibu",
-        class: "col-sm-3 control-label col-form-label"
+        "for": "ibu",
+        "class": "col-sm-3 control-label col-form-label"
       }, "Nama Ibu"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "col-sm-9"
+        "class": "col-sm-9"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "form-control",
         type: "text",
@@ -67663,24 +67683,24 @@ function (_Component) {
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        for: "exampleFormControlFile1",
-        class: "col-sm-3 control-label col-form-label"
+        "for": "exampleFormControlFile1",
+        "class": "col-sm-3 control-label col-form-label"
       }, "Foto"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "col-md-9"
+        "class": "col-md-9"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "custom-file"
+        "class": "custom-file"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "file",
         name: "gambar",
-        class: "custom-file-input",
+        "class": "custom-file-input",
         onChange: this.handleChange.bind(this),
         id: "validatedCustomFile",
         required: ""
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        class: "custom-file-label",
-        for: "validatedCustomFile"
+        "class": "custom-file-label",
+        "for": "validatedCustomFile"
       }, "Choose file..."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "invalid-feedback"
+        "class": "invalid-feedback"
       }, "Example invalid custom file feedback")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: this.state.imagePreviewUrl,
         style: {
@@ -67748,7 +67768,7 @@ function (_Component) {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "alert alert-danger",
+        "class": "alert alert-danger",
         role: "alert"
       }, this.props.message);
     }
@@ -67930,7 +67950,7 @@ function (_Component) {
     value: function onDelete(penduduk_id) {
       var _this3 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.delete('/api/penduduk/delete/' + penduduk_id).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a["delete"]('/api/penduduk/delete/' + penduduk_id).then(function (response) {
         var news = _this3.state.news;
 
         for (var i = 0; i < news.length; i++) {
@@ -67946,7 +67966,7 @@ function (_Component) {
         _this3.setState({
           alert_message: "success"
         });
-      }).catch(function (error) {
+      })["catch"](function (error) {
         _this3.setState({
           alert_message: "error"
         });
@@ -67968,7 +67988,7 @@ function (_Component) {
         return data.nama.toLocaleLowerCase().indexOf(_this4.state.search.toLocaleLowerCase()) > -1 || data.nik.indexOf(_this4.state.search.toLocaleLowerCase()) > -1;
       });
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "card"
+        "class": "card"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         className: "form-control form-control-lg",
@@ -67976,15 +67996,15 @@ function (_Component) {
         value: this.state.search,
         onChange: this.updateSearch.bind(this)
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "card-body"
+        "class": "card-body"
       }, this.state.alert_message == "success" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SuccessAlert__WEBPACK_IMPORTED_MODULE_3__["default"], {
         message: "penduduk deleted successfully."
       }) : null, this.state.alert_message == "error" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ErrorAlert__WEBPACK_IMPORTED_MODULE_4__["default"], {
         message: "Error occured while deleting the penduduk."
       }) : null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
-        class: "card-title"
+        "class": "card-title"
       }, "penduduk"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "table-responsive"
+        "class": "table-responsive"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
         id: "zero_config",
         className: "table table-striped table-bordered"
@@ -68059,7 +68079,7 @@ function (_Component) {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "alert alert-success",
+        "class": "alert alert-success",
         role: "alert"
       }, this.props.message);
     }
@@ -68090,8 +68110,8 @@ function (_Component) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! c:\xampp\htdocs\lare\lare\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! c:\xampp\htdocs\lare\lare\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\lare\lare\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\lare\lare\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

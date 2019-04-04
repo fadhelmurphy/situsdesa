@@ -11,18 +11,28 @@ export default class Edit extends Component {
         this.onSubmit.bind(this);
         this.state = {
             imagePreviewUrl:null,
-            formValues: {},
+            formValues: {
+                judul:null,
+                isi:null
+            },
             alert_message:''
         }
     }
 
 	componentDidMount()
 	{
+        let formValues = this.state.formValues;
         axios.get('/api/berita/edit/'+this.props.match.params.id)
 		.then(response=>{
             console.log(response.data);
             if(response.data.message == "success"){
-                this.setState({formValues:response.data});
+                if(response.data.foto == null){
+                    formValues['judul'] = response.data.judul;
+                    formValues['isi'] = response.data.isi;
+                    this.setState({formValues:formValues});
+                }else{
+                    this.setState({formValues:response.data});
+                }
                 document.querySelectorAll('.ql-editor')[0].innerHTML =
                 this.state.formValues["isi"]
             }else if(response.data.message == "notfound"){
@@ -83,7 +93,12 @@ export default class Edit extends Component {
         }
         // rr.append('kunci','isi');
         // rr.append('_method', 'PATCH');
-        axios.post('/api/berita/update/'+this.props.match.params.id,rr)
+        const token = JSON.parse(window.localStorage.getItem('authUser'))
+        const header ={
+            'Accept':'application/json',
+            'Authorization':'Bearer '+ token.access_token
+        }
+        axios.post('/api/berita/update/'+this.props.match.params.id,rr,{headers:header})
         .then(
             res=>{
                 this.setState({

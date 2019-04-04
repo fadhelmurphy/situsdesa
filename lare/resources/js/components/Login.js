@@ -38,7 +38,7 @@ export default class Login extends Component{
           const postData={
             grant_type:'password',
             client_id:'2',
-            client_secret:' bkieyVQnUsmzHTiuTDTJOGsZtScjwYBglChCJerH',
+            client_secret:'X6oeUq5JWe6dIv1d4KyOj4wMwI8m2GUOXNMPNdUC',
             username:this.state.email,
             password:this.state.password,
             scope:''

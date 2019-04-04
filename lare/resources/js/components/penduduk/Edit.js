@@ -74,8 +74,12 @@ export default class Edit extends Component {
             else rr.append(key, value);
         }
         // console.log(JSON.stringify(rr));
-        axios
-            .post("/api/penduduk/update/"+this.props.match.params.id, rr)
+                const token = JSON.parse(window.localStorage.getItem('authUser'))
+        const header ={
+            'Accept':'application/json',
+            'Authorization':'Bearer '+ token.access_token
+        }
+        axios.post('/api/penduduk/update/'+this.props.match.params.id,rr,{headers:header})
             .then(res =>
                 this.setState({
                     alert_message: "success"
