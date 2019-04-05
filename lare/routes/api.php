@@ -44,6 +44,7 @@ Route::group(['middleware'=>'auth:api'],function(){
 // Route::put('category/update/{id}','Api\CategoryController@update');
 Route::get('key','AkunController@key');
 Route::get('berita','Api\BeritaController@Index');
+
 // Route::post('berita/store','Api\BeritaController@store');
 // Route::delete('berita/delete/{id}','Api\BeritaController@destroy');
 Route::get('berita/edit/{id}','Api\BeritaController@edit');
@@ -54,3 +55,7 @@ Route::get('penduduk','Api\PendudukController@Index');
 // Route::delete('penduduk/delete/{id}','Api\PendudukController@destroy');
 Route::get('penduduk/edit/{id}','Api\PendudukController@edit');
 // Route::post('penduduk/update/{id}','Api\PendudukController@update');
+Route::post('antrian-checklist','AntrianController@checklist');
+Route::get('antrian-cek','AntrianController@cek');
+Route::get('antrian-last','AntrianController@last');
+Route::post('antrian-tambah','AntrianController@tambah');
