@@ -2,20 +2,42 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import SuccessAlert from './SuccessAlert';
 import ErrorAlert from './ErrorAlert';
+import { Redirect } from 'react-router-dom'
 
 export default class Add extends Component {
 
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.onSubmit =
         this.onSubmit.bind(this);
         this.state = {
             formValues: {},
             alert_message:'',
-            imagePreviewUrl:''
+            imagePreviewUrl:'',
+            redirect:false
         };
     }
+    componentWillMount(){
+        
+        var acc=JSON.parse(window.localStorage.getItem('authUser'))
+        if(acc ==null){
+            this.setState({redirect:true})
+        }else{
+            const header ={
+                'Accept':'application/json',
+                'Authorization':'Bearer '+ acc.access_token
+            }
+            axios.get('/api/user', {headers:header})
+            .then(res=>{this.setState({redirect:false})    })
+            .catch(err=>{
+                if(err.response.status===401){
+                    this.setState({redirect:true})
+                }
+            }) 
+        }
+       
 
+    }
     handleChange(event) {
         event.preventDefault();
         let formValues = this.state.formValues;
@@ -92,6 +114,9 @@ export default class Add extends Component {
     }
 
     render() {
+        if(this.state.redirect){
+            return <Redirect to='/dashboard/berita'/>;
+        }
         return (
             <>
             <div class="card-body">

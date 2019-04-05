@@ -42,7 +42,7 @@ Route::group(['middleware'=>'auth:api'],function(){
 // Route::delete('category/delete/{id}','Api\CategoryController@destroy');
 // Route::get('category/edit/{id}','Api\CategoryController@edit');
 // Route::put('category/update/{id}','Api\CategoryController@update');
-
+Route::get('key','AkunController@key');
 Route::get('berita','Api\BeritaController@Index');
 // Route::post('berita/store','Api\BeritaController@store');
 // Route::delete('berita/delete/{id}','Api\BeritaController@destroy');

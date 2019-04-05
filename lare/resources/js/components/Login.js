@@ -10,20 +10,25 @@ export default class Login extends Component{
             email:'s-admin@test.com',
             password:'12345',
             redirect:false,
+            secret:null
         }
         
 
     }
     componentWillMount(){
         var acc=JSON.parse(window.localStorage.getItem('authUser'))
-        console.log(acc)
         if(acc !=null){
             this.setState({redirect:true})
-            
+        }else{
+            axios.get('/api/key')
+            .then(res=>{
+                // console.log(res.data.secret)
+                this.setState({secret:res.data.secret})
+            })
         }
     }
     handleChange(e){
-        console.log(JSON.parse(window.localStorage.getItem('authUser'))['access_token'])
+        // console.log(JSON.parse(window.localStorage.getItem('authUser'))['access_token'])
         if(e.target.name=='email'){
             this.setState({email: e.target.value});
         }else if(e.target.name='password'){
@@ -38,27 +43,28 @@ export default class Login extends Component{
           const postData={
             grant_type:'password',
             client_id:'2',
-            client_secret:'X6oeUq5JWe6dIv1d4KyOj4wMwI8m2GUOXNMPNdUC',
+            client_secret:this.state.secret,
+            // client_secret:'bkieyVQnUsmzHTiuTDTJOGsZtScjwYBglChCJerH',
             username:this.state.email,
             password:this.state.password,
             scope:''
                
           }
         const authUser={}
-        axios.post('http://localhost:8000/oauth/token', postData).then(
+        axios.post('/oauth/token', postData).then(
             res=>{
               if(res.status===200){
                 authUser.access_token=res.data.access_token
                 authUser.refresh_token=res.data.refresh_token
                 window.localStorage.setItem('authUser',JSON.stringify(authUser))
-                console.log('token',res.data)
+                // console.log('token',res.data)
                 const header ={
                     'Content-Type':'application/json',
                     'Authorization':'Bearer '+ res.data.access_token
                 }
-                axios.get('http://localhost:8000/api/user', {headers:header})
+                axios.get('/api/user', {headers:header})
                 .then(res=>{
-                    console.log('user',res.data)
+                    // console.log('user',res.data)
                   authUser.email=res.data.email
                   authUser.name=res.data.name
                   window.localStorage.setItem('authUser', JSON.stringify(authUser))

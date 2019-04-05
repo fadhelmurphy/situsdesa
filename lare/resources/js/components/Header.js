@@ -3,11 +3,58 @@ import Home from './Home';
 import About from './About';
 import Berita from './berita/Index';
 import Penduduk from './penduduk/Index';
-import {Link, Route} from 'react-router-dom';
+import {Link, Route, Redirect} from 'react-router-dom';
 
 
 export default class Header extends Component {
+    constructor(){
+        super();
+        this.onLogout =this.onLogout.bind(this);
+        this.state = {
+            redirect:false,
+            auth:false
+        };
+    }
+    componentWillMount(){
+        var token=JSON.parse(window.localStorage.getItem('authUser'))
+        if(token !=null){
+            const header ={
+                'Accept':'application/json',
+                'Authorization':'Bearer '+ token.access_token
+            }
+            axios.get('http://localhost:8000/api/user', {headers:header})
+            .then(res=>{
+                this.setState({auth:true})
+            }).catch(error=>{
+                if(error.response.status===401){
+                   this.setState({redirect:true})
+                }
+            })
+        }
+
+    }
+    logout(){
+        if(this.state.auth){
+            return(
+            <>
+            <li class="nav-item">
+                <a class="nav-link" href="#"onClick={this.onLogout}>Log out</a>
+            </li>
+            </>
+            )
+        }
+    }
+    onLogout(e){
+        var token=JSON.parse(window.localStorage.getItem('authUser'))
+        if(token !=null){
+            window.localStorage.removeItem('authUser')
+            this.setState({redirect:true})
+        }
+    }
     render() {
+        if(this.state.redirect){
+            return <Redirect to='/dashboard/berita'/>;
+        }
         return (
             <div>
             <header className="topbar" data-navbarbg="skin5">
@@ -45,6 +92,10 @@ export default class Header extends Component {
                   <li className="nav-item">
                     <Link className="nav-link" to="/dashboard/penduduk">Penduduk</Link>
                   </li>
+                  {this.logout()}
+                  {/* <li className="nav-item">
+                    <a class="nav-link" href="#">Logout</a>
+                  </li> */}
                 </ul>
               </div>
             </nav>
@@ -122,6 +173,7 @@ export default class Header extends Component {
                         <Route exact path="/dashboard/penduduk/add" component={Penduduk}></Route>
                         <Route exact path="/dashboard/penduduk/edit/:id" component={Penduduk}></Route>
                     </div>
+                    
                 </div>
                 </div>
             </div>

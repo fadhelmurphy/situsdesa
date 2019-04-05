@@ -15,7 +15,7 @@ class CreateTableAntrian extends Migration
     {
         Schema::create('antrian', function (Blueprint $table) {
             $table->integer('id');
-            $table->time('panggil');
+            $table->time('panggil')->nullable();
             $table->boolean('status');
             $table->timestamps();
         });

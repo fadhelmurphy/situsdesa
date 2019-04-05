@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import SuccessAlert from './SuccessAlert';
 import ErrorAlert from './ErrorAlert';
+import { Redirect } from 'react-router-dom'
 
 export default class Edit extends Component {
 
@@ -15,18 +16,36 @@ export default class Edit extends Component {
                 judul:null,
                 isi:null
             },
-            alert_message:''
+            alert_message:'',
+            redirect:false
         }
     }
-
+    componentWillMount(){
+        var acc=JSON.parse(window.localStorage.getItem('authUser'))
+        if(acc ==null){
+            this.setState({redirect:true})
+        }else{
+            const header ={
+                'Accept':'application/json',
+                'Authorization':'Bearer '+ acc.access_token
+            }
+            axios.get('/api/user', {headers:header})
+            .then(res=>{this.setState({redirect:false})    })
+            .catch(err=>{
+                if(err.response.status===401){
+                    this.setState({redirect:true})
+                }
+            }) 
+        }
+    }
 	componentDidMount()
 	{
         let formValues = this.state.formValues;
         axios.get('/api/berita/edit/'+this.props.match.params.id)
 		.then(response=>{
-            console.log(response.data);
+            // console.log('data',response.data.foto=="null");
             if(response.data.message == "success"){
-                if(response.data.foto == null){
+                if(response.data.foto == "null"){
                     formValues['judul'] = response.data.judul;
                     formValues['isi'] = response.data.isi;
                     this.setState({formValues:formValues});
@@ -68,7 +87,7 @@ export default class Edit extends Component {
         }
 
         this.setState({formValues})
-        console.log(typeof(formValues.foto));
+        // console.log(typeof(formValues.foto));
     }
 
     getinner(name,kelas){
@@ -83,7 +102,7 @@ export default class Edit extends Component {
         e.preventDefault();
         this.getinner('isi','.ql-editor');
         var rr = new FormData();
-        console.log(this.state.formValues);
+        // console.log(this.state.formValues);
         for(let [key, value] of Object.entries(this.state.formValues)){
             if(key=="gambar"){
                 rr.append(key,value,value.name);
@@ -107,6 +126,7 @@ export default class Edit extends Component {
             }
         ).catch(
             error=>{
+                console.log(error.response.data.errors)
                 this.setState({
                     alert_message:"error"
                 });
@@ -115,6 +135,9 @@ export default class Edit extends Component {
     }
 
     render() {
+        if(this.state.redirect){
+            return <Redirect to='/dashboard/berita'/>;
+        }
         return (
             <>
             <div class="card-body">
