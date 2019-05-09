@@ -14,10 +14,27 @@ class CreateTableAntrian extends Migration
     public function up()
     {
         Schema::create('antrian', function (Blueprint $table) {
-            $table->integer('id');
-            $table->time('panggil')->nullable();
+            $table->increments('id');
+            $table->integer('no_antrian');
+            $table->date('panggil')->nullable();
             $table->boolean('status');
+            $table->integer('desa_id')->unsigned()->nullable();
+            $table->integer('user_id')->unsigned()->nullable();;
             $table->timestamps();
+        });
+        
+        Schema::table('antrian', function (Blueprint $table){
+            $table->foreign('desa_id') //id kelas
+                  ->references('id')    //dapat ref id
+                  ->on('desa')         //dari tabel kelas
+                  ->onDelete('cascade')
+                  ->onUpdate('cascade');
+            $table->foreign('user_id') //id kelas
+                  ->references('id')    //dapat ref id
+                  ->on('users')         //dari tabel kelas
+                  ->onDelete('cascade')
+                  ->onUpdate('cascade');
+            
         });
     }
 

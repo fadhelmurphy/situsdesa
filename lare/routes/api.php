@@ -29,13 +29,25 @@ Route::group(['middleware'=>'auth:api'],function(){
     // Route::get('berita/edit/{id}','Api\BeritaController@edit');
     Route::post('berita/update/{id}','Api\BeritaController@update');
     // Route::get('penduduk','Api\PendudukController@Index');
-
+    Route::post('daftar','AkunController@daftar');
+    Route::post('list','AkunController@list');
     Route::post('penduduk/store','Api\PendudukController@store');
     // Route::delete('penduduk/delete/{id}','Api\PendudukController@destroy');
     // Route::get('penduduk/edit/{id}','Api\PendudukController@edit');
     Route::post('penduduk/update/{id}','Api\PendudukController@update');
+   
+
+    
 });
 
+Route::post('antrian-checklist','AntrianController@checklist');
+Route::get('antrian-cek',       'AntrianController@cek');
+Route::get('antrian-last',      'AntrianController@last');
+Route::post('antrian-tambah',   'AntrianController@tambah');
+Route::get('antrian-terpanggil','AntrianController@terpanggil');
+// Route::post('antrian-tambah',function(){
+//     return response()->json(['data'=>'fak'],200);
+// });
 //category gak guna
 // Route::get('category','Api\CategoryController@Index');
 // Route::post('category/store','Api\CategoryController@store');
@@ -54,8 +66,6 @@ Route::get('penduduk','Api\PendudukController@Index');
 // Route::post('penduduk/store','Api\PendudukController@store');
 // Route::delete('penduduk/delete/{id}','Api\PendudukController@destroy');
 Route::get('penduduk/edit/{id}','Api\PendudukController@edit');
+
 // Route::post('penduduk/update/{id}','Api\PendudukController@update');
-Route::post('antrian-checklist','AntrianController@checklist');
-Route::get('antrian-cek','AntrianController@cek');
-Route::get('antrian-last','AntrianController@last');
-Route::post('antrian-tambah','AntrianController@tambah');
+

@@ -43,9 +43,9 @@ export default class Edit extends Component {
         let formValues = this.state.formValues;
         axios.get('/api/berita/edit/'+this.props.match.params.id)
 		.then(response=>{
-            // console.log('data',response.data.foto=="null");
+            // console.log('data',response.data.foto===null);
             if(response.data.message == "success"){
-                if(response.data.foto == "null"){
+                if(response.data.foto === null){
                     formValues['judul'] = response.data.judul;
                     formValues['isi'] = response.data.isi;
                     this.setState({formValues:formValues});

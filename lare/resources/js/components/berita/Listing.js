@@ -6,8 +6,8 @@ import ErrorAlert from './ErrorAlert';
 
 export default class Listing extends Component {
 
-	constructor(){
-		super();
+	constructor(props){
+		super(props);
 		this.state = {
             news:[],
             alert_message:'',
@@ -15,24 +15,36 @@ export default class Listing extends Component {
             user:null,
             hak:0
         }
-	}
+        // console.log(props)
+    }
+    
     componentWillMount(){
-        if(JSON.parse(window.localStorage.getItem('authUser'))===null){
-            return 
+        
+        if(this.props.auth){
+            this.setState({user:this.props.user.id,hak:this.props.user.role_id})
         }
-        var acc=JSON.parse(window.localStorage.getItem('authUser'))['access_token']
-        // console.log(acc)
-        const header ={
-            'Content-Type':'application/json',
-            'Authorization':'Bearer '+ acc
-        }
-        axios.get('http://localhost:8000/api/user', {headers:header})
-        .then(res=>{
-            this.setState({user:res.data.id, hak:res.data.role_id})
-        })
+        
+        // else{
+        //     console.log('no')
+        // }
+        // if(JSON.parse(window.localStorage.getItem('authUser'))===null){
+        //     return 
+        // }
+        // var acc=JSON.parse(window.localStorage.getItem('authUser'))['access_token']
+        // // console.log(acc)
+        // const header ={
+        //     'Content-Type':'application/json',
+        //     'Authorization':'Bearer '+ acc
+        // }
+        // axios.get('http://localhost:8000/api/user', {headers:header})
+        // .then(res=>{
+        //     this.setState({user:res.data.id, hak:res.data.role_id})
+        // })
+        
     }
 	componentDidMount()
 	{
+        // console.log(this.state)
 		axios.get('/api/berita')
 		.then(response=>{
             // console.log(response.data);
@@ -40,7 +52,9 @@ export default class Listing extends Component {
 		});
     }
     hakAkses(user,id){
-        if(this.state.user===user.id||user.role_id<this.state.hak){
+        
+        // console.log('user :',user,'id :',id)//user berasal dari siapa pembuat berita
+        if(this.state.user===user.id||user.role_id>=this.state.hak){
             
             return(
                 <>
@@ -88,13 +102,14 @@ export default class Listing extends Component {
                             <div class="comment-widgets scrollable">
                             {
 
-                    this.state.news.map((berita)=>{
+                    this.state.news.map((berita,index)=>{
                         return(
-                                <div class="d-flex flex-row comment-row">
+                                <div class="d-flex flex-row comment-row" key={index}>
                                     <div class="p-2">{berita.foto==null?(<img src="/matrix/assets/images/users/1.jpg" alt="user" width="50" class="rounded-circle"/>):(<img alt="user" width="50" class="rounded-circle" src={"/uploads/file/"+berita.foto} style={{width: 50, height: 50}}/>)}</div>
                                     <div class="comment-text w-100">
                                         <h6 class="font-medium">{berita.judul}</h6>
-                                        <span class="m-b-15 d-block">{berita.isi}</span>
+                                        <span class="m-b-15 d-block">{berita.isi}
+                                        </span>
                                         <div class="comment-footer">
                                             <span class="text-muted float-right">{berita.created_at}</span>
                                             {this.hakAkses(berita.create,berita.id)}

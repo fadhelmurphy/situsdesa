@@ -4,7 +4,9 @@ import About from './About';
 import Berita from './berita/Index';
 import Penduduk from './penduduk/Index';
 import {Link, Route, Redirect} from 'react-router-dom';
-
+const a={
+    cursor:'pointer'
+}
 
 export default class Header extends Component {
     constructor(){
@@ -12,7 +14,9 @@ export default class Header extends Component {
         this.onLogout =this.onLogout.bind(this);
         this.state = {
             redirect:false,
-            auth:false
+            auth:false,
+            isLoad:true,
+            user:null
         };
     }
     componentWillMount(){
@@ -24,25 +28,18 @@ export default class Header extends Component {
             }
             axios.get('http://localhost:8000/api/user', {headers:header})
             .then(res=>{
-                this.setState({auth:true})
+                // console.log(res.data)
+                this.setState({auth:true,isLoad:false,user:res.data})
             }).catch(error=>{
                 if(error.response.status===401){
-                   this.setState({redirect:true})
+                    window.localStorage.removeItem('authUser')        
+                    this.setState({redirect:true})
                 }
             })
+        }else{
+            this.setState({isLoad:false})
         }
 
-    }
-    logout(){
-        if(this.state.auth){
-            return(
-            <>
-            <li class="nav-item">
-                <a class="nav-link" href="#"onClick={this.onLogout}>Log out</a>
-            </li>
-            </>
-            )
-        }
     }
     onLogout(e){
         var token=JSON.parse(window.localStorage.getItem('authUser'))
@@ -53,31 +50,42 @@ export default class Header extends Component {
     }
     render() {
         if(this.state.redirect){
-            return <Redirect to='/dashboard/berita'/>;
+            return <Redirect to='/login'/>;
+        }
+        if(this.state.isLoad) return null
+        let buttonLogout
+        if(this.state.auth){
+            buttonLogout=(
+                <>
+                <li className="nav-item">
+                    <a className="nav-link" style={a} onClick={this.onLogout}>Log out</a>
+                </li>
+                </>
+                )
         }
         return (
             <div>
             <header className="topbar" data-navbarbg="skin5">
             <nav className="navbar top-navbar navbar-expand-md navbar-dark">
-            <div class="navbar-header" data-logobg="skin5">
-            <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
-            <a class="navbar-brand" href="index.html">
-                <b class="logo-icon p-l-10">
-                    <img src="/matrix/assets/images/logo-icon.png" alt="homepage" class="light-logo"/>
+            <div className="navbar-header" data-logobg="skin5">
+            <a className="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i className="ti-menu ti-close"></i></a>
+            <a className="navbar-brand" href="index.html">
+                <b className="logo-icon p-l-10">
+                    <img src="/matrix/assets/images/logo-icon.png" alt="homepage" className="light-logo"/>
 
                 </b>
-                <span class="logo-text">
-                     <img src="/matrix/assets/images/logo-text.png" alt="homepage" class="light-logo"/>
+                <span className="logo-text">
+                     <img src="/matrix/assets/images/logo-text.png" alt="homepage" className="light-logo"/>
 
                 </span>
             </a>
-            <a class="topbartoggler d-block d-md-none waves-effect waves-light" href="javascript:void(0)" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i class="ti-more"></i></a>
+            <a className="topbartoggler d-block d-md-none waves-effect waves-light" href="javascript:void(0)" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i className="ti-more"></i></a>
         </div>
               <div className="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul className="navbar-nav float-left mr-auto">
-                  <li class="nav-item d-none d-md-block">
-                    <a class="nav-link sidebartoggler waves-effect waves-light" href="javascript:void(0)" data-sidebartype="mini-sidebar">
-                        <i class="mdi mdi-menu font-24"></i>
+                  <li className="nav-item d-none d-md-block">
+                    <a className="nav-link sidebartoggler waves-effect waves-light" href="javascript:void(0)" data-sidebartype="mini-sidebar">
+                        <i className="mdi mdi-menu font-24"></i>
                     </a>
                   </li>
                   <li className="nav-item active">
@@ -92,64 +100,64 @@ export default class Header extends Component {
                   <li className="nav-item">
                     <Link className="nav-link" to="/dashboard/penduduk">Penduduk</Link>
                   </li>
-                  {this.logout()}
+                  {buttonLogout}
                   {/* <li className="nav-item">
-                    <a class="nav-link" href="#">Logout</a>
+                    <a className="nav-link" href="#">Logout</a>
                   </li> */}
                 </ul>
               </div>
             </nav>
             </header>
-            <aside class="left-sidebar" data-sidebarbg="skin5">
+            <aside className="left-sidebar" data-sidebarbg="skin5">
 
-            <div class="scroll-sidebar">
+            <div className="scroll-sidebar">
 
-                <nav class="sidebar-nav">
-                    <ul id="sidebarnav" class="p-t-30">
-                        {/* <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.html" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="charts.html" aria-expanded="false"><i class="mdi mdi-chart-bar"></i><span class="hide-menu">Charts</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="widgets.html" aria-expanded="false"><i class="mdi mdi-chart-bubble"></i><span class="hide-menu">Widgets</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="tables.html" aria-expanded="false"><i class="mdi mdi-border-inside"></i><span class="hide-menu">Tables</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="grid.html" aria-expanded="false"><i class="mdi mdi-blur-linear"></i><span class="hide-menu">Full Width</span></a></li> */}
-                        <li class="sidebar-item"> <Link className="sidebar-link waves-effect waves-dark sidebar-link" to="/"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></Link></li>
-                        <li class="sidebar-item"> <Link className="sidebar-link waves-effect waves-dark sidebar-link" to="/dashboard/penduduk"><i class="mdi mdi-face"></i><span class="hide-menu">Penduduk</span></Link></li>
-                        <li class="sidebar-item"> <Link className="sidebar-link waves-effect waves-dark sidebar-link" to="/dashboard/berita"><i class="mdi mdi-receipt"></i><span class="hide-menu">Berita</span></Link></li>
+                <nav className="sidebar-nav">
+                    <ul id="sidebarnav" className="p-t-30">
+                        {/* <li className="sidebar-item"> <a className="sidebar-link waves-effect waves-dark sidebar-link" href="index.html" aria-expanded="false"><i className="mdi mdi-view-dashboard"></i><span className="hide-menu">Dashboard</span></a></li>
+                        <li className="sidebar-item"> <a className="sidebar-link waves-effect waves-dark sidebar-link" href="charts.html" aria-expanded="false"><i className="mdi mdi-chart-bar"></i><span className="hide-menu">Charts</span></a></li>
+                        <li className="sidebar-item"> <a className="sidebar-link waves-effect waves-dark sidebar-link" href="widgets.html" aria-expanded="false"><i className="mdi mdi-chart-bubble"></i><span className="hide-menu">Widgets</span></a></li>
+                        <li className="sidebar-item"> <a className="sidebar-link waves-effect waves-dark sidebar-link" href="tables.html" aria-expanded="false"><i className="mdi mdi-border-inside"></i><span className="hide-menu">Tables</span></a></li>
+                        <li className="sidebar-item"> <a className="sidebar-link waves-effect waves-dark sidebar-link" href="grid.html" aria-expanded="false"><i className="mdi mdi-blur-linear"></i><span className="hide-menu">Full Width</span></a></li> */}
+                        <li className="sidebar-item"> <Link className="sidebar-link waves-effect waves-dark sidebar-link" to="/"><i className="mdi mdi-view-dashboard"></i><span className="hide-menu">Dashboard</span></Link></li>
+                        <li className="sidebar-item"> <Link className="sidebar-link waves-effect waves-dark sidebar-link" to="/dashboard/penduduk"><i className="mdi mdi-face"></i><span className="hide-menu">Penduduk</span></Link></li>
+                        <li className="sidebar-item"> <Link className="sidebar-link waves-effect waves-dark sidebar-link" to="/dashboard/berita"><i className="mdi mdi-receipt"></i><span className="hide-menu">Berita</span></Link></li>
                         
-                        {/* <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">Forms </span></a>
-                            <ul aria-expanded="false" class="collapse  first-level">
-                                <li class="sidebar-item"><a href="form-basic.html" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu"> Form Basic </span></a></li>
-                                <li class="sidebar-item"><a href="form-wizard.html" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> Form Wizard </span></a></li>
+                        {/* <li className="sidebar-item"> <a className="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i className="mdi mdi-receipt"></i><span className="hide-menu">Forms </span></a>
+                            <ul aria-expanded="false" className="collapse  first-level">
+                                <li className="sidebar-item"><a href="form-basic.html" className="sidebar-link"><i className="mdi mdi-note-outline"></i><span className="hide-menu"> Form Basic </span></a></li>
+                                <li className="sidebar-item"><a href="form-wizard.html" className="sidebar-link"><i className="mdi mdi-note-plus"></i><span className="hide-menu"> Form Wizard </span></a></li>
                             </ul>
                         </li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="pages-buttons.html" aria-expanded="false"><i class="mdi mdi-relative-scale"></i><span class="hide-menu">Buttons</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-face"></i><span class="hide-menu">Icons </span></a>
-                            <ul aria-expanded="false" class="collapse  first-level">
-                                <li class="sidebar-item"><a href="icon-material.html" class="sidebar-link"><i class="mdi mdi-emoticon"></i><span class="hide-menu"> Material Icons </span></a></li>
-                                <li class="sidebar-item"><a href="icon-fontawesome.html" class="sidebar-link"><i class="mdi mdi-emoticon-cool"></i><span class="hide-menu"> Font Awesome Icons </span></a></li>
+                        <li className="sidebar-item"> <a className="sidebar-link waves-effect waves-dark sidebar-link" href="pages-buttons.html" aria-expanded="false"><i className="mdi mdi-relative-scale"></i><span className="hide-menu">Buttons</span></a></li>
+                        <li className="sidebar-item"> <a className="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i className="mdi mdi-face"></i><span className="hide-menu">Icons </span></a>
+                            <ul aria-expanded="false" className="collapse  first-level">
+                                <li className="sidebar-item"><a href="icon-material.html" className="sidebar-link"><i className="mdi mdi-emoticon"></i><span className="hide-menu"> Material Icons </span></a></li>
+                                <li className="sidebar-item"><a href="icon-fontawesome.html" className="sidebar-link"><i className="mdi mdi-emoticon-cool"></i><span className="hide-menu"> Font Awesome Icons </span></a></li>
                             </ul>
                         </li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="pages-elements.html" aria-expanded="false"><i class="mdi mdi-pencil"></i><span class="hide-menu">Elements</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-move-resize-variant"></i><span class="hide-menu">Addons </span></a>
-                            <ul aria-expanded="false" class="collapse  first-level">
-                                <li class="sidebar-item"><a href="index2.html" class="sidebar-link"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu"> Dashboard-2 </span></a></li>
-                                <li class="sidebar-item"><a href="pages-gallery.html" class="sidebar-link"><i class="mdi mdi-multiplication-box"></i><span class="hide-menu"> Gallery </span></a></li>
-                                <li class="sidebar-item"><a href="pages-calendar.html" class="sidebar-link"><i class="mdi mdi-calendar-check"></i><span class="hide-menu"> Calendar </span></a></li>
-                                <li class="sidebar-item"><a href="pages-invoice.html" class="sidebar-link"><i class="mdi mdi-bulletin-board"></i><span class="hide-menu"> Invoice </span></a></li>
-                                <li class="sidebar-item"><a href="pages-chat.html" class="sidebar-link"><i class="mdi mdi-message-outline"></i><span class="hide-menu"> Chat Option </span></a></li>
+                        <li className="sidebar-item"> <a className="sidebar-link waves-effect waves-dark sidebar-link" href="pages-elements.html" aria-expanded="false"><i className="mdi mdi-pencil"></i><span className="hide-menu">Elements</span></a></li>
+                        <li className="sidebar-item"> <a className="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i className="mdi mdi-move-resize-variant"></i><span className="hide-menu">Addons </span></a>
+                            <ul aria-expanded="false" className="collapse  first-level">
+                                <li className="sidebar-item"><a href="index2.html" className="sidebar-link"><i className="mdi mdi-view-dashboard"></i><span className="hide-menu"> Dashboard-2 </span></a></li>
+                                <li className="sidebar-item"><a href="pages-gallery.html" className="sidebar-link"><i className="mdi mdi-multiplication-box"></i><span className="hide-menu"> Gallery </span></a></li>
+                                <li className="sidebar-item"><a href="pages-calendar.html" className="sidebar-link"><i className="mdi mdi-calendar-check"></i><span className="hide-menu"> Calendar </span></a></li>
+                                <li className="sidebar-item"><a href="pages-invoice.html" className="sidebar-link"><i className="mdi mdi-bulletin-board"></i><span className="hide-menu"> Invoice </span></a></li>
+                                <li className="sidebar-item"><a href="pages-chat.html" className="sidebar-link"><i className="mdi mdi-message-outline"></i><span className="hide-menu"> Chat Option </span></a></li>
                             </ul>
                         </li>
-                        <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-account-key"></i><span class="hide-menu">Authentication </span></a>
-                            <ul aria-expanded="false" class="collapse  first-level">
-                                <li class="sidebar-item"><a href="authentication-login.html" class="sidebar-link"><i class="mdi mdi-all-inclusive"></i><span class="hide-menu"> Login </span></a></li>
-                                <li class="sidebar-item"><a href="authentication-register.html" class="sidebar-link"><i class="mdi mdi-all-inclusive"></i><span class="hide-menu"> Register </span></a></li>
+                        <li className="sidebar-item"> <a className="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i className="mdi mdi-account-key"></i><span className="hide-menu">Authentication </span></a>
+                            <ul aria-expanded="false" className="collapse  first-level">
+                                <li className="sidebar-item"><a href="authentication-login.html" className="sidebar-link"><i className="mdi mdi-all-inclusive"></i><span className="hide-menu"> Login </span></a></li>
+                                <li className="sidebar-item"><a href="authentication-register.html" className="sidebar-link"><i className="mdi mdi-all-inclusive"></i><span className="hide-menu"> Register </span></a></li>
                             </ul>
                         </li>
-                        <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-alert"></i><span class="hide-menu">Errors </span></a>
-                            <ul aria-expanded="false" class="collapse  first-level">
-                                <li class="sidebar-item"><a href="error-403.html" class="sidebar-link"><i class="mdi mdi-alert-octagon"></i><span class="hide-menu"> Error 403 </span></a></li>
-                                <li class="sidebar-item"><a href="error-404.html" class="sidebar-link"><i class="mdi mdi-alert-octagon"></i><span class="hide-menu"> Error 404 </span></a></li>
-                                <li class="sidebar-item"><a href="error-405.html" class="sidebar-link"><i class="mdi mdi-alert-octagon"></i><span class="hide-menu"> Error 405 </span></a></li>
-                                <li class="sidebar-item"><a href="error-500.html" class="sidebar-link"><i class="mdi mdi-alert-octagon"></i><span class="hide-menu"> Error 500 </span></a></li>
+                        <li className="sidebar-item"> <a className="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i className="mdi mdi-alert"></i><span className="hide-menu">Errors </span></a>
+                            <ul aria-expanded="false" className="collapse  first-level">
+                                <li className="sidebar-item"><a href="error-403.html" className="sidebar-link"><i className="mdi mdi-alert-octagon"></i><span className="hide-menu"> Error 403 </span></a></li>
+                                <li className="sidebar-item"><a href="error-404.html" className="sidebar-link"><i className="mdi mdi-alert-octagon"></i><span className="hide-menu"> Error 404 </span></a></li>
+                                <li className="sidebar-item"><a href="error-405.html" className="sidebar-link"><i className="mdi mdi-alert-octagon"></i><span className="hide-menu"> Error 405 </span></a></li>
+                                <li className="sidebar-item"><a href="error-500.html" className="sidebar-link"><i className="mdi mdi-alert-octagon"></i><span className="hide-menu"> Error 500 </span></a></li>
                             </ul>
                         </li> */}
                     </ul>
@@ -158,15 +166,16 @@ export default class Header extends Component {
             </div>
 
         </aside>
-            <div class="page-wrapper">
-                <div class="container-fluid">
+            <div className="page-wrapper">
+                <div className="container-fluid">
                     <Link to="/">Home</Link>
                     <Link to="/about">About Us</Link>
                     <div className="row">
                     <div className="col-md-12">
                         <Route exact path="/" component={Home}></Route>
                         <Route exact path="/about" component={About}></Route>
-                        <Route exact path="/dashboard/berita" component={Berita}></Route>
+                        {/* <Route exact path="/dashboard/berita" acc={this.state.auth} component={Berita}></Route> */}
+                        <Route exact path='/dashboard/berita'  render={(props) => <Berita {...props} user={this.state.user} auth={this.state.auth}/>} />
                         <Route exact path="/dashboard/berita/add" component={Berita}></Route>
                         <Route exact path="/dashboard/berita/edit/:id" component={Berita}></Route>
                         <Route exact path="/dashboard/penduduk" component={Penduduk}></Route>
