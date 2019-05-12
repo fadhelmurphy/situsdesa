@@ -16,8 +16,8 @@ class TabelPenduduk extends Migration
         Schema::create('penduduk', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nama');
-            $table->integer('nik')->unique();
-            $table->string('kk');
+            $table->string('nik',20)->unique();
+            $table->string('kk',20);
             $table->string('tempatlahir',50);
             $table->date('ttl');
             $table->enum('jk',['pria','wanita']);

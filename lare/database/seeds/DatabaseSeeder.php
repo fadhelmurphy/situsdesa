@@ -29,5 +29,44 @@ class DatabaseSeeder extends Seeder
             ['no_antrian'=>2,'status'=>0,'created_at'=>Carbon::now()],
             ['no_antrian'=>3,'status'=>0,'created_at'=>Carbon::now()],
         ]);
+        // DB::table('berita')->insert([
+        //     ['user_id'=>1,'judul'=>'HHHHHHH','isi'=>'<p>LOLOLOLOLOLLO</p>'],
+        //     ['user_id'=>1,'judul'=>'HHHHHHH','isi'=>'<p>LOLOLOLOLOLLO</p>'],
+        //     ['user_id'=>1,'judul'=>'HHHHHHH','isi'=>'<p>LOLOLOLOLOLLO</p>'],
+        //     ['user_id'=>1,'judul'=>'HHHHHHH','isi'=>'<p>LOLOLOLOLOLLO</p>'],
+        //     ['user_id'=>1,'judul'=>'HHHHHHH','isi'=>'<p>LOLOLOLOLOLLO</p>'],
+        //     ['user_id'=>1,'judul'=>'HHHHHHH','isi'=>'<p>LOLOLOLOLOLLO</p>'],
+        //     ['user_id'=>1,'judul'=>'HHHHHHH','isi'=>'<p>LOLOLOLOLOLLO</p>'],
+        //     ['user_id'=>1,'judul'=>'HHHHHHH','isi'=>'<p>LOLOLOLOLOLLO</p>'],
+        //     ['user_id'=>1,'judul'=>'HHHHHHH','isi'=>'<p>LOLOLOLOLOLLO</p>'],
+        //     ['user_id'=>1,'judul'=>'HHHHHHH','isi'=>'<p>LOLOLOLOLOLLO</p>'],
+        //     ['user_id'=>1,'judul'=>'HHHHHHH','isi'=>'<p>LOLOLOLOLOLLO</p>'],
+        //     ['user_id'=>1,'judul'=>'HHHHHHH','isi'=>'<p>LOLOLOLOLOLLO</p>'],
+        //     ['user_id'=>1,'judul'=>'HHHHHHH','isi'=>'<p>LOLOLOLOLOLLO</p>'],
+        // ]);
+        
+        $arr=[];
+        for($i=0;$i<12;$i++){
+            $data=[
+                'nama'=>'r'.$i,
+                'nik'=>$i,
+                'kk'=>$i,
+                'tempatlahir'=>'jkt'.$i,
+                'ttl'=>'2000-10-02',
+                'jk'=>'pria',
+                'agama'=>'hindu',
+                'perkawinan'=>'Menikah',
+                'alamat'=>'alamat'.$i,
+                'warga'=>'ind'.$i,
+                'ayah'=>'ayah'.$i,
+                'ibu'=>'ibu'.$i,
+                'pekerjaan'=>'kerja'.$i,
+                'user_id'=>1
+            ];
+            array_push($arr,$data);
+        }
+        DB::table('penduduk')->insert(
+            $arr
+        );
     }
 }

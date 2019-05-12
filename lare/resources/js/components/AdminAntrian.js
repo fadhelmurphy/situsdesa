@@ -24,7 +24,7 @@ export default class AdminAntrian extends Component {
             isLoad:true,
             elMas:null,
             elKel:null,
-            selesai:[]
+            selesai:[],
         }
     }
     componentWillMount(){
@@ -51,6 +51,7 @@ export default class AdminAntrian extends Component {
             this.setState({selesai:res.data,isLoad:false})
             let data=this.state.selesai
             this.elKel(data)
+            var kel=true
         })
     }
     elMas(){
@@ -109,34 +110,31 @@ export default class AdminAntrian extends Component {
         if(this.state.isLoad){
             return(<></>)
         }else{
-            return(
-                <>
+            return(<>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                    <div class="card-header">
+                    <h3 class="card-title">Belum Dipanggil</h3>
+                </div>
+                    <div class="card-body">
+                        <p class="card-text">{this.state.elMas}</p>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card">
+                    <div class="card-header">
+                    <h3 class="card-title">Telah Dipanggil</h3>
+                </div>
+                    <div class="card-body">
+                        <p class="card-text">{this.state.elKel}</p>
+                    </div>
+                    </div>
+                </div>
+            </div>
                 
-                <div class="row">
-  <div class="col-sm-6">
-    <div class="card">
-    <div class="card-header">
-    <h3 class="card-title">Belum Dipanggil</h3>
-  </div>
-      <div class="card-body">
-        <p class="card-text">{this.state.elMas}</p>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-6">
-    <div class="card">
-    <div class="card-header">
-    <h3 class="card-title">Telah Dipanggil</h3>
-  </div>
-      <div class="card-body">
-        <p class="card-text">{this.state.elKel}</p>
-      </div>
-    </div>
-  </div>
-</div>
-                
-                </>
-            )
+            </>)
         }
         
     }

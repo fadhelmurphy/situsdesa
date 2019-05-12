@@ -16,7 +16,7 @@ class PendudukController extends Controller
      */
     public function index()
     {
-        $result = Penduduk::all();
+        $result = Penduduk::paginate(4);
         return $result;
     }
 
@@ -40,8 +40,8 @@ class PendudukController extends Controller
     {
         $this->validate($request,[
             'nama'=>'required|string',
-            'nik'=>'required|integer',
-            'kk'=>'required|integer',
+            'nik'=>'required|string',
+            'kk'=>'required|string',
             'tempatlahir'=>'required|string',
             'ttl'=>'required|date',
             'jk'=>'required|string',

@@ -3,6 +3,7 @@ import axios from 'axios';
 import {Link} from 'react-router-dom';
 import SuccessAlert from './SuccessAlert';
 import ErrorAlert from './ErrorAlert';
+import Pagination from "react-js-pagination";
 
 export default class Listing extends Component {
 
@@ -11,17 +12,46 @@ export default class Listing extends Component {
 		this.state = {
             news:[],
             alert_message:'',
-            search: ''
+            search: '',
+            activePage:1,
+            itemsCountPerPage:2,
+            totalItemsCount:12,
+            pageRangeDisplayed:4
         }
+        this.handlePageChange=this.handlePageChange.bind(this)
 	}
 
-	componentDidMount()
+	componentWillMount()
 	{
 		axios.get('/api/penduduk')
-		.then(response=>{
-            console.log(response.data);
-            this.setState({news:response.data});
+		.then(res=>{
+            console.log(res.data);
+            this.setState({
+                news:res.data.data,
+                itemsCountPerPage:res.data.per_page,
+                totalItemsCount:res.data.total,
+                // pageRangeDisplayed:null,
+                activePage:res.data.current_page
+            })
+            if(res.data.last_page<4){
+                console.log('ok')
+                this.setState({pageRangeDisplayed:res.data.last_page})
+            }
+           
+            
 		});
+    }
+    handlePageChange(pageNumber) {
+        console.log(`active page is ${pageNumber}`);
+        axios.get('/api/penduduk?page='+pageNumber)
+        .then(res=>{
+            console.log(res.data)
+            this.setState({news:res.data.data,
+                itemsCountPerPage:res.data.per_page,
+                totalItemsCount:res.data.total,
+                activePage:res.data.current_page
+            })
+        })
     }
 
     filterList(event){
@@ -51,17 +81,17 @@ export default class Listing extends Component {
             this.setState({
                 alert_message:"success"
             });
-            }
-    ).catch(
+        })
+        .catch(
         error=>{
             this.setState({
                 alert_message:"error"
             });
-        }
-    );
+        });
     }
     updateSearch(event){
-        this.setState({search: event.target.value.substr(0, 20)});
+        // console.log(event.target.value.substr(0, 20))
+        // this.setState({search: event.target.value.substr(0, 20)});
       }
 
     render() {
@@ -71,9 +101,9 @@ export default class Listing extends Component {
         );
         return (
             <div class="card">
-            <input type="text" className="form-control form-control-lg" placeholder="Search"
-            value={this.state.search}
-            onChange={this.updateSearch.bind(this)}/>
+                <input type="text" className="form-control form-control-lg" placeholder="Search"
+                value={this.state.search}
+                onChange={this.updateSearch.bind(this)}/>
             <div class="card-body">
             {this.state.alert_message=="success"?<SuccessAlert message={"penduduk deleted successfully."} />:null}
             {this.state.alert_message=="error"?<ErrorAlert message={"Error occured while deleting the penduduk."} />:null}
@@ -127,7 +157,24 @@ export default class Listing extends Component {
 			  	}
 			  </tbody>
             </table>
+            
+
             </div>
+            </div>
+            <div className="d-flex justify-content-center">
+            <Pagination
+            activePage={this.state.activePage}
+            itemsCountPerPage={this.state.itemsCountPerPage}
+            totalItemsCount={this.state.totalItemsCount}
+            pageRangeDisplayed={this.state.pageRangeDisplayed}
+            onChange={this.handlePageChange}
+            itemClass='page-item'
+            linkClass='page-link'
+            prevPageText='prev'
+            nextPageText='next'
+            firstPageText='first'
+            lastPageText='last'
+            />
             </div>
             </div>
         );

@@ -26,20 +26,21 @@ export default class Login extends Component{
             .then(res=>{
                 // console.log(res)
                 this.setState({redirect:true})    
+                return
             })
             .catch(err=>{
                 console.log(err.response)
                     // this.setState({redirect:false})
                 // }
             })
-            
-        }else{
+        }
+        // }else{
             axios.get('/api/key')
             .then(res=>{
-                // console.log(res.data.secret)
+                console.log(res.data.secret)
                 this.setState({secret:res.data.secret})
             })
-        }
+        // }
         const script2 = document.createElement("script")
         script2.innerHTML = `
 
