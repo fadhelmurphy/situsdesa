@@ -7,7 +7,6 @@ import Daftar from './Daftar'
 import About from './About'
 import Home from './Home';
 import Antrian from './Antrian'
-import AdminAntrian from './AdminAntrian'
 import {BrowserRouter as Router, Route,Switch} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css'
 
@@ -56,7 +55,6 @@ export default class Index extends Component {
             {/* <Route exact path='/haha'  render={(props) => <Login {...props} acc={this.state.acc} akun={this.state.akun} />} /> */}
             <Route exact path="/daftar" component={Daftar}></Route>
             <Route exact path="/antrian" component={Antrian}></Route>
-            <Route exact path="/admin-antrian" component={AdminAntrian}></Route>
             <Route path="/dashboard" component={Header}></Route>
             <Route exact path="/" component={Home}></Route>
             

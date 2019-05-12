@@ -112,20 +112,28 @@ export default class AdminAntrian extends Component {
             return(
                 <>
                 
-                <div className="container">
-                    <h1 className="text-center">Daftar Antrian</h1>
-                    <div className="row">
-                    <div style={desain} className="col-6">
-                        <h2>Belum Dipanggil</h2>
-                        {this.state.elMas}
-                        
-                    </div>
-                    
-                    <div style={desain} className="col-6"><h2>Telah Dipanggil</h2>{this.state.elKel}</div>
-                    </div>
-                    
-                </div>
-                
+                <div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+    <div class="card-header">
+    <h3 class="card-title">Belum Dipanggil</h3>
+  </div>
+      <div class="card-body">
+        <p class="card-text">{this.state.elMas}</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+    <div class="card-header">
+    <h3 class="card-title">Telah Dipanggil</h3>
+  </div>
+      <div class="card-body">
+        <p class="card-text">{this.state.elKel}</p>
+      </div>
+    </div>
+  </div>
+</div>
                 
                 </>
             )

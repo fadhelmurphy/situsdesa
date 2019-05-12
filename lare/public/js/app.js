@@ -75193,18 +75193,32 @@ function (_Component) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null);
       } else {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "container"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
-          className: "text-center"
-        }, "Daftar Antrian"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "row"
+          "class": "row"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          style: desain,
-          className: "col-6"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Belum Dipanggil"), this.state.elMas), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          style: desain,
-          className: "col-6"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Telah Dipanggil"), this.state.elKel))));
+          "class": "col-sm-6"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          "class": "card"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          "class": "card-header"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+          "class": "card-title"
+        }, "Belum Dipanggil")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          "class": "card-body"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+          "class": "card-text"
+        }, this.state.elMas)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          "class": "col-sm-6"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          "class": "card"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          "class": "card-header"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+          "class": "card-title"
+        }, "Telah Dipanggil")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          "class": "card-body"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+          "class": "card-text"
+        }, this.state.elKel))))));
       }
     }
   }]);
@@ -75338,9 +75352,10 @@ function (_Component) {
         onClick: this.daftar,
         className: "d-flex justify-content-center align-items-center"
       }, this.state.no_antrian, " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
         onClick: this.daftar,
-        className: ""
-      }, " Daftar"));
+        "class": "btn btn-cyan btn-sm"
+      }, "+ Daftar"));
     }
   }]);
 
@@ -75785,7 +75800,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _About__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./About */ "./resources/js/components/About.js");
 /* harmony import */ var _berita_Index__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./berita/Index */ "./resources/js/components/berita/Index.js");
 /* harmony import */ var _penduduk_Index__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./penduduk/Index */ "./resources/js/components/penduduk/Index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+/* harmony import */ var _Antrian__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Antrian */ "./resources/js/components/Antrian.js");
+/* harmony import */ var _AdminAntrian__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./AdminAntrian */ "./resources/js/components/AdminAntrian.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
@@ -75805,6 +75822,8 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
 
 
 
@@ -75937,7 +75956,7 @@ function (_Component) {
       var _this3 = this;
 
       if (this.state.redirect) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["Redirect"], {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Redirect"], {
           to: "/login"
         });
       }
@@ -76008,25 +76027,30 @@ function (_Component) {
         className: "mdi mdi-menu font-24"
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "nav-item active"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["Link"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Link"], {
         className: "nav-link",
         to: "/"
       }, "Home")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "nav-item"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["Link"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Link"], {
         className: "nav-link",
-        to: "/about"
+        to: "/dashboard/about"
       }, "About Us")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "nav-item"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["Link"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Link"], {
         className: "nav-link",
         to: "/dashboard/berita"
       }, "Berita")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "nav-item"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["Link"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Link"], {
         className: "nav-link",
         to: "/dashboard/penduduk"
-      }, "Penduduk")), buttonLogout)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("aside", {
+      }, "Penduduk")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+        className: "nav-item"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Link"], {
+        className: "nav-link",
+        to: "/dashboard/admin-antrian"
+      }, "Antrian")), buttonLogout)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("aside", {
         className: "left-sidebar",
         "data-sidebarbg": "skin5"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -76038,16 +76062,16 @@ function (_Component) {
         className: "p-t-30"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "sidebar-item"
-      }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["Link"], {
+      }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Link"], {
         className: "sidebar-link waves-effect waves-dark sidebar-link",
-        to: "/"
+        to: "/dashboard"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "mdi mdi-view-dashboard"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "hide-menu"
       }, "Dashboard"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "sidebar-item"
-      }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["Link"], {
+      }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Link"], {
         className: "sidebar-link waves-effect waves-dark sidebar-link",
         to: "/dashboard/penduduk"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
@@ -76056,7 +76080,7 @@ function (_Component) {
         className: "hide-menu"
       }, "Penduduk"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "sidebar-item"
-      }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["Link"], {
+      }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Link"], {
         className: "sidebar-link waves-effect waves-dark sidebar-link",
         to: "/dashboard/berita"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
@@ -76067,23 +76091,23 @@ function (_Component) {
         className: "page-wrapper"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container-fluid"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["Link"], {
-        to: "/"
-      }, "Home"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["Link"], {
-        to: "/about"
-      }, "About Us"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-md-12"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["Route"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
         exact: true,
         path: "/",
         component: _Home__WEBPACK_IMPORTED_MODULE_1__["default"]
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["Route"], {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
         exact: true,
-        path: "/about",
+        path: "/dashboard/about",
         component: _About__WEBPACK_IMPORTED_MODULE_2__["default"]
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["Route"], {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
+        exact: true,
+        path: "/dashboard/admin-antrian",
+        component: _AdminAntrian__WEBPACK_IMPORTED_MODULE_6__["default"]
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
         exact: true,
         path: "/dashboard/berita",
         render: function render(props) {
@@ -76092,23 +76116,23 @@ function (_Component) {
             auth: _this3.state.auth
           }));
         }
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["Route"], {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
         exact: true,
         path: "/dashboard/berita/add",
         component: _berita_Index__WEBPACK_IMPORTED_MODULE_3__["default"]
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["Route"], {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
         exact: true,
         path: "/dashboard/berita/edit/:id",
         component: _berita_Index__WEBPACK_IMPORTED_MODULE_3__["default"]
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["Route"], {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
         exact: true,
         path: "/dashboard/penduduk",
         component: _penduduk_Index__WEBPACK_IMPORTED_MODULE_4__["default"]
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["Route"], {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
         exact: true,
         path: "/dashboard/penduduk/add",
         component: _penduduk_Index__WEBPACK_IMPORTED_MODULE_4__["default"]
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["Route"], {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
         exact: true,
         path: "/dashboard/penduduk/edit/:id",
         component: _penduduk_Index__WEBPACK_IMPORTED_MODULE_4__["default"]
@@ -76306,10 +76330,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _About__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./About */ "./resources/js/components/About.js");
 /* harmony import */ var _Home__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Home */ "./resources/js/components/Home.js");
 /* harmony import */ var _Antrian__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Antrian */ "./resources/js/components/Antrian.js");
-/* harmony import */ var _AdminAntrian__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./AdminAntrian */ "./resources/js/components/AdminAntrian.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
-/* harmony import */ var bootstrap_dist_css_bootstrap_css__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! bootstrap/dist/css/bootstrap.css */ "./node_modules/bootstrap/dist/css/bootstrap.css");
-/* harmony import */ var bootstrap_dist_css_bootstrap_css__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(bootstrap_dist_css_bootstrap_css__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+/* harmony import */ var bootstrap_dist_css_bootstrap_css__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! bootstrap/dist/css/bootstrap.css */ "./node_modules/bootstrap/dist/css/bootstrap.css");
+/* harmony import */ var bootstrap_dist_css_bootstrap_css__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(bootstrap_dist_css_bootstrap_css__WEBPACK_IMPORTED_MODULE_10__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -76327,7 +76350,6 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
 
 
 
@@ -76399,27 +76421,23 @@ function (_Component) {
         id: "main-wrapper",
         "data-sidebartype": "full",
         className: ""
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_10__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_10__["Route"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__["Route"], {
         exact: true,
         path: "/login",
         name1: "halo",
         component: _Login__WEBPACK_IMPORTED_MODULE_4__["default"]
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_10__["Route"], {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__["Route"], {
         exact: true,
         path: "/daftar",
         component: _Daftar__WEBPACK_IMPORTED_MODULE_5__["default"]
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_10__["Route"], {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__["Route"], {
         exact: true,
         path: "/antrian",
         component: _Antrian__WEBPACK_IMPORTED_MODULE_8__["default"]
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_10__["Route"], {
-        exact: true,
-        path: "/admin-antrian",
-        component: _AdminAntrian__WEBPACK_IMPORTED_MODULE_9__["default"]
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_10__["Route"], {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__["Route"], {
         path: "/dashboard",
         component: _Header__WEBPACK_IMPORTED_MODULE_2__["default"]
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_10__["Route"], {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__["Route"], {
         exact: true,
         path: "/",
         component: _Home__WEBPACK_IMPORTED_MODULE_7__["default"]
@@ -76433,7 +76451,7 @@ function (_Component) {
 
 
 if (document.getElementById('app')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_10__["BrowserRouter"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Index, null)), document.getElementById('app'));
+  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__["BrowserRouter"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Index, null)), document.getElementById('app'));
 }
 
 /***/ }),

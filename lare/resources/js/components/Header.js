@@ -3,6 +3,9 @@ import Home from './Home';
 import About from './About';
 import Berita from './berita/Index';
 import Penduduk from './penduduk/Index';
+
+import Antrian from './Antrian'
+import AdminAntrian from './AdminAntrian'
 import {Link, Route, Redirect} from 'react-router-dom';
 const a={
     cursor:'pointer'
@@ -124,13 +127,16 @@ export default class Header extends Component {
                     <Link className="nav-link" to="/">Home</Link>
                   </li>
                   <li className="nav-item">
-                    <Link className="nav-link" to="/about">About Us</Link>
+                    <Link className="nav-link" to="/dashboard/about">About Us</Link>
                   </li>
                   <li className="nav-item">
                     <Link className="nav-link" to="/dashboard/berita">Berita</Link>
                   </li>
                   <li className="nav-item">
                     <Link className="nav-link" to="/dashboard/penduduk">Penduduk</Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link className="nav-link" to="/dashboard/admin-antrian">Antrian</Link>
                   </li>
                   {buttonLogout}
                   {/* <li className="nav-item">
@@ -151,7 +157,7 @@ export default class Header extends Component {
                         <li className="sidebar-item"> <a className="sidebar-link waves-effect waves-dark sidebar-link" href="widgets.html" aria-expanded="false"><i className="mdi mdi-chart-bubble"></i><span className="hide-menu">Widgets</span></a></li>
                         <li className="sidebar-item"> <a className="sidebar-link waves-effect waves-dark sidebar-link" href="tables.html" aria-expanded="false"><i className="mdi mdi-border-inside"></i><span className="hide-menu">Tables</span></a></li>
                         <li className="sidebar-item"> <a className="sidebar-link waves-effect waves-dark sidebar-link" href="grid.html" aria-expanded="false"><i className="mdi mdi-blur-linear"></i><span className="hide-menu">Full Width</span></a></li> */}
-                        <li className="sidebar-item"> <Link className="sidebar-link waves-effect waves-dark sidebar-link" to="/"><i className="mdi mdi-view-dashboard"></i><span className="hide-menu">Dashboard</span></Link></li>
+                        <li className="sidebar-item"> <Link className="sidebar-link waves-effect waves-dark sidebar-link" to="/dashboard"><i className="mdi mdi-view-dashboard"></i><span className="hide-menu">Dashboard</span></Link></li>
                         <li className="sidebar-item"> <Link className="sidebar-link waves-effect waves-dark sidebar-link" to="/dashboard/penduduk"><i className="mdi mdi-face"></i><span className="hide-menu">Penduduk</span></Link></li>
                         <li className="sidebar-item"> <Link className="sidebar-link waves-effect waves-dark sidebar-link" to="/dashboard/berita"><i className="mdi mdi-receipt"></i><span className="hide-menu">Berita</span></Link></li>
                         
@@ -200,13 +206,12 @@ export default class Header extends Component {
         </aside>
             <div className="page-wrapper">
                 <div className="container-fluid">
-                    <Link to="/">Home</Link>
-                    <Link to="/about">About Us</Link>
                     <div className="row">
                     <div className="col-md-12">
                         <Route exact path="/" component={Home}></Route>
-                        <Route exact path="/about" component={About}></Route>
+                        <Route exact path="/dashboard/about" component={About}></Route>
                         {/* <Route exact path="/dashboard/berita" acc={this.state.auth} component={Berita}></Route> */}
+                        <Route exact path="/dashboard/admin-antrian" component={AdminAntrian}></Route>
                         <Route exact path='/dashboard/berita'  render={(props) => <Berita {...props} user={this.state.user} auth={this.state.auth}/>} />
                         <Route exact path="/dashboard/berita/add" component={Berita}></Route>
                         <Route exact path="/dashboard/berita/edit/:id" component={Berita}></Route>

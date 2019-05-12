@@ -52,7 +52,7 @@ export default class Antrian extends Component {
             <>
             <h1 className="text-center">Antrian</h1>
             <div style={kotak} onClick={this.daftar} className="d-flex justify-content-center align-items-center">{this.state.no_antrian} </div>
-            <button onClick={this.daftar} className=""> Daftar</button>
+            <button type="button" onClick={this.daftar} class="btn btn-cyan btn-sm">+ Daftar</button>
             </>
         )
         
