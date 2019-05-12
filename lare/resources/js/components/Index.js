@@ -27,7 +27,26 @@ export default class Index extends Component {
   
     componentWillMount(){
         
-        // console.log(acc)
+        //An array of assets
+    let links = [
+        { src: "https://fonts.googleapis.com/css?family=Nunito:200,600" },
+        { src: "/matrix/assets/libs/flot/css/float-chart.css" },
+        { src: "/matrix/assets/libs/select2/dist/css/select2.min.css" },
+        { src: "/matrix/assets/libs/jquery-minicolors/jquery.minicolors.css" },
+        { src: "/matrix/assets/libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css" },
+        { src: "/matrix/assets/libs/quill/dist/quill.snow.css" },
+        { src: "/matrix/dist/css/style.min.css" },
+    ]
+    //Append the script element on each iteration
+    links.map(item => { 
+        const link = document.createElement("link")
+        link.href = item.src
+        link.rel = 'stylesheet'
+        link.type = 'text/css'
+        link.async = true
+        link.className = 'dashboard'
+        document.body.appendChild(link)
+    })
     }
     render() {
         return (
@@ -35,13 +54,11 @@ export default class Index extends Component {
             <Switch>
             <Route exact path="/login" name1={"halo"} component={Login}></Route>
             {/* <Route exact path='/haha'  render={(props) => <Login {...props} acc={this.state.acc} akun={this.state.akun} />} /> */}
-            <Route exact path="/home" component={Home}></Route>
             <Route exact path="/daftar" component={Daftar}></Route>
             <Route exact path="/antrian" component={Antrian}></Route>
             <Route exact path="/admin-antrian" component={AdminAntrian}></Route>
             <Route path="/dashboard" component={Header}></Route>
-            <Route path="/" component={About}></Route>
-            
+            <Route exact path="/" component={Home}></Route>
             
             </Switch>
             </div>

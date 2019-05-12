@@ -70,26 +70,7 @@ export default class Header extends Component {
         script.className = 'penduduk'
         document.body.appendChild(script)
     })
-    //An array of assets
-    let links = [
-        { src: "https://fonts.googleapis.com/css?family=Nunito:200,600" },
-        { src: "/matrix/assets/libs/flot/css/float-chart.css" },
-        { src: "/matrix/assets/libs/select2/dist/css/select2.min.css" },
-        { src: "/matrix/assets/libs/jquery-minicolors/jquery.minicolors.css" },
-        { src: "/matrix/assets/libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css" },
-        { src: "/matrix/assets/libs/quill/dist/quill.snow.css" },
-        { src: "/matrix/dist/css/style.min.css" },
-    ]
-    //Append the script element on each iteration
-    links.map(item => { 
-        const link = document.createElement("link")
-        link.href = item.src
-        link.rel = 'stylesheet'
-        link.type = 'text/css'
-        link.async = true
-        link.className = 'dashboard'
-        document.body.appendChild(link)
-    })
+    
     }
 
     onLogout(e){
