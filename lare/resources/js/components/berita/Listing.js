@@ -7,7 +7,8 @@ import ErrorAlert from './ErrorAlert';
 export default class Listing extends Component {
 
 	constructor(props){
-		super(props);
+        super(props);
+        this.onDelete=this.onDelete.bind(this)
 		this.state = {
             news:[],
             alert_message:'',
@@ -59,7 +60,9 @@ export default class Listing extends Component {
             return(
                 <>
                 <Link to={'/dashboard/berita/edit/'+id}><button type="button" class="btn btn-cyan btn-sm">Edit</button></Link>
-                <button type="button" class="btn btn-danger btn-sm" href="#" onClick={this.onDelete.bind(id)}>Delete</button>
+                <button type="button" class="btn btn-danger btn-sm" href="#" 
+                onClick={()=>this.onDelete(id)}
+                >Delete</button>
                 </> 
             )
             
@@ -67,7 +70,14 @@ export default class Listing extends Component {
     }
     onDelete(berita_id)
     {
-        axios.delete('/api/berita/delete/'+berita_id)
+        const token = JSON.parse(window.localStorage.getItem('authUser'))
+        const header ={
+            'Accept':'application/json',
+            'Authorization':'Bearer '+ token.access_token
+        }
+        
+        console.log(berita_id)
+        axios.delete('/api/berita/delete/'+berita_id,{headers:header})
         .then(
             response=>{
             var news = this.state.news;

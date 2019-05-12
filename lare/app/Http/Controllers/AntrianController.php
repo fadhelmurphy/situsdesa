@@ -24,7 +24,8 @@ class AntrianController extends Controller
         return response()->json($data,200);
     }
     public function last(){
-        $data=DB::table('antrian')->orderBy('id','desc')->first();
+        $data=DB::table('antrian')->whereBetween('created_at',[Carbon::now()->setTime(0,0)->format('Y-m-d H:i:s'), 
+        Carbon::now()->setTime(23,59,59)->format('Y-m-d H:i:s')])->orderBy('id','desc')->first();
         return response()->json($data,200);
     }
     public function checklist(Request $request){

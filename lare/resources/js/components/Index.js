@@ -9,7 +9,7 @@ import Home from './Home';
 import Antrian from './Antrian'
 import AdminAntrian from './AdminAntrian'
 import {BrowserRouter as Router, Route,Switch} from 'react-router-dom';
-window.$ = window.jQuery = require('jquery');
+import 'bootstrap/dist/css/bootstrap.css'
 
 export default class Index extends Component {
     constructor(props){
