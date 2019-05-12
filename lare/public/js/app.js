@@ -77982,9 +77982,8 @@ function (_Component) {
       } else {
         value = event.target.value;
         formValues[name] = value;
-      }
+      } // console.log(formValues);
 
-      console.log(formValues);
 
       if (name != undefined) {
         this.setState({
@@ -78008,6 +78007,8 @@ function (_Component) {
 
       this.getnamevalue('ttl');
       this.getnamevalue('jk');
+      this.getnamevalue('agama');
+      this.getnamevalue('goldar');
       e.preventDefault();
       console.log(this.state.formValues);
       var rr = new FormData();
@@ -78029,11 +78030,15 @@ function (_Component) {
         headers: header
       }) // console.log(JSON.stringify(rr));
       .then(function (res) {
-        return _this3.setState({
+        _this3.setState({
           alert_message: "success"
         });
+
+        console.log(res);
       })["catch"](function (error) {
-        return _this3.setState({
+        console.log(error.response.data.errors);
+
+        _this3.setState({
           alert_message: "error"
         });
       });
@@ -78147,9 +78152,9 @@ function (_Component) {
           height: 36 + "px"
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", null, "Pilih"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "Pria"
+        value: "pria"
       }, "Pria"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "Wanita"
+        value: "wanita"
       }, "Wanita")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
@@ -78157,28 +78162,48 @@ function (_Component) {
         "class": "col-sm-3 control-label col-form-label"
       }, "Golongan Darah"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         "class": "col-sm-9"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        className: "form-control",
-        type: "text",
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         name: "goldar",
-        placeholder: "Golongan Darah",
-        value: this.state.formValues["goldar"],
-        onChange: this.handleChange.bind(this)
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        "class": "select2 form-control custom-select",
+        style: {
+          width: 100 + "%",
+          height: 36 + "px"
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", null, "Pilih"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "A"
+      }, "A"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "B"
+      }, "B"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "AB"
+      }, "AB"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "O"
+      }, "O")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         "for": "agama",
         "class": "col-sm-3 control-label col-form-label"
       }, "Agama"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         "class": "col-sm-9"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        className: "form-control",
-        type: "text",
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         name: "agama",
-        placeholder: "Agama",
-        value: this.state.formValues["agama"],
-        onChange: this.handleChange.bind(this)
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        "class": "select2 form-control custom-select",
+        style: {
+          width: 100 + "%",
+          height: 36 + "px"
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", null, "Pilih"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "islam"
+      }, "Islam"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "kristen katolik"
+      }, "Kristen Katolik"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "kristen protestan"
+      }, "Kristen Protestan"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "hindu"
+      }, "Hindu"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "buddha"
+      }, "Buddha"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "konghucu"
+      }, "Konghucu")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         "for": "alamat",

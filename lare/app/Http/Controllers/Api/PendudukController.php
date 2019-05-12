@@ -38,6 +38,23 @@ class PendudukController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request,[
+            'nama'=>'required|string',
+            'nik'=>'required|integer',
+            'kk'=>'required|integer',
+            'tempatlahir'=>'required|string',
+            'ttl'=>'required|date',
+            'jk'=>'required|string',
+            'goldar'=>'required|string',
+            'agama'=>'required|string',
+            'alamat'=>'required|string',
+            'perkawinan'=>'required|string',
+            'warga'=>'required|string',
+            'pekerjaan'=>'required|string',
+            'ayah'=>'required|string',
+            'ibu'=>'required|string',
+            'foto'=>'nullable|string'
+        ]);
         $penduduk = new Penduduk();
         if (isset($request->gambar))
         {
@@ -46,7 +63,9 @@ class PendudukController extends Controller
             $request->gambar->move('uploads/file',$newName);
             $penduduk->foto = $newName;
         }
+        
         $penduduk->fill([
+            'user_id' => $request->user()->id,
             'nama'=>$request->nama,
             'nik'=>$request->nik,
             'kk'=>$request->kk,
@@ -60,7 +79,9 @@ class PendudukController extends Controller
             'warga'=>$request->warga,
             'pekerjaan'=>$request->pekerjaan,
             'ayah'=>$request->ayah,
-            'ibu'=>$request->ibu]);
+            'ibu'=>$request->ibu,
+        ]);
+        $penduduk->user_id=$request->user()->id;
         $penduduk->save();
     }
 
@@ -149,4 +170,5 @@ class PendudukController extends Controller
         }
         $penduduk->delete();
     }
+    
 }

@@ -34,7 +34,7 @@ export default class Add extends Component {
             formValues[name] = value;
         }
 
-        console.log(formValues);
+        // console.log(formValues);
         if(name!=undefined){
         this.setState({
             formValues: formValues
@@ -53,6 +53,8 @@ export default class Add extends Component {
     onSubmit(e) {
         this.getnamevalue('ttl');
         this.getnamevalue('jk');
+        this.getnamevalue('agama')
+        this.getnamevalue('goldar')
         e.preventDefault();
         console.log(this.state.formValues);
         var rr = new FormData();
@@ -68,16 +70,18 @@ export default class Add extends Component {
         }
         axios.post('/api/penduduk/store',rr,{headers:header})
         // console.log(JSON.stringify(rr));
-            .then(res =>
+            .then(res =>{
                 this.setState({
                     alert_message: "success"
                 })
-            )
-            .catch(error =>
+                console.log(res)
+            })
+            .catch(error =>{
+                console.log(error.response.data.errors)
                 this.setState({
                     alert_message: "error"
                 })
-            );
+            });
     }
 
     render() {
@@ -195,8 +199,8 @@ export default class Add extends Component {
                                         height: 36 + "px"
                                     }}>
                                             <option>Pilih</option>
-                                            <option value="Pria">Pria</option>
-                                            <option value="Wanita">Wanita</option>
+                                            <option value="pria">Pria</option>
+                                            <option value="wanita">Wanita</option>
                                     </select>
                                 </div>
                             </div>
@@ -208,14 +212,24 @@ export default class Add extends Component {
                                     Golongan Darah
                                 </label>
                                 <div class="col-sm-9">
-                                    <input
+                                    {/* <input
                                         className="form-control"
                                         type="text"
                                         name="goldar"
                                         placeholder="Golongan Darah"
                                         value={this.state.formValues["goldar"]}
                                         onChange={this.handleChange.bind(this)}
-                                    />
+                                    /> */}
+                                    <select name="goldar" class="select2 form-control custom-select" style={{
+                                        width: 100 + "%",
+                                        height: 36 + "px"
+                                    }}>
+                                            <option>Pilih</option>
+                                            <option value="A">A</option>
+                                            <option value="B">B</option>
+                                            <option value="AB">AB</option>
+                                            <option value="O">O</option>
+                                    </select>
                                 </div>
                             </div>
                             <div className="form-group row">
@@ -226,14 +240,26 @@ export default class Add extends Component {
                                     Agama
                                 </label>
                                 <div class="col-sm-9">
-                                    <input
+                                    {/* <input
                                         className="form-control"
                                         type="text"
                                         name="agama"
                                         placeholder="Agama"
                                         value={this.state.formValues["agama"]}
                                         onChange={this.handleChange.bind(this)}
-                                    />
+                                    /> */}
+                                    <select name="agama" class="select2 form-control custom-select" style={{
+                                        width: 100 + "%",
+                                        height: 36 + "px"
+                                    }}>
+                                            <option>Pilih</option>
+                                            <option value="islam">Islam</option>
+                                            <option value="kristen katolik">Kristen Katolik</option>
+                                            <option value="kristen protestan">Kristen Protestan</option>
+                                            <option value="hindu">Hindu</option>
+                                            <option value="buddha">Buddha</option>
+                                            <option value="konghucu">Konghucu</option>
+                                    </select>
                                 </div>
                             </div>
                             <div className="form-group row">
