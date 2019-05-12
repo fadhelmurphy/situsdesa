@@ -4,6 +4,7 @@ import Header from './Header';
 import Footer from './Footer';
 import Login from './Login';
 import Daftar from './Daftar'
+import About from './About'
 import Home from './Home';
 import Antrian from './Antrian'
 import AdminAntrian from './AdminAntrian'
@@ -38,7 +39,8 @@ export default class Index extends Component {
             <Route exact path="/daftar" component={Daftar}></Route>
             <Route exact path="/antrian" component={Antrian}></Route>
             <Route exact path="/admin-antrian" component={AdminAntrian}></Route>
-            <Route path="/" component={Header}></Route>
+            <Route path="/dashboard" component={Header}></Route>
+            <Route path="/" component={About}></Route>
             
             
             </Switch>

@@ -60,8 +60,14 @@ export default class Add extends Component {
             if (key == "gambar") rr.append(key, value, value.name);
             else rr.append(key, value);
         }
+        
+        const token = JSON.parse(window.localStorage.getItem('authUser'))
+        const header ={
+            'Accept':'application/json',
+            'Authorization':'Bearer '+ token.access_token
+        }
+        axios.post('/api/penduduk/store',rr,{headers:header})
         // console.log(JSON.stringify(rr));
-        axios.post("/api/penduduk/store", rr)
             .then(res =>
                 this.setState({
                     alert_message: "success"

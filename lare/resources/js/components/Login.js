@@ -40,6 +40,27 @@ export default class Login extends Component{
                 this.setState({secret:res.data.secret})
             })
         }
+        const script2 = document.createElement("script")
+        script2.innerHTML = `
+
+        $('[data-toggle="tooltip"]').tooltip();
+        $(".preloader").fadeOut();
+        // ============================================================== 
+        // Login and Recover Password 
+        // ============================================================== 
+        $('#to-recover').on("click", function() {
+            $("#loginform").slideUp();
+            $("#recoverform").fadeIn();
+        });
+        $('#to-login').click(function(){
+            
+            $("#recoverform").hide();
+            $("#loginform").fadeIn();
+        });
+        `
+        script2.async = true
+        script2.className = 'berita'
+        document.body.appendChild(script2)
     }
     handleChange(e){
         // console.log(JSON.parse(window.localStorage.getItem('authUser'))['access_token'])

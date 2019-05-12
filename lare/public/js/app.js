@@ -75229,6 +75229,78 @@ function (_Component) {
       }
     }
   }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      //An array of assets
+      var scripts = [{
+        src: "/matrix/assets/libs/jquery/dist/jquery.min.js"
+      }, {
+        src: "/matrix/assets/libs/popper.js/dist/umd/popper.min.js"
+      }, {
+        src: "/matrix/assets/libs/bootstrap/dist/js/bootstrap.min.js"
+      }, {
+        src: "/matrix/assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"
+      }, {
+        src: "/matrix/assets/extra-libs/sparkline/sparkline.js"
+      }, {
+        src: "/matrix/dist/js/waves.js"
+      }, {
+        src: "/matrix/dist/js/sidebarmenu.js"
+      }, {
+        src: "/matrix/dist/js/custom.min.js"
+      }, {
+        src: "/matrix/assets/libs/flot/excanvas.js"
+      }, {
+        src: "/matrix/assets/libs/flot/jquery.flot.js"
+      }, {
+        src: "/matrix/assets/libs/flot/jquery.flot.pie.js"
+      }, {
+        src: "/matrix/assets/libs/flot/jquery.flot.time.js"
+      }, {
+        src: "/matrix/assets/libs/flot/jquery.flot.stack.js"
+      }, {
+        src: "/matrix/assets/libs/flot/jquery.flot.crosshair.js"
+      }, {
+        src: "/matrix/assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js"
+      }, {
+        src: "/matrix/dist/js/pages/chart/chart-page-init.js"
+      }]; //Append the script element on each iteration
+
+      scripts.map(function (item) {
+        var script = document.createElement("script");
+        script.src = item.src;
+        script.async = true;
+        script.className = 'penduduk';
+        document.body.appendChild(script);
+      }); //An array of assets
+
+      var links = [{
+        src: "https://fonts.googleapis.com/css?family=Nunito:200,600"
+      }, {
+        src: "/matrix/assets/libs/flot/css/float-chart.css"
+      }, {
+        src: "/matrix/assets/libs/select2/dist/css/select2.min.css"
+      }, {
+        src: "/matrix/assets/libs/jquery-minicolors/jquery.minicolors.css"
+      }, {
+        src: "/matrix/assets/libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css"
+      }, {
+        src: "/matrix/assets/libs/quill/dist/quill.snow.css"
+      }, {
+        src: "/matrix/dist/css/style.min.css"
+      }]; //Append the script element on each iteration
+
+      links.map(function (item) {
+        var link = document.createElement("link");
+        link.href = item.src;
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.async = true;
+        link.className = 'dashboard';
+        document.body.appendChild(link);
+      });
+    }
+  }, {
     key: "onLogout",
     value: function onLogout(e) {
       var token = JSON.parse(window.localStorage.getItem('authUser'));
@@ -75510,10 +75582,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Footer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Footer */ "./resources/js/components/Footer.js");
 /* harmony import */ var _Login__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Login */ "./resources/js/components/Login.js");
 /* harmony import */ var _Daftar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Daftar */ "./resources/js/components/Daftar.js");
-/* harmony import */ var _Home__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Home */ "./resources/js/components/Home.js");
-/* harmony import */ var _Antrian__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Antrian */ "./resources/js/components/Antrian.js");
-/* harmony import */ var _AdminAntrian__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./AdminAntrian */ "./resources/js/components/AdminAntrian.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+/* harmony import */ var _About__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./About */ "./resources/js/components/About.js");
+/* harmony import */ var _Home__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Home */ "./resources/js/components/Home.js");
+/* harmony import */ var _Antrian__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Antrian */ "./resources/js/components/Antrian.js");
+/* harmony import */ var _AdminAntrian__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./AdminAntrian */ "./resources/js/components/AdminAntrian.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -75531,6 +75604,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -75576,30 +75650,33 @@ function (_Component) {
         id: "main-wrapper",
         "data-sidebartype": "full",
         className: ""
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__["Route"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_10__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_10__["Route"], {
         exact: true,
         path: "/login",
         name1: "halo",
         component: _Login__WEBPACK_IMPORTED_MODULE_4__["default"]
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__["Route"], {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_10__["Route"], {
         exact: true,
         path: "/home",
-        component: _Home__WEBPACK_IMPORTED_MODULE_6__["default"]
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__["Route"], {
+        component: _Home__WEBPACK_IMPORTED_MODULE_7__["default"]
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_10__["Route"], {
         exact: true,
         path: "/daftar",
         component: _Daftar__WEBPACK_IMPORTED_MODULE_5__["default"]
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__["Route"], {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_10__["Route"], {
         exact: true,
         path: "/antrian",
-        component: _Antrian__WEBPACK_IMPORTED_MODULE_7__["default"]
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__["Route"], {
+        component: _Antrian__WEBPACK_IMPORTED_MODULE_8__["default"]
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_10__["Route"], {
         exact: true,
         path: "/admin-antrian",
-        component: _AdminAntrian__WEBPACK_IMPORTED_MODULE_8__["default"]
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__["Route"], {
-        path: "/",
+        component: _AdminAntrian__WEBPACK_IMPORTED_MODULE_9__["default"]
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_10__["Route"], {
+        path: "/dashboard",
         component: _Header__WEBPACK_IMPORTED_MODULE_2__["default"]
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_10__["Route"], {
+        path: "/",
+        component: _About__WEBPACK_IMPORTED_MODULE_6__["default"]
       })));
     }
   }]);
@@ -75610,7 +75687,7 @@ function (_Component) {
 
 
 if (document.getElementById('app')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__["BrowserRouter"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Index, null)), document.getElementById('app'));
+  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_10__["BrowserRouter"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Index, null)), document.getElementById('app'));
 }
 
 /***/ }),
@@ -75705,6 +75782,12 @@ function (_Component) {
           });
         });
       }
+
+      var script2 = document.createElement("script");
+      script2.innerHTML = "\n\n        $('[data-toggle=\"tooltip\"]').tooltip();\n        $(\".preloader\").fadeOut();\n        // ============================================================== \n        // Login and Recover Password \n        // ============================================================== \n        $('#to-recover').on(\"click\", function() {\n            $(\"#loginform\").slideUp();\n            $(\"#recoverform\").fadeIn();\n        });\n        $('#to-login').click(function(){\n            \n            $(\"#recoverform\").hide();\n            $(\"#loginform\").fadeIn();\n        });\n        ";
+      script2.async = true;
+      script2.className = 'berita';
+      document.body.appendChild(script2);
     }
   }, {
     key: "handleChange",
@@ -76618,6 +76701,45 @@ function (_Component) {
   }
 
   _createClass(Index, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      //An array of assets
+      var scripts = [{
+        src: "/matrix/assets/libs/inputmask/dist/min/jquery.inputmask.bundle.min.js"
+      }, {
+        src: "/matrix/dist/js/pages/mask/mask.init.js"
+      }, {
+        src: "/matrix/assets/libs/select2/dist/js/select2.full.min.js"
+      }, {
+        src: "/matrix/assets/libs/select2/dist/js/select2.min.js"
+      }, {
+        src: "/matrix/assets/libs/jquery-asColor/dist/jquery-asColor.min.js"
+      }, {
+        src: "/matrix/assets/libs/jquery-asGradient/dist/jquery-asGradient.js"
+      }, {
+        src: "/matrix/assets/libs/jquery-asColorPicker/dist/jquery-asColorPicker.min.js"
+      }, {
+        src: "/matrix/assets/libs/jquery-minicolors/jquery.minicolors.min.js"
+      }, {
+        src: "/matrix/assets/libs/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"
+      }, {
+        src: "/matrix/assets/libs/quill/dist/quill.min.js"
+      }]; //Append the script element on each iteration
+
+      scripts.map(function (item) {
+        var script = document.createElement("script");
+        script.src = item.src;
+        script.async = true;
+        script.className = 'berita';
+        document.body.appendChild(script);
+      });
+      var script2 = document.createElement("script");
+      script2.innerHTML = "\n        //***********************************//\n        // For select 2\n        //***********************************//\n        $(\".select2\").select2();\n\n        /*colorpicker*/\n        $('.demo').each(function() {\n        //\n        // Dear reader, it's actually very easy to initialize MiniColors. For example:\n        //\n        //  $(selector).minicolors();\n        //\n        // The way I've done it below is just for the demo, so don't get confused\n        // by it. Also, data- attributes aren't supported at this time...they're\n        // only used for this demo.\n        //\n        $(this).minicolors({\n                control: $(this).attr('data-control') || 'hue',\n                position: $(this).attr('data-position') || 'bottom left',\n\n                change: function(value, opacity) {\n                    if (!value) return;\n                    if (opacity) value += ', ' + opacity;\n                    if (typeof console === 'object') {\n                        console.log(value);\n                    }\n                },\n                theme: 'bootstrap'\n            });\n\n        });\n        /*datwpicker*/\n        jQuery('.mydatepicker').datepicker();\n        jQuery('#datepicker-autoclose').datepicker({\n            autoclose: true,\n            todayHighlight: true\n        });\n        var quill = new Quill('#editor', {\n            theme: 'snow'\n        });\n        ";
+      script2.async = true;
+      script2.className = 'berita';
+      document.body.appendChild(script2);
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this2 = this;
@@ -76757,18 +76879,17 @@ function (_Component) {
     value: function hakAkses(user, id) {
       // console.log('user :',user,'id :',id)//user berasal dari siapa pembuat berita
       if (this.state.user === user.id || user.role_id >= this.state.hak) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+          to: '/dashboard/berita/edit/' + id
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           type: "button",
           "class": "btn btn-cyan btn-sm"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
-          to: '/dashboard/berita/edit/' + id
         }, "Edit")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           type: "button",
-          "class": "btn btn-danger btn-sm"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+          "class": "btn btn-danger btn-sm",
           href: "#",
           onClick: this.onDelete.bind(id)
-        }, "Delete")));
+        }, "Delete"));
       }
     }
   }, {
@@ -76813,7 +76934,12 @@ function (_Component) {
         message: "Error occured while deleting the berita."
       }) : null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
         "class": "card-title"
-      }, "Latest Posts")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Latest Posts"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+        to: '/dashboard/berita/add'
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        "class": "btn btn-cyan btn-sm"
+      }, "Tambah +"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         "class": "comment-widgets scrollable"
       }, this.state.news.map(function (berita, index) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -77046,10 +77172,17 @@ function (_Component) {
             value = _Object$entries$_i[1];
 
         if (key == "gambar") rr.append(key, value, value.name);else rr.append(key, value);
-      } // console.log(JSON.stringify(rr));
+      }
 
-
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.post("/api/penduduk/store", rr).then(function (res) {
+      var token = JSON.parse(window.localStorage.getItem('authUser'));
+      var header = {
+        'Accept': 'application/json',
+        'Authorization': 'Bearer ' + token.access_token
+      };
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('/api/penduduk/store', rr, {
+        headers: header
+      }) // console.log(JSON.stringify(rr));
+      .then(function (res) {
         return _this3.setState({
           alert_message: "success"
         });
@@ -77865,6 +77998,51 @@ function (_Component) {
   }
 
   _createClass(Index, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      //An array of assets
+      var scripts = [{
+        src: "/matrix/assets/extra-libs/multicheck/datatable-checkbox-init.js"
+      }, {
+        src: "/matrix/assets/extra-libs/multicheck/jquery.multicheck.js"
+      }, {
+        src: "/matrix/assets/extra-libs/DataTables/datatables.min.js"
+      }, {
+        src: "/matrix/assets/libs/inputmask/dist/min/jquery.inputmask.bundle.min.js"
+      }, {
+        src: "/matrix/dist/js/pages/mask/mask.init.js"
+      }, {
+        src: "/matrix/assets/libs/select2/dist/js/select2.full.min.js"
+      }, {
+        src: "/matrix/assets/libs/select2/dist/js/select2.min.js"
+      }, {
+        src: "/matrix/assets/libs/jquery-asColor/dist/jquery-asColor.min.js"
+      }, {
+        src: "/matrix/assets/libs/jquery-asGradient/dist/jquery-asGradient.js"
+      }, {
+        src: "/matrix/assets/libs/jquery-asColorPicker/dist/jquery-asColorPicker.min.js"
+      }, {
+        src: "/matrix/assets/libs/jquery-minicolors/jquery.minicolors.min.js"
+      }, {
+        src: "/matrix/assets/libs/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"
+      }, {
+        src: "/matrix/assets/libs/quill/dist/quill.min.js"
+      }]; //Append the script element on each iteration
+
+      scripts.map(function (item) {
+        var script = document.createElement("script");
+        script.src = item.src;
+        script.async = true;
+        script.className = 'penduduk';
+        document.body.appendChild(script);
+      });
+      var script2 = document.createElement("script");
+      script2.innerHTML = "\n        //***********************************//\n        // For select 2\n        //***********************************//\n        $(\".select2\").select2();\n\n        /*colorpicker*/\n        $('.demo').each(function() {\n        //\n        // Dear reader, it's actually very easy to initialize MiniColors. For example:\n        //\n        //  $(selector).minicolors();\n        //\n        // The way I've done it below is just for the demo, so don't get confused\n        // by it. Also, data- attributes aren't supported at this time...they're\n        // only used for this demo.\n        //\n        $(this).minicolors({\n                control: $(this).attr('data-control') || 'hue',\n                position: $(this).attr('data-position') || 'bottom left',\n\n                change: function(value, opacity) {\n                    if (!value) return;\n                    if (opacity) value += ', ' + opacity;\n                    if (typeof console === 'object') {\n                        console.log(value);\n                    }\n                },\n                theme: 'bootstrap'\n            });\n\n        });\n        /*datwpicker*/\n        jQuery('.mydatepicker').datepicker();\n        jQuery('#datepicker-autoclose').datepicker({\n            autoclose: true,\n            todayHighlight: true\n        });\n        var quill = new Quill('#editor', {\n            theme: 'snow'\n        });\n        ";
+      script2.async = true;
+      script2.className = 'penduduk';
+      document.body.appendChild(script2);
+    }
+  }, {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
@@ -78035,7 +78213,12 @@ function (_Component) {
         message: "Error occured while deleting the penduduk."
       }) : null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
         "class": "card-title"
-      }, "penduduk"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "penduduk"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+        to: '/dashboard/penduduk/add'
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        "class": "btn btn-cyan btn-sm"
+      }, "Tambah +")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         "class": "table-responsive"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
         id: "zero_config",
@@ -78142,8 +78325,8 @@ function (_Component) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! c:\xampp\htdocs\pusher\lare\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! c:\xampp\htdocs\pusher\lare\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\asus\Documents\lare\lare\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\asus\Documents\lare\lare\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

@@ -41,6 +41,57 @@ export default class Header extends Component {
         }
 
     }
+
+    componentDidMount(){
+                    //An array of assets
+    let scripts = [
+        { src: "/matrix/assets/libs/jquery/dist/jquery.min.js" },
+        { src: "/matrix/assets/libs/popper.js/dist/umd/popper.min.js" },
+        { src: "/matrix/assets/libs/bootstrap/dist/js/bootstrap.min.js" },
+        { src: "/matrix/assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js" },
+        { src: "/matrix/assets/extra-libs/sparkline/sparkline.js" },
+        { src: "/matrix/dist/js/waves.js" },
+        { src: "/matrix/dist/js/sidebarmenu.js" },
+        { src: "/matrix/dist/js/custom.min.js" },
+        { src: "/matrix/assets/libs/flot/excanvas.js" },
+        { src: "/matrix/assets/libs/flot/jquery.flot.js" },
+        { src: "/matrix/assets/libs/flot/jquery.flot.pie.js" },
+        { src: "/matrix/assets/libs/flot/jquery.flot.time.js" },
+        { src: "/matrix/assets/libs/flot/jquery.flot.stack.js" },
+        { src: "/matrix/assets/libs/flot/jquery.flot.crosshair.js" },
+        { src: "/matrix/assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js" },
+        { src: "/matrix/dist/js/pages/chart/chart-page-init.js" },
+    ]
+    //Append the script element on each iteration
+    scripts.map(item => { 
+        const script = document.createElement("script")
+        script.src = item.src
+        script.async = true
+        script.className = 'penduduk'
+        document.body.appendChild(script)
+    })
+    //An array of assets
+    let links = [
+        { src: "https://fonts.googleapis.com/css?family=Nunito:200,600" },
+        { src: "/matrix/assets/libs/flot/css/float-chart.css" },
+        { src: "/matrix/assets/libs/select2/dist/css/select2.min.css" },
+        { src: "/matrix/assets/libs/jquery-minicolors/jquery.minicolors.css" },
+        { src: "/matrix/assets/libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css" },
+        { src: "/matrix/assets/libs/quill/dist/quill.snow.css" },
+        { src: "/matrix/dist/css/style.min.css" },
+    ]
+    //Append the script element on each iteration
+    links.map(item => { 
+        const link = document.createElement("link")
+        link.href = item.src
+        link.rel = 'stylesheet'
+        link.type = 'text/css'
+        link.async = true
+        link.className = 'dashboard'
+        document.body.appendChild(link)
+    })
+    }
+
     onLogout(e){
         var token=JSON.parse(window.localStorage.getItem('authUser'))
         if(token !=null){

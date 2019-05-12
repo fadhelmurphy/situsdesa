@@ -78,6 +78,7 @@ export default class Listing extends Component {
             {this.state.alert_message=="success"?<SuccessAlert message={"penduduk deleted successfully."} />:null}
             {this.state.alert_message=="error"?<ErrorAlert message={"Error occured while deleting the penduduk."} />:null}
             <h5 class="card-title">penduduk</h5>
+            <Link to={'/dashboard/penduduk/add'}><button type="button" class="btn btn-cyan btn-sm">Tambah +</button></Link>
             <div class="table-responsive">
             <table id="zero_config" className="table table-striped table-bordered">
 			  <thead>

@@ -58,8 +58,8 @@ export default class Listing extends Component {
             
             return(
                 <>
-                <button type="button" class="btn btn-cyan btn-sm"><Link to={'/dashboard/berita/edit/'+id}>Edit</Link></button>
-                <button type="button" class="btn btn-danger btn-sm" ><a href="#" onClick={this.onDelete.bind(id)}>Delete</a></button>
+                <Link to={'/dashboard/berita/edit/'+id}><button type="button" class="btn btn-cyan btn-sm">Edit</button></Link>
+                <button type="button" class="btn btn-danger btn-sm" href="#" onClick={this.onDelete.bind(id)}>Delete</button>
                 </> 
             )
             
@@ -98,6 +98,7 @@ export default class Listing extends Component {
                             {this.state.alert_message=="success"?<SuccessAlert message={"Berita deleted successfully."} />:null}
             {this.state.alert_message=="error"?<ErrorAlert message={"Error occured while deleting the berita."} />:null}
                                 <h4 class="card-title">Latest Posts</h4>
+                                <Link to={'/dashboard/berita/add'}><button type="button" class="btn btn-cyan btn-sm">Tambah +</button></Link>
                             </div>
                             <div class="comment-widgets scrollable">
                             {
