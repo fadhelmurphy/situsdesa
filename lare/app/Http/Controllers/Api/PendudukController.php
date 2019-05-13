@@ -104,6 +104,7 @@ class PendudukController extends Controller
      */
     public function edit($id)
     {
+        
         $berita = Penduduk::find($id);
         $data = array();
         if($berita==null){
@@ -124,6 +125,23 @@ class PendudukController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validate($request,[
+            'nama'=>'required|string',
+            'nik'=>'required|string',
+            'kk'=>'required|string',
+            'tempatlahir'=>'required|string',
+            'ttl'=>'required|date',
+            'jk'=>'required|string',
+            'goldar'=>'required|string',
+            'agama'=>'required|string',
+            'alamat'=>'required|string',
+            'perkawinan'=>'required|string',
+            'warga'=>'required|string',
+            'pekerjaan'=>'required|string',
+            'ayah'=>'required|string',
+            'ibu'=>'required|string',
+            'foto'=>'nullable|string'
+        ]);
         $penduduk = Penduduk::find($id);
         if(!is_object($request->foto)){
             $newName = $request->foto;

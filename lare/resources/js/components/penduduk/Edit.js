@@ -74,7 +74,7 @@ export default class Edit extends Component {
             else rr.append(key, value);
         }
         // console.log(JSON.stringify(rr));
-                const token = JSON.parse(window.localStorage.getItem('authUser'))
+        const token = JSON.parse(window.localStorage.getItem('authUser'))
         const header ={
             'Accept':'application/json',
             'Authorization':'Bearer '+ token.access_token
@@ -85,11 +85,12 @@ export default class Edit extends Component {
                     alert_message: "success"
                 })
             )
-            .catch(error =>
+            .catch(error =>{
                 this.setState({
                     alert_message: "error"
                 })
-            );
+                console.log(error.response.data.errors)
+            });
     }
 
     render() {
@@ -187,7 +188,7 @@ export default class Edit extends Component {
                             class="col-sm-3">Bulan Tanggal Tahun Lahir <small class="text-muted">dd/mm/yyyy</small></label>
                             <div class="col-sm-9">
                             <div class="input-group">
-                            <input type="text" name="ttl" class="form-control" id="datepicker-autoclose" placeholder="mm/dd/yyyy"/>
+                            <input type="text" name="ttl" value={this.state.formValues["ttl"]} class="form-control" id="datepicker-autoclose" placeholder="mm/dd/yyyy"/>
                             <div class="input-group-append">
                                 <span class="input-group-text"><i class="fa fa-calendar"></i></span>
                             </div>

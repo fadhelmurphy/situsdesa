@@ -25,6 +25,9 @@ class DatabaseSeeder extends Seeder
 
         ]);
         DB::table('antrian')->insert([
+            ['no_antrian'=>1,'status'=>0,'created_at'=>'2019-05-12 11:00:00'],
+            ['no_antrian'=>2,'status'=>0,'created_at'=>'2019-05-12 11:01:00'],
+            ['no_antrian'=>3,'status'=>0,'created_at'=>'2019-05-12 11:02:00'],
             ['no_antrian'=>1,'status'=>0,'created_at'=>Carbon::now()],
             ['no_antrian'=>2,'status'=>0,'created_at'=>Carbon::now()],
             ['no_antrian'=>3,'status'=>0,'created_at'=>Carbon::now()],

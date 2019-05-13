@@ -21,25 +21,32 @@ export default class Antrian extends Component {
         }
     }
     componentWillMount(){
-        
+        function isntEmpty(obj) {
+            for(var key in obj) {
+                if(obj.hasOwnProperty(key))
+                    return true;
+            }
+            return false;
+        }
         
         axios.get('/api/antrian-last')
         .then(res=>{
-            this.setState({no_antrian:res.data.no_antrian+1, isLoad:false})
-            // this.setState({nomor:res.data.no_antrian+1, isLoad:false})
-            console.log(res.data)
+            if(isntEmpty(res.data)){
+                this.setState({no_antrian:res.data.no_antrian+1, isLoad:false})
+            }else{
+                this.setState({isLoad:false})
+            }
         })
     }
     daftar(){
-        if( this.state.klik) return console.log('double')
+        if( this.state.klik) return 
         this.setState({klik:true},function(e){
-            // console.log(this.state)
             let no_antrian= this.state.no_antrian
             axios.post('/api/antrian-tambah',{no_antrian})
             .then(res=>{
                 this.setState({'no_antrian':no_antrian+1})
                 this.setState({klik:false})
-                console.log(res)
+                
             })
         })
         
