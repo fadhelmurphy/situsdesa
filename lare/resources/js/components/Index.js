@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Header from './Header';
-import Footer from './Footer';
 import Login from './Login';
-import Daftar from './Daftar'
-import About from './About'
+import Footer from './Footer';
 import Home from './Home';
-import Antrian from './Antrian'
 import {BrowserRouter as Router, Route,Switch} from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/js/bootstrap.js';
 
 export default class Index extends Component {
     constructor(props){
@@ -51,12 +49,11 @@ export default class Index extends Component {
         return (
             <div id="main-wrapper" data-sidebartype="full" className="">
             <Switch>
-            <Route exact path="/login" name1={"halo"} component={Login}></Route>
             {/* <Route exact path='/haha'  render={(props) => <Login {...props} acc={this.state.acc} akun={this.state.akun} />} /> */}
-            <Route exact path="/daftar" component={Daftar}></Route>
-            <Route exact path="/antrian" component={Antrian}></Route>
+            
+            <Route exact path="/login" name1={"halo"} component={Login}></Route>
             <Route path="/dashboard" component={Header}></Route>
-            <Route exact path="/" component={Home}></Route>
+            <Route path="/" component={Home}></Route>
             
             </Switch>
             </div>

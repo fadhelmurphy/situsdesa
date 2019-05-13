@@ -7,8 +7,8 @@ export default class Login extends Component{
         this.onSubmit =this.onSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.state = {
-            email:'s-admin@test.com',
-            password:'12345',
+            email:'',
+            password:'',
             redirect:false,
             secret:null
         }
@@ -129,7 +129,7 @@ export default class Login extends Component{
     }
     render(){
         if(this.state.redirect){
-            return <Redirect to='/dashboard/berita'/>;
+            return <Redirect to='/dashboard'/>;
         }else{
             return(
                 <>
