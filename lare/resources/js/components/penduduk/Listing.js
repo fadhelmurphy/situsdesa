@@ -14,9 +14,9 @@ export default class Listing extends Component {
             alert_message:'',
             search: '',
             activePage:1,
-            itemsCountPerPage:2,
-            totalItemsCount:12,
-            pageRangeDisplayed:4
+            itemsCountPerPage:0,
+            totalItemsCount:0,
+            pageRangeDisplayed:1
         }
         this.handlePageChange=this.handlePageChange.bind(this)
 	}
@@ -25,27 +25,24 @@ export default class Listing extends Component {
 	{
 		axios.get('/api/penduduk')
 		.then(res=>{
-            console.log(res.data);
-            this.setState({
-                news:res.data.data,
-                itemsCountPerPage:res.data.per_page,
-                totalItemsCount:res.data.total,
-                // pageRangeDisplayed:null,
-                activePage:res.data.current_page
-            })
-            if(res.data.last_page<4){
-                console.log('ok')
-                this.setState({pageRangeDisplayed:res.data.last_page})
-            }
-           
-            
+            if(res.data.data.length>0){
+                this.setState({
+                    news:res.data.data,
+                    itemsCountPerPage:res.data.per_page,
+                    totalItemsCount:res.data.total,
+                    activePage:res.data.current_page
+                })
+                if(res.data.last_page<4){
+                    this.setState({pageRangeDisplayed:res.data.last_page})
+                }else{
+                    this.setState({pageRangeDisplayed:4})
+                }
+            }   
 		});
     }
     handlePageChange(pageNumber) {
-        console.log(`active page is ${pageNumber}`);
         axios.get('/api/penduduk?page='+pageNumber)
         .then(res=>{
-            console.log(res.data)
             this.setState({news:res.data.data,
                 itemsCountPerPage:res.data.per_page,
                 totalItemsCount:res.data.total,
@@ -63,7 +60,6 @@ export default class Listing extends Component {
         event.target.value.toLowerCase()) !== -1;
     });
     this.setState({news: updatedList});
-    console.log(news);
     }
 
     onDelete(penduduk_id)
@@ -100,16 +96,16 @@ export default class Listing extends Component {
           }
         );
         return (
-            <div class="card">
+            <div className="card">
                 <input type="text" className="form-control form-control-lg" placeholder="Search"
                 value={this.state.search}
                 onChange={this.updateSearch.bind(this)}/>
-            <div class="card-body">
+            <div className="card-body">
             {this.state.alert_message=="success"?<SuccessAlert message={"penduduk deleted successfully."} />:null}
             {this.state.alert_message=="error"?<ErrorAlert message={"Error occured while deleting the penduduk."} />:null}
-            <h5 class="card-title">penduduk</h5>
-            <Link to={'/dashboard/penduduk/add'}><button type="button" class="btn btn-cyan btn-sm">Tambah +</button></Link>
-            <div class="table-responsive">
+            <h5 className="card-title">penduduk</h5>
+            <Link to={'/dashboard/penduduk/add'}><button type="button" className="btn btn-cyan btn-sm">Tambah +</button></Link>
+            <div className="table-responsive">
             <table id="zero_config" className="table table-striped table-bordered">
 			  <thead>
 			    <tr>

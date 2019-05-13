@@ -79376,9 +79376,9 @@ function (_Component) {
       alert_message: '',
       search: '',
       activePage: 1,
-      itemsCountPerPage: 2,
-      totalItemsCount: 12,
-      pageRangeDisplayed: 4
+      itemsCountPerPage: 0,
+      totalItemsCount: 0,
+      pageRangeDisplayed: 1
     };
     _this.handlePageChange = _this.handlePageChange.bind(_assertThisInitialized(_this));
     return _this;
@@ -79390,22 +79390,23 @@ function (_Component) {
       var _this2 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/penduduk').then(function (res) {
-        console.log(res.data);
-
-        _this2.setState({
-          news: res.data.data,
-          itemsCountPerPage: res.data.per_page,
-          totalItemsCount: res.data.total,
-          // pageRangeDisplayed:null,
-          activePage: res.data.current_page
-        });
-
-        if (res.data.last_page < 4) {
-          console.log('ok');
-
+        if (res.data.data.length > 0) {
           _this2.setState({
-            pageRangeDisplayed: res.data.last_page
+            news: res.data.data,
+            itemsCountPerPage: res.data.per_page,
+            totalItemsCount: res.data.total,
+            activePage: res.data.current_page
           });
+
+          if (res.data.last_page < 4) {
+            _this2.setState({
+              pageRangeDisplayed: res.data.last_page
+            });
+          } else {
+            _this2.setState({
+              pageRangeDisplayed: 4
+            });
+          }
         }
       });
     }
@@ -79414,10 +79415,7 @@ function (_Component) {
     value: function handlePageChange(pageNumber) {
       var _this3 = this;
 
-      console.log("active page is ".concat(pageNumber));
       axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/penduduk?page=' + pageNumber).then(function (res) {
-        console.log(res.data);
-
         _this3.setState({
           news: res.data.data,
           itemsCountPerPage: res.data.per_page,
@@ -79438,7 +79436,6 @@ function (_Component) {
       this.setState({
         news: updatedList
       });
-      console.log(news);
     }
   }, {
     key: "onDelete",
@@ -79481,7 +79478,7 @@ function (_Component) {
         return data.nama.toLocaleLowerCase().indexOf(_this5.state.search.toLocaleLowerCase()) > -1 || data.nik.indexOf(_this5.state.search.toLocaleLowerCase()) > -1;
       });
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "card"
+        className: "card"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         className: "form-control form-control-lg",
@@ -79489,20 +79486,20 @@ function (_Component) {
         value: this.state.search,
         onChange: this.updateSearch.bind(this)
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "card-body"
+        className: "card-body"
       }, this.state.alert_message == "success" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SuccessAlert__WEBPACK_IMPORTED_MODULE_3__["default"], {
         message: "penduduk deleted successfully."
       }) : null, this.state.alert_message == "error" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ErrorAlert__WEBPACK_IMPORTED_MODULE_4__["default"], {
         message: "Error occured while deleting the penduduk."
       }) : null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
-        "class": "card-title"
+        className: "card-title"
       }, "penduduk"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
         to: '/dashboard/penduduk/add'
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "button",
-        "class": "btn btn-cyan btn-sm"
+        className: "btn btn-cyan btn-sm"
       }, "Tambah +")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "table-responsive"
+        className: "table-responsive"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
         id: "zero_config",
         className: "table table-striped table-bordered"
