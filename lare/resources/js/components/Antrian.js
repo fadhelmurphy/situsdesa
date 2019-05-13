@@ -48,7 +48,7 @@ export default class Antrian extends Component {
         if(this.state.isLoad) return null
         return(
             <>
-            <div class="jumbotron">
+            <div class="jumbotron bg-transparent">
             <h1 className="text-center">Antrian</h1>
             <p>
             <div style={kotak} onClick={this.daftar} className="bg-info text-white d-flex justify-content-center align-items-center">{this.state.no_antrian} </div>
