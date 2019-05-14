@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 import {Link, Route} from 'react-router-dom';
 
-import Daftar from './Daftar'
 import Antrian from './Antrian'
 import Landing from './Landing'
 import About from './About'
@@ -10,11 +9,19 @@ import About from './About'
 // import {
 //   Hero, CallToAction, ScrollDownIndicator
 // } from 'react-landing-page'
+
 export default class Home extends Component {
     render() {
+      const jumbo = {
+        background:'linear-gradient(40deg,#45cafc,#303f9f)'
+      }
         return (
             <>
-               <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+
+<main role="main">
+<div class="jumbotron jumbotron-fluid" style={jumbo}>
+  <div class="container align-items-center">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
   <Link class="navbar-brand" to="/">Sistem Administrasi</Link>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -52,14 +59,25 @@ export default class Home extends Component {
     </div>
   </div>
 </nav>
-<main role="main">
-      <Route exact path="/" component={Landing}></Route>
-  <div class="container">
-      <Route exact path="/antrian" component={Antrian}></Route>
-      <Route exact path="/daftar" component={Daftar}></Route>
+      
+<div className="row mt-md-5">
+            
+            <div className="col">
+            <div className="blockquote text-center text-light">
+      <h1 class="display-3">Selamat Datang,</h1>
+      <p>Ini adalah aplikasi sistem administrasi desa</p>
+      <p><Link to="/login"><a class="btn btn-outline-light" href="#" role="button">Lebih lanjut »</a></Link></p>
+      </div>
+            </div>
+            </div>
       {/* <Route exact path="/dashboard/berita" acc={this.state.auth} component={Berita}></Route> */}
     </div>
-
+    </div>
+    <div class="jumbotron jumbotron-fluid bg-transparent">
+  <div class="container align-items-center">
+    <Route exact path="/antrian" component={Antrian}></Route>
+      </div>
+      </div>
 </main>
             </>
         );

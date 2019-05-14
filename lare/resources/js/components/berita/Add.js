@@ -89,10 +89,11 @@ export default class Add extends Component {
         // axios.post('/api/berita/store',rr)
         .then(
             res=>{
-                console.log(res)
+                console.log(res);
                 this.setState({
                     alert_message:"success"
                 });
+                window.location.href = "/dashboard/berita";
             }
         ).catch(
             error=>{
