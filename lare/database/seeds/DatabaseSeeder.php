@@ -28,28 +28,28 @@ class DatabaseSeeder extends Seeder
             ['no_antrian'=>1,'status'=>0,'created_at'=>'2019-05-12 11:00:00'],
             ['no_antrian'=>2,'status'=>0,'created_at'=>'2019-05-12 11:01:00'],
             ['no_antrian'=>3,'status'=>0,'created_at'=>'2019-05-12 11:02:00'],
-            ['no_antrian'=>1,'status'=>0,'created_at'=>Carbon::now()],
-            ['no_antrian'=>2,'status'=>0,'created_at'=>Carbon::now()],
-            ['no_antrian'=>3,'status'=>0,'created_at'=>Carbon::now()],
+            // ['no_antrian'=>1,'status'=>0,'created_at'=>Carbon::now()],
+            // ['no_antrian'=>2,'status'=>0,'created_at'=>Carbon::now()],
+            // ['no_antrian'=>3,'status'=>0,'created_at'=>Carbon::now()],
         ]);
-        // DB::table('berita')->insert([
-        //     ['user_id'=>1,'judul'=>'HHHHHHH','isi'=>'<p>LOLOLOLOLOLLO</p>'],
-        //     ['user_id'=>1,'judul'=>'HHHHHHH','isi'=>'<p>LOLOLOLOLOLLO</p>'],
-        //     ['user_id'=>1,'judul'=>'HHHHHHH','isi'=>'<p>LOLOLOLOLOLLO</p>'],
-        //     ['user_id'=>1,'judul'=>'HHHHHHH','isi'=>'<p>LOLOLOLOLOLLO</p>'],
-        //     ['user_id'=>1,'judul'=>'HHHHHHH','isi'=>'<p>LOLOLOLOLOLLO</p>'],
-        //     ['user_id'=>1,'judul'=>'HHHHHHH','isi'=>'<p>LOLOLOLOLOLLO</p>'],
-        //     ['user_id'=>1,'judul'=>'HHHHHHH','isi'=>'<p>LOLOLOLOLOLLO</p>'],
-        //     ['user_id'=>1,'judul'=>'HHHHHHH','isi'=>'<p>LOLOLOLOLOLLO</p>'],
-        //     ['user_id'=>1,'judul'=>'HHHHHHH','isi'=>'<p>LOLOLOLOLOLLO</p>'],
-        //     ['user_id'=>1,'judul'=>'HHHHHHH','isi'=>'<p>LOLOLOLOLOLLO</p>'],
-        //     ['user_id'=>1,'judul'=>'HHHHHHH','isi'=>'<p>LOLOLOLOLOLLO</p>'],
-        //     ['user_id'=>1,'judul'=>'HHHHHHH','isi'=>'<p>LOLOLOLOLOLLO</p>'],
-        //     ['user_id'=>1,'judul'=>'HHHHHHH','isi'=>'<p>LOLOLOLOLOLLO</p>'],
-        // ]);
+        DB::table('berita')->insert([
+            ['user_id'=>1,'judul'=>'HHHHHHH1','isi'=>'<p>LOLOLOLOLOLLO</p>'],
+            ['user_id'=>1,'judul'=>'HHHHHHH2','isi'=>'<p>LOLOLOLOLOLLO</p>'],
+            ['user_id'=>1,'judul'=>'HHHHHHH3','isi'=>'<p>LOLOLOLOLOLLO</p>'],
+            ['user_id'=>1,'judul'=>'HHHHHHH4','isi'=>'<p>LOLOLOLOLOLLO</p>'],
+            ['user_id'=>1,'judul'=>'HHHHHHH5','isi'=>'<p>LOLOLOLOLOLLO</p>'],
+            ['user_id'=>1,'judul'=>'HHHHHHH6','isi'=>'<p>LOLOLOLOLOLLO</p>'],
+            ['user_id'=>1,'judul'=>'HHHHHHH7','isi'=>'<p>LOLOLOLOLOLLO</p>'],
+            ['user_id'=>2,'judul'=>'HHHHHHH8','isi'=>'<p>LOLOLOLOLOLLO</p>'],
+            ['user_id'=>2,'judul'=>'HHHHHHH9','isi'=>'<p>LOLOLOLOLOLLO</p>'],
+            ['user_id'=>2,'judul'=>'HHHHHHH10','isi'=>'<p>LOLOLOLOLOLLO</p>'],
+            ['user_id'=>2,'judul'=>'HHHHHHH11','isi'=>'<p>LOLOLOLOLOLLO</p>'],
+            ['user_id'=>2,'judul'=>'HHHHHHH12','isi'=>'<p>LOLOLOLOLOLLO</p>'],
+            ['user_id'=>2,'judul'=>'HHHHHHH13','isi'=>'<p>LOLOLOLOLOLLO</p>'],
+        ]);
         
         $arr=[];
-        for($i=0;$i<12;$i++){
+        for($i=0;$i<10;$i++){
             $data=[
                 'nama'=>'r'.$i,
                 'nik'=>$i,

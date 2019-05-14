@@ -21,40 +21,40 @@ export default class Home extends Component {
             <>
 
 <main role="main">
-<div class="jumbotron jumbotron-fluid" style={jumbo}>
-  <div class="container align-items-center">
-  <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
-  <Link class="navbar-brand" to="/">Sistem Administrasi</Link>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+<div className="jumbotron jumbotron-fluid" style={jumbo}>
+  <div className="container align-items-center">
+  <nav className="navbar navbar-expand-lg navbar-light bg-light rounded">
+  <Link className="navbar-brand" to="/">Sistem Administrasi</Link>
+  <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span className="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-    <ul class="navbar-nav mr-auto">
+  <div className="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul className="navbar-nav mr-auto">
                   <li className="nav-item">
                     <Link className="nav-link" to="/dashboard/about">About Us</Link>
                   </li>
-                  <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Berita</a>
-        <div class="dropdown-menu" aria-labelledby="dropdown01">
-        <Link to="/dashboard/berita" class="dropdown-item">Lihat list</Link>
-        <Link to="/dashboard/berita/add" class="dropdown-item">Tambah</Link>
+                  <li className="nav-item dropdown">
+        <a className="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Berita</a>
+        <div className="dropdown-menu" aria-labelledby="dropdown01">
+        <Link to="/dashboard/berita" className="dropdown-item">Lihat list</Link>
+        <Link to="/dashboard/berita/add" className="dropdown-item">Tambah</Link>
         </div>
       </li>
-                  <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Penduduk</a>
-        <div class="dropdown-menu" aria-labelledby="dropdown01">
-        <Link to="/dashboard/penduduk" class="dropdown-item">Lihat list</Link>
-        <Link to="/dashboard/penduduk" class="dropdown-item">Tambah</Link>
+                  <li className="nav-item dropdown">
+        <a className="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Penduduk</a>
+        <div className="dropdown-menu" aria-labelledby="dropdown01">
+        <Link to="/dashboard/penduduk" className="dropdown-item">Lihat list</Link>
+        <Link to="/dashboard/penduduk" className="dropdown-item">Tambah</Link>
         </div>
       </li>
                   <li className="nav-item">
                     <Link className="nav-link" to="/antrian">Antrian</Link>
                   </li>
     </ul>
-    <div class="form-inline my-2 my-lg-0">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
+    <div className="form-inline my-2 my-lg-0">
+    <ul className="navbar-nav mr-auto">
+      <li className="nav-item active">
       <Link className="nav-link" to="/login">Login</Link>
       </li>
       </ul>
@@ -66,17 +66,17 @@ export default class Home extends Component {
             
             <div className="col">
             <div className="blockquote text-center text-light">
-      <h1 class="display-3">Selamat Datang,</h1>
+      <h1 className="display-3">Selamat Datang,</h1>
       <p>Ini adalah aplikasi sistem administrasi desa</p>
-      <p><Link to="/login"><a class="btn btn-outline-light" href="#" role="button">Lebih lanjut »</a></Link></p>
+      <p><Link to="/login"><a className="btn btn-outline-light" href="#" role="button">Lebih lanjut »</a></Link></p>
       </div>
             </div>
             </div>
       {/* <Route exact path="/dashboard/berita" acc={this.state.auth} component={Berita}></Route> */}
     </div>
     </div>
-    <div class="jumbotron jumbotron-fluid bg-transparent">
-  <div class="container align-items-center">
+    <div className="jumbotron jumbotron-fluid bg-transparent">
+  <div className="container align-items-center">
     <Route exact path="/antrian" component={Antrian}></Route>
     <Route exact path="/" component={Blog}></Route>
     <Route exact path="/blog/:id" component={Read}></Route>

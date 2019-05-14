@@ -36,7 +36,7 @@ export default class AdminAntrian extends Component {
             let data=this.state.data
             data.push(res)
             this.setState({data})
-            console.log(data)
+            // console.log(data)
             this.elMas()
         })
         Axios.get('/api/antrian-cek')
@@ -47,7 +47,7 @@ export default class AdminAntrian extends Component {
         })
         Axios.get('/api/antrian-terpanggil')
         .then(res=>{
-            console.log(res.data)
+            // console.log(res.data)
             this.setState({selesai:res.data,isLoad:false})
             let data=this.state.selesai
             this.elKel(data)
@@ -76,12 +76,12 @@ export default class AdminAntrian extends Component {
         let hapus=data.splice(index,1)
         this.elMas()
         let kel=this.state.selesai
-        console.log(kel)
+        // console.log(kel)
         Axios.post('/api/antrian-checklist',{delete:hapus[0]['id']})
         .then(res=>{
             kel.push(hapus[0])
             this.elKel(kel)
-            console.log(res)
+            // console.log(res)
         })
         
     }
@@ -95,7 +95,7 @@ export default class AdminAntrian extends Component {
             if(noA<noB){
                 return -1
             }
-        })
+        }).reverse()
         let el=datas.map((e,index)=>{
             return (<div className="row" key={index} style={jarak}>
                     <div className="col-4">
@@ -111,24 +111,24 @@ export default class AdminAntrian extends Component {
             return(<></>)
         }else{
             return(<>
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="card">
-                    <div class="card-header">
-                    <h3 class="card-title">Belum Dipanggil</h3>
+            <div className="row">
+                <div className="col-sm-6">
+                    <div className="card">
+                    <div className="card-header">
+                    <h3 className="card-title">Belum Dipanggil</h3>
                 </div>
-                    <div class="card-body">
-                        <p class="card-text">{this.state.elMas}</p>
+                    <div className="card-body">
+                        <div className="card-text">{this.state.elMas}</div>
                     </div>
                     </div>
                 </div>
-                <div class="col-sm-6">
-                    <div class="card">
-                    <div class="card-header">
-                    <h3 class="card-title">Telah Dipanggil</h3>
+                <div className="col-sm-6">
+                    <div className="card">
+                    <div className="card-header">
+                    <h3 className="card-title">Telah Dipanggil</h3>
                 </div>
-                    <div class="card-body">
-                        <p class="card-text">{this.state.elKel}</p>
+                    <div className="card-body">
+                        <div className="card-text">{this.state.elKel}</div>
                     </div>
                     </div>
                 </div>

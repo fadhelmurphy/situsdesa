@@ -15,7 +15,7 @@ export default class Antrian extends Component {
         super(props)
         this.daftar =this.daftar.bind(this);
         this.state={
-            'no_antrian':0,
+            'no_antrian':1,
             'isLoad':true,
             'klik':false
         }
@@ -55,13 +55,13 @@ export default class Antrian extends Component {
         if(this.state.isLoad) return null
         return(
             <>
-            <div class="jumbotron bg-transparent">
+            <div className="jumbotron bg-transparent">
             <h1 className="text-center">Antrian</h1>
             <p>
             <div style={kotak} onClick={this.daftar} className="bg-info text-white d-flex justify-content-center align-items-center">{this.state.no_antrian} </div>
             </p>
             <p>
-            <button type="button" onClick={this.daftar} class="btn btn-cyan btn-lg btn-block">+ Daftar</button>
+            <button type="button" onClick={this.daftar} className="btn btn-cyan btn-lg btn-block">+ Daftar</button>
             </p>
             </div>
             </>

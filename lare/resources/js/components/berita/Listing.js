@@ -3,6 +3,7 @@ import axios from 'axios';
 import {Link} from 'react-router-dom';
 import SuccessAlert from './SuccessAlert';
 import ErrorAlert from './ErrorAlert';
+import Pagination from "react-js-pagination";
 
 export default class Listing extends Component {
 
@@ -14,8 +15,13 @@ export default class Listing extends Component {
             alert_message:'',
             redirect:false,
             user:null,
-            hak:0
+            hak:0,
+            activePage:1,
+            itemsCountPerPage:0,
+            totalItemsCount:0,
+            pageRangeDisplayed:1,
         }
+        this.handlePageChange=this.handlePageChange.bind(this)
         // console.log(props)
     }
     
@@ -47,20 +53,41 @@ export default class Listing extends Component {
 	{
         // console.log(this.state)
 		axios.get('/api/berita')
-		.then(response=>{
-            // console.log(response.data);
-            this.setState({news:response.data});
+		.then(res=>{
+            // console.log(res.data);
+            this.setState({news:res.data.data,
+                itemsCountPerPage:res.data.per_page,
+                totalItemsCount:res.data.total,
+                activePage:res.data.current_page,})
+                if(res.data.last_page<4){
+                    this.setState({pageRangeDisplayed:res.data.last_page})
+                }else{
+                    this.setState({pageRangeDisplayed:4})
+                }
 		});
     }
+    handlePageChange(pageNumber) {
+        axios.get('/api/berita?page='+pageNumber)
+        .then(res=>{
+            this.setState({news:res.data.data,
+                itemsCountPerPage:res.data.per_page,
+                totalItemsCount:res.data.total,
+                activePage:res.data.current_page
+            })
+            if(res.data.last_page<4){
+                this.setState({pageRangeDisplayed:res.data.last_page})
+            }else{
+                this.setState({pageRangeDisplayed:4})
+            }
+        })
+    }
     hakAkses(user,id){
-        
-        // console.log('user :',user,'id :',id)//user berasal dari siapa pembuat berita
+        // console.log('user :',user,'id :',id,'auth :',this.state.hak<=user.role_id)//user berasal dari siapa pembuat berita
         if(this.state.user===user.id||user.role_id>=this.state.hak){
-            
             return(
                 <>
-                <Link to={'/dashboard/berita/edit/'+id}><button type="button" class="btn btn-cyan btn-sm">Edit</button></Link>
-                <button type="button" class="btn btn-danger btn-sm" href="#" 
+                <Link to={'/dashboard/berita/edit/'+id}><button type="button" className="btn btn-cyan btn-sm">Edit</button></Link>
+                <button type="button" className="btn btn-danger btn-sm" href="#" 
                 onClick={()=>this.onDelete(id)}
                 >Delete</button>
                 </> 
@@ -103,42 +130,59 @@ export default class Listing extends Component {
     render() {
         return (
             <>
-            <div class="card">
-                            <div class="card-body">
+            <div className="card">
+                            <div className="card-body">
                             {this.state.alert_message=="success"?<SuccessAlert message={"Berita deleted successfully."} />:null}
             {this.state.alert_message=="error"?<ErrorAlert message={"Error occured while deleting the berita."} />:null}
-                                <h4 class="card-title">Latest Posts</h4>
-                                <Link to={'/dashboard/berita/add'}><button type="button" class="btn btn-cyan btn-sm">Tambah +</button></Link>
+                                <h4 className="card-title">Latest Posts</h4>
+                                <Link to={'/dashboard/berita/add'}><button type="button" className="btn btn-cyan btn-sm">Tambah +</button></Link>
                             </div>
-                            <div class="comment-widgets scrollable">
+                            <div className="comment-widgets scrollable">
                             {
 
                     this.state.news.map((berita,index)=>{
                         return(
-                                <div class="d-flex flex-row comment-row" key={index}>
-                                    <div class="p-2">{berita.foto==null?(<img src="/matrix/assets/images/users/1.jpg" alt="user" width="50" class="rounded-circle"/>):(<img alt="user" width="50" class="rounded-circle" src={"/uploads/file/"+berita.foto} style={{width: 50, height: 50}}/>)}</div>
-                                    <div class="comment-text w-100">
-                                        <h6 class="font-medium">{berita.judul}</h6>
-                                        <span class="m-b-15 d-block">{berita.isi}
+                                <div className="d-flex flex-row comment-row" key={index}>
+                                    <div className="p-2">{berita.foto==null?(<img src="/matrix/assets/images/users/1.jpg" alt="user" width="50" className="rounded-circle"/>):(<img alt="user" width="50" className="rounded-circle" src={"/uploads/file/"+berita.foto} style={{width: 50, height: 50}}/>)}</div>
+                                    <div className="comment-text w-100">
+                                        <h6 className="font-medium">{berita.judul}</h6>
+                                        <span className="m-b-15 d-block" dangerouslySetInnerHTML={{__html: berita.isi}}>
+                                        {/* {berita.isi} */}
                                         </span>
-                                        <div class="comment-footer">
-                                            <span class="text-muted float-right">{berita.created_at}</span>
+                                        <div className="comment-footer">
+                                            <span className="text-muted float-right">{berita.created_at}</span>
                                             {this.hakAkses(berita.create,berita.id)}
-                                            {/* <button type="button" class="btn btn-cyan btn-sm"><Link to={'/dashboard/berita/edit/'+berita.id}>Edit</Link></button> */}
-                                            {/* <button type="button" class="btn btn-danger btn-sm" ><a href="#" onClick={this.onDelete.bind(this,berita.id)}>Delete</a></button> */}
+                                            {/* <button type="button" className="btn btn-cyan btn-sm"><Link to={'/dashboard/berita/edit/'+berita.id}>Edit</Link></button> */}
+                                            {/* <button type="button" className="btn btn-danger btn-sm" ><a href="#" onClick={this.onDelete.bind(this,berita.id)}>Delete</a></button> */}
                                         </div>
                                     </div>
                                 </div>
                             )
                         })
                     }
+                    <div className="d-flex justify-content-center">
+            <Pagination
+            hideDisabled
+            activePage={this.state.activePage}
+            itemsCountPerPage={this.state.itemsCountPerPage}
+            totalItemsCount={this.state.totalItemsCount}
+            pageRangeDisplayed={this.state.pageRangeDisplayed}
+            onChange={this.handlePageChange}
+            itemClass='page-item'
+            linkClass='page-link'
+            prevPageText='<'
+            nextPageText='>'
+            firstPageText='first'
+            lastPageText='last'
+            />
+            </div>
                             </div>
                         </div>
 
-            {/* <div class="card">
-            <div class="card-body">
-            <h5 class="card-title">Berita</h5>
-            <div class="table-responsive">
+            {/* <div className="card">
+            <div className="card-body">
+            <h5 className="card-title">Berita</h5>
+            <div className="table-responsive">
             <table id="zero_config" className="table table-striped table-bordered">
 			  <thead>
 			    <tr>

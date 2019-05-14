@@ -6,7 +6,6 @@ import ErrorAlert from './ErrorAlert';
 import Pagination from "react-js-pagination";
 
 export default class Listing extends Component {
-
 	constructor(){
 		super();
 		this.state = {
@@ -16,7 +15,8 @@ export default class Listing extends Component {
             activePage:1,
             itemsCountPerPage:0,
             totalItemsCount:0,
-            pageRangeDisplayed:1
+            pageRangeDisplayed:1,
+            isLoad:true
         }
         this.handlePageChange=this.handlePageChange.bind(this)
 	}
@@ -30,7 +30,8 @@ export default class Listing extends Component {
                     news:res.data.data,
                     itemsCountPerPage:res.data.per_page,
                     totalItemsCount:res.data.total,
-                    activePage:res.data.current_page
+                    activePage:res.data.current_page,
+                    isLoad:false
                 })
                 if(res.data.last_page<4){
                     this.setState({pageRangeDisplayed:res.data.last_page})
@@ -95,6 +96,7 @@ export default class Listing extends Component {
             return data.nama.toLocaleLowerCase().indexOf(this.state.search.toLocaleLowerCase()) > -1 || data.nik.indexOf(this.state.search.toLocaleLowerCase()) > -1;
           }
         );
+        if(this.state.isLoad) return null
         return (
             <div className="card">
                 <input type="text" className="form-control form-control-lg" placeholder="Search"
@@ -128,9 +130,9 @@ export default class Listing extends Component {
 			  <tbody>
 			  	{
 
-                    filteredJson.map((penduduk)=>{
+                    filteredJson.map((penduduk,index)=>{
 			  			return(
-				  			<tr>
+				  			<tr key={index}>
                               <td>{penduduk.nama}</td>
                               <td>{penduduk.nik}</td>
 						      <td>{penduduk.foto==''?("Tidak ada thumbnail"):(<img src={"/uploads/file/"+penduduk.foto} style={{width: 150+'px', height: 150+'px'}}/>)}</td>
@@ -159,6 +161,7 @@ export default class Listing extends Component {
             </div>
             <div className="d-flex justify-content-center">
             <Pagination
+            // hideDisabled
             activePage={this.state.activePage}
             itemsCountPerPage={this.state.itemsCountPerPage}
             totalItemsCount={this.state.totalItemsCount}
@@ -166,8 +169,8 @@ export default class Listing extends Component {
             onChange={this.handlePageChange}
             itemClass='page-item'
             linkClass='page-link'
-            prevPageText='prev'
-            nextPageText='next'
+            prevPageText='<'
+            nextPageText='>'
             firstPageText='first'
             lastPageText='last'
             />

@@ -40,7 +40,7 @@ export default class Header extends Component {
                 }
             })
         }else{
-            this.setState({isLoad:false})
+            this.setState({isLoad:false,redirect:true})
         }
 
     }

@@ -16,8 +16,10 @@ class BeritaController extends Controller
      */
     public function index()
     {
-        $result = Berita::all();
-        return $result;
+        // $result = Berita::all();
+        $result=Berita::paginate(4);
+        return response()->json($result,200);
+        // return $result;
     }
 
     /**
