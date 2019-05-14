@@ -37,7 +37,9 @@ export default class Read extends Component {
             <div class="col-md-8 blog-main">
       <h3 class="blog-post-title pb-4 mb-4 border-bottom">{this.state.formValues["judul"]}</h3>
         <p class="blog-post-meta">{this.state.formValues["created_at"]}</p>
-        {this.state.formValues["foto"]==null?(<svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>):(<img class="bd-placeholder-img" alt="user" width="200" height="250" src={"/uploads/file/"+this.state.formValues["foto"]}/>)}
+        <div className="container align-items-center">
+        {this.state.formValues["foto"]==null?(<svg class="bd-placeholder-img" width="400" height="450" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>):(<img class="bd-placeholder-img" alt="user" width="400" height="450" src={"/uploads/file/"+this.state.formValues["foto"]}/>)}
+        </div>
       <p class="blog-post pt-4 mt-4">
 
     </p>

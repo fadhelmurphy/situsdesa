@@ -77952,10 +77952,12 @@ function (_Component) {
         "class": "blog-post-title pb-4 mb-4 border-bottom"
       }, this.state.formValues["judul"]), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         "class": "blog-post-meta"
-      }, this.state.formValues["created_at"]), this.state.formValues["foto"] == null ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", {
+      }, this.state.formValues["created_at"]), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "container align-items-center"
+      }, this.state.formValues["foto"] == null ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", {
         "class": "bd-placeholder-img",
-        width: "200",
-        height: "250",
+        width: "400",
+        height: "450",
         xmlns: "http://www.w3.org/2000/svg",
         preserveAspectRatio: "xMidYMid slice",
         focusable: "false",
@@ -77973,10 +77975,10 @@ function (_Component) {
       }, "Thumbnail")) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         "class": "bd-placeholder-img",
         alt: "user",
-        width: "200",
-        height: "250",
+        width: "400",
+        height: "450",
         src: "/uploads/file/" + this.state.formValues["foto"]
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         "class": "blog-post pt-4 mt-4"
       })));
     }
