@@ -93,7 +93,6 @@ export default class Add extends Component {
                 this.setState({
                     alert_message:"success"
                 });
-                window.location.href = "/dashboard/berita";
             }
         ).catch(
             error=>{
