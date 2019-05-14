@@ -170,6 +170,7 @@ class PendudukController extends Controller
             'ayah'=>$request->ayah,
             'ibu'=>$request->ibu
         ]);
+        // return response()->json($request,200);
         $penduduk->save();
     }
 

@@ -65,7 +65,12 @@ export default class Listing extends Component {
 
     onDelete(penduduk_id)
     {
-        axios.delete('/api/penduduk/delete/'+penduduk_id)
+        const token = JSON.parse(window.localStorage.getItem('authUser'))
+        const header ={
+            'Accept':'application/json',
+            'Authorization':'Bearer '+ token.access_token
+        }
+        axios.delete('/api/penduduk/delete/'+penduduk_id,{headers:header})
         .then(
             response=>{
             var news = this.state.news;

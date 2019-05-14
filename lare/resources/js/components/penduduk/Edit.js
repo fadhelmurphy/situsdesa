@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import SuccessAlert from './SuccessAlert';
 import ErrorAlert from './ErrorAlert';
+import {Redirect} from 'react-router-dom';
 
 export default class Edit extends Component {
 
@@ -12,7 +13,9 @@ export default class Edit extends Component {
         this.state = {
             imagePreviewUrl:null,
             formValues: {},
-            alert_message:''
+            alert_message:'',
+            isLoad:true,
+            redirect:false
         }
     }
 
@@ -20,7 +23,10 @@ export default class Edit extends Component {
 	{
         axios.get('/api/penduduk/edit/'+this.props.match.params.id)
 		.then(response=>{
-            console.log(response.data.message);
+            console.log(response.data=='');
+            if(response.data.message=='notfound'){
+                this.setState({redirect:true})
+            }
             this.setState({formValues:response.data});
 		}).catch(
             error=>{
@@ -33,6 +39,7 @@ export default class Edit extends Component {
         let formData = this.formData;
         let name = event.target.name;
         let value;
+        console.log(name)
         if (name == "gambar") {
             let reader = new FileReader();
             value = event.target.files[0];
@@ -46,12 +53,11 @@ export default class Edit extends Component {
             value = event.target.value;
             formValues[name] = value;
         }
-
-        console.log(formValues);
+        // console.log(formValues);
         if(name!=undefined){
-        this.setState({
-            formValues: formValues
-        });
+            this.setState({
+                formValues: formValues
+            });
         }
     }
 
@@ -66,6 +72,8 @@ export default class Edit extends Component {
     onSubmit(e) {
         this.getnamevalue('ttl');
         this.getnamevalue('jk');
+        this.getnamevalue('agama')
+        this.getnamevalue('goldar')
         e.preventDefault();
         console.log(this.state.formValues);
         var rr = new FormData();
@@ -80,11 +88,12 @@ export default class Edit extends Component {
             'Authorization':'Bearer '+ token.access_token
         }
         axios.post('/api/penduduk/update/'+this.props.match.params.id,rr,{headers:header})
-            .then(res =>
+            .then(res =>{
+                // console.log(res)
                 this.setState({
                     alert_message: "success"
                 })
-            )
+            })
             .catch(error =>{
                 this.setState({
                     alert_message: "error"
@@ -94,9 +103,10 @@ export default class Edit extends Component {
     }
 
     render() {
+        if(this.state.redirect) return <Redirect to='/dashboard/penduduk'/>;
         return (
             <>
-                <div class="card-body">
+                <div className="card-body">
                     {this.state.alert_message == "success" ? (
                         <SuccessAlert
                             message={"Category updated successfully."}
@@ -108,17 +118,17 @@ export default class Edit extends Component {
                         />
                     ) : null}
                 </div>
-                <div class="card">
-                    <form class="form-horizontal" onSubmit={this.onSubmit}>
-                        <div class="card-body">
+                <div className="card">
+                    <form className="form-horizontal" onSubmit={this.onSubmit}>
+                        <div className="card-body">
                             <div className="form-group row">
                                 <label
                                     for="nama"
-                                    class="col-sm-3 control-label col-form-label"
+                                    className="col-sm-3 control-label col-form-label"
                                 >
                                     Nama
                                 </label>
-                                <div class="col-sm-9">
+                                <div className="col-sm-9">
                                     <input
                                         className="form-control"
                                         type="text"
@@ -132,11 +142,11 @@ export default class Edit extends Component {
                             <div className="form-group row">
                                 <label
                                     for="nik"
-                                    class="col-sm-3 control-label col-form-label"
+                                    className="col-sm-3 control-label col-form-label"
                                 >
                                     NIK
                                 </label>
-                                <div class="col-sm-9">
+                                <div className="col-sm-9">
                                     <input
                                         className="form-control"
                                         type="text"
@@ -150,11 +160,11 @@ export default class Edit extends Component {
                             <div className="form-group row">
                                 <label
                                     for="kk"
-                                    class="col-sm-3 control-label col-form-label"
+                                    className="col-sm-3 control-label col-form-label"
                                 >
                                     No. KK
                                 </label>
-                                <div class="col-sm-9">
+                                <div className="col-sm-9">
                                     <input
                                         className="form-control"
                                         type="text"
@@ -168,11 +178,11 @@ export default class Edit extends Component {
                             <div className="form-group row">
                                 <label
                                     for="ttl"
-                                    class="col-sm-3 control-label col-form-label"
+                                    className="col-sm-3 control-label col-form-label"
                                 >
                                     Tempat Lahir (TTL)
                                 </label>
-                                <div class="col-sm-9">
+                                <div className="col-sm-9">
                                     <input
                                         className="form-control"
                                         type="text"
@@ -185,12 +195,12 @@ export default class Edit extends Component {
                             </div>
                             <div className="form-group row">
                             <label
-                            class="col-sm-3">Bulan Tanggal Tahun Lahir <small class="text-muted">dd/mm/yyyy</small></label>
-                            <div class="col-sm-9">
-                            <div class="input-group">
-                            <input type="text" name="ttl" value={this.state.formValues["ttl"]} class="form-control" id="datepicker-autoclose" placeholder="mm/dd/yyyy"/>
-                            <div class="input-group-append">
-                                <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                            className="col-sm-3">Bulan Tanggal Tahun Lahir <small className="text-muted">dd/mm/yyyy</small></label>
+                            <div className="col-sm-9">
+                            <div className="input-group">
+                            <input type="text" name="ttl" value={this.state.formValues["ttl"]} className="form-control" id="datepicker-autoclose" placeholder="mm/dd/yyyy"/>
+                            <div className="input-group-append">
+                                <span className="input-group-text"><i className="fa fa-calendar"></i></span>
                             </div>
                         </div>
                             </div>
@@ -198,65 +208,67 @@ export default class Edit extends Component {
                             <div className="form-group row">
                                 <label
                                     for="jk"
-                                    class="col-sm-3 control-label col-form-label"
+                                    className="col-sm-3 control-label col-form-label"
                                 >
                                     Jenis Kelamin
                                 </label>
-                                <div class="col-sm-9">
-                                    <select name="jk" class="select2 form-control custom-select" style={{
-                                        width: 100 + "%",
-                                        height: 36 + "px"
-                                    }}>
-                                            <option>Pilih</option>
-                                            <option value="Pria">Pria</option>
-                                            <option value="Wanita">Wanita</option>
+                                <div className="col-sm-9">
+                                    <select name="jk" className="select2 form-control" onChange={this.handleChange.bind(this)} 
+                                    value={this.state.formValues['jk']} style={{width: 100 + "%",height: 36 + "px"}}>
+                                        <option>Pilih</option>
+                                        <option value="pria">Pria</option>
+                                        <option value="wanita">Wanita</option>
                                     </select>
                                 </div>
                             </div>
                             <div className="form-group row">
                                 <label
                                     for="goldar"
-                                    class="col-sm-3 control-label col-form-label"
+                                    className="col-sm-3 control-label col-form-label"
                                 >
                                     Golongan Darah
                                 </label>
-                                <div class="col-sm-9">
-                                    <input
-                                        className="form-control"
-                                        type="text"
-                                        name="goldar"
-                                        placeholder="Golongan Darah"
-                                        value={this.state.formValues["goldar"]}
-                                        onChange={this.handleChange.bind(this)}
-                                    />
+                                <div className="col-sm-9">
+                                <select name="goldar" className="select2 form-control custom-select" onChange={this.handleChange.bind(this)}
+                                value={this.state.formValues['goldar']} style={{width: 100 + "%",height: 36 + "px"}}>
+                                    <option>Pilih</option>
+                                    <option value="A">A</option>
+                                    <option value="B">B</option>
+                                    <option value="AB">AB</option>
+                                    <option value="O">O</option>
+                                </select>
                                 </div>
                             </div>
                             <div className="form-group row">
                                 <label
                                     for="agama"
-                                    class="col-sm-3 control-label col-form-label"
+                                    className="col-sm-3 control-label col-form-label"
                                 >
                                     Agama
                                 </label>
-                                <div class="col-sm-9">
-                                    <input
-                                        className="form-control"
-                                        type="text"
-                                        name="agama"
-                                        placeholder="Agama"
-                                        value={this.state.formValues["agama"]}
-                                        onChange={this.handleChange.bind(this)}
-                                    />
+                                <div className="col-sm-9">
+                                <select name="agama" className="select2 form-control custom-select" onChange={this.handleChange.bind(this)} value={this.state.formValues['agama']} style={{
+                                        width: 100 + "%",
+                                        height: 36 + "px"
+                                    }}>
+                                            <option>Pilih</option>
+                                            <option value="islam">Islam</option>
+                                            <option value="kristen katolik">Kristen Katolik</option>
+                                            <option value="kristen protestan">Kristen Protestan</option>
+                                            <option value="hindu">Hindu</option>
+                                            <option value="buddha">Buddha</option>
+                                            <option value="konghucu">Konghucu</option>
+                                    </select>
                                 </div>
                             </div>
                             <div className="form-group row">
                                 <label
                                     for="alamat"
-                                    class="col-sm-3 control-label col-form-label"
+                                    className="col-sm-3 control-label col-form-label"
                                 >
                                     Alamat
                                 </label>
-                                <div class="col-sm-9">
+                                <div className="col-sm-9">
                                     <input
                                         className="form-control"
                                         type="text"
@@ -270,11 +282,11 @@ export default class Edit extends Component {
                             <div className="form-group row">
                                 <label
                                     for="perkawinan"
-                                    class="col-sm-3 control-label col-form-label"
+                                    className="col-sm-3 control-label col-form-label"
                                 >
                                     Status perkawinan
                                 </label>
-                                <div class="col-sm-9">
+                                <div className="col-sm-9">
                                     <input
                                         className="form-control"
                                         type="text"
@@ -288,11 +300,11 @@ export default class Edit extends Component {
                             <div className="form-group row">
                                 <label
                                     for="warga"
-                                    class="col-sm-3 control-label col-form-label"
+                                    className="col-sm-3 control-label col-form-label"
                                 >
                                     Warga Negara
                                 </label>
-                                <div class="col-sm-9">
+                                <div className="col-sm-9">
                                     <input
                                         className="form-control"
                                         type="text"
@@ -306,11 +318,11 @@ export default class Edit extends Component {
                             <div className="form-group row">
                                 <label
                                     for="pekerjaan"
-                                    class="col-sm-3 control-label col-form-label"
+                                    className="col-sm-3 control-label col-form-label"
                                 >
                                     Pekerjaan
                                 </label>
-                                <div class="col-sm-9">
+                                <div className="col-sm-9">
                                     <input
                                         className="form-control"
                                         type="text"
@@ -324,11 +336,11 @@ export default class Edit extends Component {
                             <div className="form-group row">
                                 <label
                                     for="ayah"
-                                    class="col-sm-3 control-label col-form-label"
+                                    className="col-sm-3 control-label col-form-label"
                                 >
                                     Nama Ayah
                                 </label>
-                                <div class="col-sm-9">
+                                <div className="col-sm-9">
                                     <input
                                         className="form-control"
                                         type="text"
@@ -342,11 +354,11 @@ export default class Edit extends Component {
                             <div className="form-group row">
                                 <label
                                     for="ibu"
-                                    class="col-sm-3 control-label col-form-label"
+                                    className="col-sm-3 control-label col-form-label"
                                 >
                                     Nama Ibu
                                 </label>
-                                <div class="col-sm-9">
+                                <div className="col-sm-9">
                                     <input
                                         className="form-control"
                                         type="text"
@@ -360,16 +372,16 @@ export default class Edit extends Component {
                             <div className="form-group row">
                                 <label
                                     for="exampleFormControlFile1"
-                                    class="col-sm-3 control-label col-form-label"
+                                    className="col-sm-3 control-label col-form-label"
                                 >
                                     Foto
                                 </label>
-                                <div class="col-md-9">
-                                    <div class="custom-file">
+                                <div className="col-md-9">
+                                    <div className="custom-file">
                                         <input
                                             type="file"
                                             name="gambar"
-                                            class="custom-file-input"
+                                            className="custom-file-input"
                                             onChange={this.handleChange.bind(
                                                 this
                                             )}
@@ -377,12 +389,12 @@ export default class Edit extends Component {
                                             required=""
                                         />
                                         <label
-                                            class="custom-file-label"
+                                            className="custom-file-label"
                                             for="validatedCustomFile"
                                         >
                                             Choose file...
                                         </label>
-                                        <div class="invalid-feedback">
+                                        <div className="invalid-feedback">
                                             Example invalid custom file feedback
                                         </div>
                                     </div>
