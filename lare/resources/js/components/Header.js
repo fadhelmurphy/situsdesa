@@ -4,7 +4,6 @@ import About from './About';
 import Berita from './berita/Index';
 import Penduduk from './penduduk/Index';
 
-import Antrian from './Antrian'
 import AdminAntrian from './AdminAntrian'
 import {Link, Route, Redirect} from 'react-router-dom';
 

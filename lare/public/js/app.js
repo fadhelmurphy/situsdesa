@@ -75417,150 +75417,6 @@ function (_Component) {
 
 /***/ }),
 
-/***/ "./resources/js/components/Antrian.js":
-/*!********************************************!*\
-  !*** ./resources/js/components/Antrian.js ***!
-  \********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Antrian; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var pusher_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! pusher-js */ "./node_modules/pusher-js/dist/web/pusher.js");
-/* harmony import */ var pusher_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(pusher_js__WEBPACK_IMPORTED_MODULE_3__);
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-
-
-
- // import  from 'peer'
-
-var kotak = {
-  width: '100px',
-  height: '100px',
-  margin: '0 auto',
-  fontSize: '20px',
-  cursor: 'pointer'
-};
-
-var Antrian =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(Antrian, _Component);
-
-  function Antrian(props) {
-    var _this;
-
-    _classCallCheck(this, Antrian);
-
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Antrian).call(this, props));
-    _this.daftar = _this.daftar.bind(_assertThisInitialized(_this));
-    _this.state = {
-      'no_antrian': 0,
-      'isLoad': true,
-      'klik': false
-    };
-    return _this;
-  }
-
-  _createClass(Antrian, [{
-    key: "componentWillMount",
-    value: function componentWillMount() {
-      var _this2 = this;
-
-      function isntEmpty(obj) {
-        for (var key in obj) {
-          if (obj.hasOwnProperty(key)) return true;
-        }
-
-        return false;
-      }
-
-      axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('/api/antrian-last').then(function (res) {
-        if (isntEmpty(res.data)) {
-          _this2.setState({
-            no_antrian: res.data.no_antrian + 1,
-            isLoad: false
-          });
-        } else {
-          _this2.setState({
-            isLoad: false
-          });
-        }
-      });
-    }
-  }, {
-    key: "daftar",
-    value: function daftar() {
-      if (this.state.klik) return;
-      this.setState({
-        klik: true
-      }, function (e) {
-        var _this3 = this;
-
-        var no_antrian = this.state.no_antrian;
-        axios__WEBPACK_IMPORTED_MODULE_2___default.a.post('/api/antrian-tambah', {
-          no_antrian: no_antrian
-        }).then(function (res) {
-          _this3.setState({
-            'no_antrian': no_antrian + 1
-          });
-
-          _this3.setState({
-            klik: false
-          });
-        });
-      });
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      if (this.state.isLoad) return null;
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "jumbotron bg-transparent"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
-        className: "text-center"
-      }, "Antrian"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        style: kotak,
-        onClick: this.daftar,
-        className: "bg-info text-white d-flex justify-content-center align-items-center"
-      }, this.state.no_antrian, " ")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        type: "button",
-        onClick: this.daftar,
-        "class": "btn btn-cyan btn-lg btn-block"
-      }, "+ Daftar"))));
-    }
-  }]);
-
-  return Antrian;
-}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
-
-
-
-/***/ }),
-
 /***/ "./resources/js/components/Footer.js":
 /*!*******************************************!*\
   !*** ./resources/js/components/Footer.js ***!
@@ -75636,9 +75492,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _About__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./About */ "./resources/js/components/About.js");
 /* harmony import */ var _berita_Index__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./berita/Index */ "./resources/js/components/berita/Index.js");
 /* harmony import */ var _penduduk_Index__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./penduduk/Index */ "./resources/js/components/penduduk/Index.js");
-/* harmony import */ var _Antrian__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Antrian */ "./resources/js/components/Antrian.js");
-/* harmony import */ var _AdminAntrian__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./AdminAntrian */ "./resources/js/components/AdminAntrian.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+/* harmony import */ var _AdminAntrian__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./AdminAntrian */ "./resources/js/components/AdminAntrian.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
@@ -75658,7 +75513,6 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
 
 
 
@@ -75792,7 +75646,7 @@ function (_Component) {
       var _this3 = this;
 
       if (this.state.redirect) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Redirect"], {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__["Redirect"], {
           to: "/login"
         });
       }
@@ -75863,27 +75717,27 @@ function (_Component) {
         className: "mdi mdi-menu font-24"
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "nav-item active"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Link"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__["Link"], {
         className: "nav-link",
         to: "/"
       }, "Home")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "nav-item"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Link"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__["Link"], {
         className: "nav-link",
         to: "/dashboard/about"
       }, "About Us")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "nav-item"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Link"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__["Link"], {
         className: "nav-link",
         to: "/dashboard/berita"
       }, "Berita")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "nav-item"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Link"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__["Link"], {
         className: "nav-link",
         to: "/dashboard/penduduk"
       }, "Penduduk")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "nav-item"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Link"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__["Link"], {
         className: "nav-link",
         to: "/dashboard/admin-antrian"
       }, "Antrian")), buttonLogout)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("aside", {
@@ -75898,7 +75752,7 @@ function (_Component) {
         className: "p-t-30"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "sidebar-item"
-      }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Link"], {
+      }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__["Link"], {
         className: "sidebar-link waves-effect waves-dark sidebar-link",
         to: "/dashboard"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
@@ -75907,7 +75761,7 @@ function (_Component) {
         className: "hide-menu"
       }, "Dashboard"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "sidebar-item"
-      }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Link"], {
+      }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__["Link"], {
         className: "sidebar-link waves-effect waves-dark sidebar-link",
         to: "/dashboard/penduduk"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
@@ -75916,7 +75770,7 @@ function (_Component) {
         className: "hide-menu"
       }, "Penduduk"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "sidebar-item"
-      }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Link"], {
+      }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__["Link"], {
         className: "sidebar-link waves-effect waves-dark sidebar-link",
         to: "/dashboard/berita"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
@@ -75931,19 +75785,19 @@ function (_Component) {
         className: "row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-md-12"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__["Route"], {
         exact: true,
         path: "/",
         component: _Home__WEBPACK_IMPORTED_MODULE_1__["default"]
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__["Route"], {
         exact: true,
         path: "/dashboard/about",
         component: _About__WEBPACK_IMPORTED_MODULE_2__["default"]
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__["Route"], {
         exact: true,
         path: "/dashboard/admin-antrian",
-        component: _AdminAntrian__WEBPACK_IMPORTED_MODULE_6__["default"]
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
+        component: _AdminAntrian__WEBPACK_IMPORTED_MODULE_5__["default"]
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__["Route"], {
         exact: true,
         path: "/dashboard/berita",
         render: function render(props) {
@@ -75952,23 +75806,23 @@ function (_Component) {
             auth: _this3.state.auth
           }));
         }
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__["Route"], {
         exact: true,
         path: "/dashboard/berita/add",
         component: _berita_Index__WEBPACK_IMPORTED_MODULE_3__["default"]
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__["Route"], {
         exact: true,
         path: "/dashboard/berita/edit/:id",
         component: _berita_Index__WEBPACK_IMPORTED_MODULE_3__["default"]
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__["Route"], {
         exact: true,
         path: "/dashboard/penduduk",
         component: _penduduk_Index__WEBPACK_IMPORTED_MODULE_4__["default"]
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__["Route"], {
         exact: true,
         path: "/dashboard/penduduk/add",
         component: _penduduk_Index__WEBPACK_IMPORTED_MODULE_4__["default"]
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__["Route"], {
         exact: true,
         path: "/dashboard/penduduk/edit/:id",
         component: _penduduk_Index__WEBPACK_IMPORTED_MODULE_4__["default"]
@@ -75996,9 +75850,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
-/* harmony import */ var _Antrian__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Antrian */ "./resources/js/components/Antrian.js");
-/* harmony import */ var _Landing__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Landing */ "./resources/js/components/Landing.js");
-/* harmony import */ var _About__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./About */ "./resources/js/components/About.js");
+/* harmony import */ var _front_Antrian__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./front/Antrian */ "./resources/js/components/front/Antrian.js");
+/* harmony import */ var _front_Blog__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./front/Blog */ "./resources/js/components/front/Blog.js");
+/* harmony import */ var _front_Read__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./front/Read */ "./resources/js/components/front/Read.js");
+/* harmony import */ var _Landing__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Landing */ "./resources/js/components/Landing.js");
+/* harmony import */ var _About__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./About */ "./resources/js/components/About.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -76016,6 +75872,8 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
 
 
 
@@ -76146,7 +76004,15 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
         exact: true,
         path: "/antrian",
-        component: _Antrian__WEBPACK_IMPORTED_MODULE_2__["default"]
+        component: _front_Antrian__WEBPACK_IMPORTED_MODULE_2__["default"]
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+        exact: true,
+        path: "/",
+        component: _front_Blog__WEBPACK_IMPORTED_MODULE_3__["default"]
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+        exact: true,
+        path: "/blog/:id",
+        component: _front_Read__WEBPACK_IMPORTED_MODULE_4__["default"]
       })))));
     }
   }]);
@@ -77728,6 +77594,395 @@ function (_Component) {
   }]);
 
   return SuccessAlert;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/front/Antrian.js":
+/*!**************************************************!*\
+  !*** ./resources/js/components/front/Antrian.js ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Antrian; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var pusher_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! pusher-js */ "./node_modules/pusher-js/dist/web/pusher.js");
+/* harmony import */ var pusher_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(pusher_js__WEBPACK_IMPORTED_MODULE_3__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+ // import  from 'peer'
+
+var kotak = {
+  width: '100px',
+  height: '100px',
+  margin: '0 auto',
+  fontSize: '20px',
+  cursor: 'pointer'
+};
+
+var Antrian =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(Antrian, _Component);
+
+  function Antrian(props) {
+    var _this;
+
+    _classCallCheck(this, Antrian);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Antrian).call(this, props));
+    _this.daftar = _this.daftar.bind(_assertThisInitialized(_this));
+    _this.state = {
+      'no_antrian': 0,
+      'isLoad': true,
+      'klik': false
+    };
+    return _this;
+  }
+
+  _createClass(Antrian, [{
+    key: "componentWillMount",
+    value: function componentWillMount() {
+      var _this2 = this;
+
+      function isntEmpty(obj) {
+        for (var key in obj) {
+          if (obj.hasOwnProperty(key)) return true;
+        }
+
+        return false;
+      }
+
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('/api/antrian-last').then(function (res) {
+        if (isntEmpty(res.data)) {
+          _this2.setState({
+            no_antrian: res.data.no_antrian + 1,
+            isLoad: false
+          });
+        } else {
+          _this2.setState({
+            isLoad: false
+          });
+        }
+      });
+    }
+  }, {
+    key: "daftar",
+    value: function daftar() {
+      if (this.state.klik) return;
+      this.setState({
+        klik: true
+      }, function (e) {
+        var _this3 = this;
+
+        var no_antrian = this.state.no_antrian;
+        axios__WEBPACK_IMPORTED_MODULE_2___default.a.post('/api/antrian-tambah', {
+          no_antrian: no_antrian
+        }).then(function (res) {
+          _this3.setState({
+            'no_antrian': no_antrian + 1
+          });
+
+          _this3.setState({
+            klik: false
+          });
+        });
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      if (this.state.isLoad) return null;
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        "class": "jumbotron bg-transparent"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+        className: "text-center"
+      }, "Antrian"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        style: kotak,
+        onClick: this.daftar,
+        className: "bg-info text-white d-flex justify-content-center align-items-center"
+      }, this.state.no_antrian, " ")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        onClick: this.daftar,
+        "class": "btn btn-cyan btn-lg btn-block"
+      }, "+ Daftar"))));
+    }
+  }]);
+
+  return Antrian;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/front/Blog.js":
+/*!***********************************************!*\
+  !*** ./resources/js/components/front/Blog.js ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Blog; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+var Blog =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(Blog, _Component);
+
+  function Blog(props) {
+    var _this;
+
+    _classCallCheck(this, Blog);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Blog).call(this, props));
+    _this.state = {
+      news: [] // console.log(props)
+
+    };
+    return _this;
+  }
+
+  _createClass(Blog, [{
+    key: "componentWillMount",
+    value: function componentWillMount() {
+      var _this2 = this;
+
+      // console.log(this.state)
+      axios.get('/api/berita').then(function (response) {
+        // console.log(response.data);
+        _this2.setState({
+          news: response.data
+        });
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        "class": "row mb-2"
+      }, this.state.news.map(function (berita, index) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          "class": "col-md-6"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          "class": "row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          "class": "col p-4 d-flex flex-column position-static"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+          to: '/blog/' + berita.id
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+          "class": "mb-0"
+        }, berita.judul)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          "class": "mb-1 text-muted"
+        }, berita.created_at), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+          "class": "card-text mb-auto"
+        }, berita.isi)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          "class": "col-auto d-none d-lg-block"
+        }, berita.foto == null ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", {
+          "class": "bd-placeholder-img",
+          width: "200",
+          height: "250",
+          xmlns: "http://www.w3.org/2000/svg",
+          preserveAspectRatio: "xMidYMid slice",
+          focusable: "false",
+          role: "img",
+          "aria-label": "Placeholder: Thumbnail"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("title", null, "Placeholder"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("rect", {
+          width: "100%",
+          height: "100%",
+          fill: "#55595c"
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("text", {
+          x: "50%",
+          y: "50%",
+          fill: "#eceeef",
+          dy: ".3em"
+        }, "Thumbnail")) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          "class": "bd-placeholder-img",
+          alt: "user",
+          width: "200",
+          height: "250",
+          src: "/uploads/file/" + berita.foto
+        }))));
+      })));
+    }
+  }]);
+
+  return Blog;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/front/Read.js":
+/*!***********************************************!*\
+  !*** ./resources/js/components/front/Read.js ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Read; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+var Read =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(Read, _Component);
+
+  function Read(props) {
+    var _this;
+
+    _classCallCheck(this, Read);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Read).call(this, props));
+    _this.state = {
+      formValues: {
+        judul: null,
+        isi: null
+      }
+    };
+    return _this;
+  }
+
+  _createClass(Read, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      var formValues = this.state.formValues;
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/berita/edit/' + this.props.match.params.id).then(function (response) {
+        // console.log('data',response.data.foto===null);
+        if (response.data.message == "success") {
+          _this2.setState({
+            formValues: response.data
+          });
+
+          document.querySelectorAll('.blog-post')[0].innerHTML = _this2.state.formValues["isi"];
+        } else if (response.data.message == "notfound") {
+          _this2.props.history.push('/berita');
+        }
+      })["catch"](function (error) {
+        console.log("GA ADA");
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        "class": "col-md-8 blog-main"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+        "class": "blog-post-title pb-4 mb-4 border-bottom"
+      }, this.state.formValues["judul"]), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        "class": "blog-post-meta"
+      }, this.state.formValues["created_at"]), this.state.formValues["foto"] == null ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", {
+        "class": "bd-placeholder-img",
+        width: "200",
+        height: "250",
+        xmlns: "http://www.w3.org/2000/svg",
+        preserveAspectRatio: "xMidYMid slice",
+        focusable: "false",
+        role: "img",
+        "aria-label": "Placeholder: Thumbnail"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("title", null, "Placeholder"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("rect", {
+        width: "100%",
+        height: "100%",
+        fill: "#55595c"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("text", {
+        x: "50%",
+        y: "50%",
+        fill: "#eceeef",
+        dy: ".3em"
+      }, "Thumbnail")) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        "class": "bd-placeholder-img",
+        alt: "user",
+        width: "200",
+        height: "250",
+        src: "/uploads/file/" + this.state.formValues["foto"]
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        "class": "blog-post pt-4 mt-4"
+      })));
+    }
+  }]);
+
+  return Read;
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 

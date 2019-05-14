@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 
 import {Link, Route} from 'react-router-dom';
 
-import Antrian from './Antrian'
+import Antrian from './front/Antrian'
+import Blog from './front/Blog'
+import Read from './front/Read'
 import Landing from './Landing'
 import About from './About'
 // import { Provider, Heading, Subhead } from 'rebass'
@@ -76,6 +78,8 @@ export default class Home extends Component {
     <div class="jumbotron jumbotron-fluid bg-transparent">
   <div class="container align-items-center">
     <Route exact path="/antrian" component={Antrian}></Route>
+    <Route exact path="/" component={Blog}></Route>
+    <Route exact path="/blog/:id" component={Read}></Route>
       </div>
       </div>
 </main>
