@@ -11,7 +11,7 @@ export default class SuccessAlert extends Component {
             <div class="alert alert-success" role="alert">
                 {this.props.message}
             </div>
-            <Redirect to='/dashboard/berita'/>
+            <Redirect to='/dashboard/penduduk'/>
             </>
         );
     }

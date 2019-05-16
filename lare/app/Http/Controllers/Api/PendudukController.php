@@ -38,6 +38,7 @@ class PendudukController extends Controller
      */
     public function store(Request $request)
     {
+        
         $this->validate($request,[
             'nama'=>'required|string',
             'nik'=>'required|string',

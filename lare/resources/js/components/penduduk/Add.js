@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import axios from "axios";
 import SuccessAlert from "./SuccessAlert";
 import ErrorAlert from "./ErrorAlert";
+var errval={    
+    border: '1px solid red',
+}
 
 export default class Add extends Component {
     constructor() {
@@ -10,7 +13,8 @@ export default class Add extends Component {
         this.state = {
             formValues: {},
             alert_message: "",
-            imagePreviewUrl: ""
+            imagePreviewUrl: "",
+            error:{}
         };
     }
 
@@ -20,6 +24,7 @@ export default class Add extends Component {
         let formData = this.formData;
         let name = event.target.name;
         let value;
+        if (this.state.error != null) event.target.style.border = "1px solid #e9ecef";
         if (name == "gambar") {
             let reader = new FileReader();
             value = event.target.files[0];
@@ -60,6 +65,7 @@ export default class Add extends Component {
         var rr = new FormData();
         for (let [key, value] of Object.entries(this.state.formValues)) {
             if (key == "gambar") rr.append(key, value, value.name);
+            else if (value == "Pilih") continue;
             else rr.append(key, value);
         }
         
@@ -77,10 +83,22 @@ export default class Add extends Component {
                 console.log(res)
             })
             .catch(error =>{
-                console.log(error.response.data.errors)
+                console.log(error.response.data)
+                var err = error.response.data.errors;
                 this.setState({
-                    alert_message: "error"
+                    alert_message: "error",
+                    error:err
                 })
+               
+                for (var kunci in err ) {
+                    // console.log(err[kunci]);
+                    
+                    if (document.getElementsByName(kunci) != null) {
+                        // console.log(kunci);
+                        document.getElementsByName(kunci)[0].style.border = "1px solid red"
+                    }
+                }
+                
             });
     }
 
@@ -95,7 +113,7 @@ export default class Add extends Component {
                     ) : null}
                     {this.state.alert_message == "error" ? (
                         <ErrorAlert
-                            message={"Error occured while adding the berita."}
+                            message={"Error occured while adding the penduduk."}
                         />
                     ) : null}
                 </div>

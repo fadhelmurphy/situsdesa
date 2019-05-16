@@ -13,8 +13,6 @@ export default class Index extends Component {
         { src: "/matrix/assets/extra-libs/DataTables/datatables.min.js" },
         { src: "/matrix/assets/libs/inputmask/dist/min/jquery.inputmask.bundle.min.js" },
         { src: "/matrix/dist/js/pages/mask/mask.init.js" },
-        { src: "/matrix/assets/libs/select2/dist/js/select2.full.min.js" },
-        { src: "/matrix/assets/libs/select2/dist/js/select2.min.js" },
         { src: "/matrix/assets/libs/jquery-asColor/dist/jquery-asColor.min.js" },
         { src: "/matrix/assets/libs/jquery-asGradient/dist/jquery-asGradient.js" },
         { src: "/matrix/assets/libs/jquery-asColorPicker/dist/jquery-asColorPicker.min.js" },
@@ -35,7 +33,6 @@ export default class Index extends Component {
         //***********************************//
         // For select 2
         //***********************************//
-        $(".select2").select2();
 
         /*colorpicker*/
         $('.demo').each(function() {

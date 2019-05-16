@@ -114,7 +114,7 @@ export default class Edit extends Component {
                     ) : null}
                     {this.state.alert_message == "error" ? (
                         <ErrorAlert
-                            message={"Error occured while updating the berita."}
+                            message={"Error occured while updating the penduduk."}
                         />
                     ) : null}
                 </div>
