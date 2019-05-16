@@ -15,7 +15,8 @@ export default class Edit extends Component {
             formValues: {},
             alert_message:'',
             isLoad:true,
-            redirect:false
+            redirect:false,
+            foto:''
         }
     }
 
@@ -23,11 +24,15 @@ export default class Edit extends Component {
 	{
         axios.get('/api/penduduk/edit/'+this.props.match.params.id)
 		.then(response=>{
-            console.log(response.data=='');
+            console.log(response.data);
             if(response.data.message=='notfound'){
                 this.setState({redirect:true})
             }
             this.setState({formValues:response.data});
+            if(response.data.foto===null){
+                let foto=this.state.formValues
+                delete foto['foto']
+            }
 		}).catch(
             error=>{
                 console.log("GA ADA");
@@ -398,13 +403,8 @@ export default class Edit extends Component {
                                             Example invalid custom file feedback
                                         </div>
                                     </div>
-                                    <img
-                                        src={this.state.imagePreviewUrl}
-                                        style={{
-                                            width: 150 + "px",
-                                            height: 150 + "px"
-                                        }}
-                                    />
+                                    
+                                     <img src={this.state.imagePreviewUrl==null?("/uploads/file/"+this.state.formValues['foto']):(this.state.imagePreviewUrl)} style={{width: 150+'px', height: 150+'px'}}/>
                                 </div>
                             </div>
                             <button type="submit" className="btn btn-primary">

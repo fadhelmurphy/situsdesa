@@ -17,7 +17,8 @@ export default class Edit extends Component {
                 isi:null
             },
             alert_message:'',
-            redirect:false
+            redirect:false,
+            foto:''
         }
     }
     componentWillMount(){
@@ -50,7 +51,11 @@ export default class Edit extends Component {
                     formValues['isi'] = response.data.isi;
                     this.setState({formValues:formValues});
                 }else{
-                    this.setState({formValues:response.data});
+                    formValues['judul'] = response.data.judul;
+                    formValues['isi'] = response.data.isi;
+                    this.setState({formValues:formValues});
+                    this.setState({formValues:formValues,foto:response.data.foto})
+                    // this.setState({formValues:response.data});
                 }
                 document.querySelectorAll('.ql-editor')[0].innerHTML =
                 this.state.formValues["isi"]
@@ -175,7 +180,7 @@ export default class Edit extends Component {
                 <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
                 <div class="invalid-feedback">Example invalid custom file feedback</div>
             </div>
-            <img src={this.state.imagePreviewUrl==null?("/uploads/file/"+this.state.formValues["foto"]):(this.state.imagePreviewUrl)} style={{width: 150+'px', height: 150+'px'}}/>
+            <img src={this.state.imagePreviewUrl==null?("/uploads/file/"+this.state.foto):(this.state.imagePreviewUrl)} style={{width: 150+'px', height: 150+'px'}}/>
             </div>
             </div>
               <button type="submit" className="btn btn-primary">Submit</button>

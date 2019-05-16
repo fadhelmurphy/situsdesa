@@ -54,7 +54,7 @@ class PendudukController extends Controller
             'pekerjaan'=>'required|string',
             'ayah'=>'required|string',
             'ibu'=>'required|string',
-            'foto'=>'nullable|string'
+            'foto'=>'nullable|image|mimes:jpeg,png|dimensions:min_width=200,min_height=100|max:2000'
         ]);
         $penduduk = new Penduduk();
         if (isset($request->gambar))
@@ -141,20 +141,20 @@ class PendudukController extends Controller
             'pekerjaan'=>'required|string',
             'ayah'=>'required|string',
             'ibu'=>'required|string',
-            'foto'=>'nullable|string'
+            'gambar'=>'nullable|image|mimes:jpeg,png|dimensions:min_width=200,min_height=100|max:2000'
         ]);
+        info($request);
         $penduduk = Penduduk::find($id);
-        if(!is_object($request->foto)){
-            $newName = $request->foto;
-        }else{
-            $ext = $request->foto->getClientOriginalExtension();
+        if(isset($request->gambar)){
+            $ext = $request->gambar->getClientOriginalExtension();
             $newName = rand(100000,1001238912).".".$ext;
             $path = 'uploads/file/'.$penduduk->foto;
             @chown($path, 0777);
             @unlink($path);
-            $request->foto->move('uploads/file',$newName);
+            $request->gambar->move('uploads/file',$newName);
+            $penduduk->foto = $newName;
         }
-        $penduduk->foto = $newName;
+        
         $penduduk->fill([
             'nama'=>$request->nama,
             'nik'=>$request->nik,

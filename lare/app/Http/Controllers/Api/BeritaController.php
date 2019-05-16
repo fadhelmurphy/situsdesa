@@ -107,11 +107,16 @@ class BeritaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(BeritaRequest $request, $id)
+    public function update(Request $request, $id)
     {
+        $this->validate($request,[
+            'judul'=>'required|string|max:40',
+            'isi'=>'required|string|max:2000',
+            'foto'=>'nullable|image|mimes:jpeg,png|dimensions:min_width=200,min_height=100|max:2000'
+        ]);
         // dd($request->user());
         $berita = Berita::find($id);
-        if(is_object($request->foto)){
+        if(isset($request->foto)){
             
             $ext = $request->foto->getClientOriginalExtension();
             $newName = rand(100000,1001238912).".".$ext;
@@ -119,11 +124,9 @@ class BeritaController extends Controller
             $path = 'uploads/file/'.$berita->foto;
             @chown($path, 0777);
             @unlink($path);
-            
-        }else{
-            $newName = $request->foto;
+            $berita->foto = $newName;    
         }
-        $berita->foto = $newName;
+        
         $berita->fill([
             'user_update' => $request->user()->id,
             'judul' => $request->judul,
